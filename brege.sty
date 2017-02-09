@@ -1,0 +1,25 @@
+\ProvidesPackage{brege}[2017/02/08 v1.0 Wyatt Brege's Macros]
+% Include with \usepackage{brege}.
+% Wyatt Brege -- Feb 2017
+
+% *******************************************************************************
+% \sim but tighter, nice for labeling a number as approximate (e.g. ~10MeV)
+\newcommand*{\sym}{\mathord{\sim}}
+
+
+% *******************************************************************************
+% \diff for clearer integral differentials
+\newcommand{\diff}{\mathrm{d}}
+
+% *******************************************************************************
+% \todo command
+\usepackage{color}
+\newcommand{\todo}[1]{\marginpar{\tiny{\textcolor{red}{#1}}}}
+%\renewcommand\todo[1]{} % if you wish to hide all todo notes
+
+% *******************************************************************************
+% compact binary pictographs
+\usepackage[geometry]{ifsym}
+\newcommand{\nsns}{\SmallCircle \SmallCircle\,}
+\newcommand{\nsbh}{\SmallCircle \FilledSmallCircle\,}
+\newcommand{\bhbh}{\FilledSmallCircle \FilledSmallCircle\,}
