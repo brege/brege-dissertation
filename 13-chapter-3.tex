@@ -1,2 +1,23 @@
 \chapter{Numerical Methods}
 \label{chap:chapter-3}
+
+Simulating compact binary coalescence requires Einstein's full theory of general relativity.
+We approach the problem of evolving black hole-neutron star inspirals and mergers with the Spectral Einstein Code (SpEC).  
+In SpEC, as in other codes [cite], the computations to evolve Einstein's equations and the fluid equations occurs on two different grids.
+We evolve Einstein's equations using multi-domain spectral methods on what we'll refer to as the GR grid.
+On the material side, we evolve the fluid equations on a multi-domain finite differencing grid, occasionally referred to in this work as the FD grid.
+
+In Section \ref{sec:gr-grid}, we discuss the design implementation we use to evolve Einstein's equations with spectral methods in SpEC.  The finite difference scheme used to evolve the fluid equations is discussed in Section \ref{sec:fd-grid}.  Finally, the implementation of our new mesh refinement algorithm for evolving the FD grid will be discussed in \ref{sec:hydro-amr}.
+
+\section{GR Grid}
+\label{sec:gr-grid}
+
+
+\section{FD Grid}
+\label{sec:fd-grid}
+
+
+
+
+\section{Hydro-AMR Algorithm}
+\label{sec:hydro-amr}

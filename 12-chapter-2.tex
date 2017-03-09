@@ -1,2 +1,61 @@
 \chapter{Neutron Star Equation of State}
 \label{chap:chapter-2}
+
+We begin this chapter with a brief primer on the classical Equation of State of stars.
+A polytrope is a solution to the Lane-Emden equation of the form
+$$P(\rho) = K \rho^\Gamma$$
+where $P$ is pressure, $\rho$ rest-mass density, $K$ the gas constant, and $\Gamma$ is a unitless exponent often referred to as the adiabatic index.
+Neutron stars have been fairly well modeled with this ``Gamma-Law'' in the range $2 < \Gamma < 3$.
+For higher $\Gamma$'s, the gas pressure is stronger, and we often refer to these as ``stiff'' equations of state and are poofier.
+Conversely, stars with smaller $\Gamma$'s are called ``soft''.  Soft equations of state are hence more compact.
+
+We do not expect, further, that the core, interior or crust to all have the same polytropic description.
+In that case, the Gamma-Law description of neutron star structure can be improved by a so-called piecewise polytrope model.
+In such models, we allow each regime to have its own equation of state such that 
+$$P(\rho) = K_i \rho^{\Gamma_i}$$
+where the adiabatic index $\Gamma_i$ is constant in each regime, and $K_i$ is chosen so that the equation of state is continuous across interfaces.
+
+\textbf{TODO}: 
+\begin{itemize}
+	\item add description of typicl polytrope construction  (0812.2163)
+	\item explain how PP's and different $\Gamma$'s can be detected by LIGO (1109.3402)
+\end{itemize}
+
+Piecewise polytropes, while multi-parameter, are still single variable descriptions of stellar structure.  We require that the pressure of a super-dense hot fluid can depend on the temperature, neutrino luminosity and composition of the matter within it.
+
+\section{Neutron Star Constraints}
+
+\subsection{Observational Constraints}
+
+Results from X-ray binary observations constrain the areal radius of $1.4M_\odot$ neutron stars between $10.4 - 12.9 \textrm{km}$.
+Observations from the neutron star-white dwarf binary PSR J1614-2230 revealed a neutron star mass $1.97 \pm 0.04 M_\odot$, and later measurements from PSR J0348+0432 showed masses slightly higher at  $2.01 \pm 0.04 M_\odot$.
+
+\subsection{Experimental Constraints}
+
+\textbf{TODO}: Use arguments from 1403.1186 which give general experimental constraints that all NS EOS need to satisfy. 
+
+\section{LS220}
+
+$K = 220$ MeV
+
+\section{DD2}
+
+Another hot, composition dependent nuclear-theory based equation of state is DD2.  DD2 is relativistic mean field model based on a nucleon-meson coupling model whose momentum is density dependent (DD).  
+For DD, the reference density is the saturation density (when nucleons begin to touch) of symmetric nuclear matter (i.e. the number densities $n_\textrm{p} = n_\textrm{n}$), where the incompressibility factor is fixed at $K = 240$ MeV.
+In this model, the binding energy of eight nuclei were computed and compared to experimental values and found stronger agreement than the NL3 EOS.
+DD2 is the same as DD with additional corrections provided from experimental nucleon masses measured in a lab.
+
+DD2 is also constrained by several nuclear theory based studies.
+Several studies have shown that nuclear energy bounds fall within the predictions of Chiral Effective Field theory.
+Unlike the classical Lattimer-Swesty [cite] and the STOS [cite] EOS models that employ a single nucleus approximation, DD2 includes a detailed distributions of thousands of different nuclei.
+
+DD2 also allows for the creation of stars whose masses are above the observations we have to-date.
+Compared to observational constraints, DD2 can allow for masses as high as $\sim 2.4 M_\odot$, much greater than the observed $\sim 2 M_\odot$ neutron stars.
+DD2, however, comes within $\sim 1 \textrm{km}$ of measured areal radii--being just slightly outside of with $13.22 \textrm{km}$, but within statistical uncertainties.
+
+\section{FSU 2.1}
+
+In addition to the relatively stiff equation of state DD2, FSU21 even stiffer with radii \textbf{TODO}
+
+
+

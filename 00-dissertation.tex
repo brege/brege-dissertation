@@ -23,10 +23,13 @@
 \bibliographystyle{abbrvnat}                 % set bibliography style
 \setcitestyle{authoryear,open={(},close={)}} % set citation style not numeric
 
-% *******************************************************************************
 \begin{document}
-\pagenumbering{roman}
+	
 % *******************************************************************************
+% Front matter
+% *******************************************************************************
+
+\pagenumbering{roman}
 
 % Title Page
 \input{01-title}
@@ -43,11 +46,17 @@
 % Abstract
 \input{05-abstract}
 
-% TOC and Lists of Tables and Figures
+% Contents, Tables and Figures
 \input{06-lists}
 
-%% Dedication
-%\input{07-dedication}
+% Dedication
+\input{07-dedication}
+
+% *******************************************************************************
+% Thesis
+% *******************************************************************************
+
+\pagenumbering{arabic}
 
 % Overview
 \input{11-chapter-1}
