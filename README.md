@@ -23,10 +23,10 @@
 * All of the chapters are:
 
     - `11-chapter-1.tex`: Overview chapter
-    - `12-chapter-1.tex`: Equations of State
-    - `13-chapter-1.tex`: Numerical Methods
-    - `14-chapter-1.tex`: Nuclear EOS's in `SpEC`
-    - `15-chapter-1.tex`: Results of Nuclear EOS Survey
+    - `12-chapter-2.tex`: Equations of State
+    - `13-chapter-3.tex`: Numerical Methods
+    - `14-chapter-4.tex`: Nuclear EOS's in `SpEC`
+    - `15-chapter-5.tex`: Results of Nuclear EOS Survey
 
 * The bibliography shall be in:
 
