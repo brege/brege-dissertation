@@ -61,13 +61,14 @@ T^{\mu \nu} &=& \rho_0 h u^\mu u^\nu + P \psi^{\mu \nu}.
 \label{e:StressEnergyTensor}
 \end{eqnarray}
 Here, $P$ is the internal pressure, $\psi^{\mu \nu}$ the spacetime metric inverse, and $h$ is the specific enthalpy (expressed in terms of the specific energy $\epsilon$) given by $h \equiv 1 + \epsilon + P/{\rho c^2}$.
+Note that there are two distinct densities used here: the rest mass density, $\rho_0$, and the total energy density, $\rho = \rho_0 + u$ which includes the internal energy, $u$.
 
 The equations governing the fluid in general relativistic hydrodynamics are
 \begin{eqnarray}
 \nabla_\mu \rho_0 u^\mu &=& 0, \label{e:ConsOfMass} \\
-\nabla_\mu T^{\mu \nu} &=& 0 \label{e:ConsOfEnergyMomentum}
+\nabla_\mu T^{\mu \nu} &=& 0, \label{e:ConsOfEnergyMomentum}
 \end{eqnarray}
-where we $\rho_0$ is the rest mass  density and $u^\mu$ the four-velocity.  Equation \ref{e:ConsOfMass} represents the conservation of mass of the fluid, while Equation \ref{e:ConsOfEnergyMomentum} represents the conservation of energy-momentum, giving us a total of five simultaneous equations to evolve. 
+where $u^\mu$ is the four-velocity.  Equation \ref{e:ConsOfMass} represents the conservation of mass of the fluid, while Equation \ref{e:ConsOfEnergyMomentum} represents the conservation of energy-momentum, giving us a total of five simultaneous equations to evolve. 
 
 Following Section \ref{sec:gr-grid}, it is imperative that we evolve the general relativistic hydrodynamic equations in a conservative form.  We thus evolve the ``conservative'' variables
 \begin{align}
@@ -81,7 +82,7 @@ Following Section \ref{sec:gr-grid}, it is imperative that we evolve the general
 S_i  	&\equiv& -\sqrt{g} n_\mu T^\mu_i 
 		&=& \rho_* h u_i
 \end{align}
-where we have used the general relativistic Lorentz factor $W = \alpha u^t$, the future directed unit normal to the foliated subspace slices is $n^\mu$, and $g$ is the determinant of the spatial \mbox{metric, $g_{ij}$}.  Here we have a matter term, $\rho_*$, an energy term, $\tau$ and the momenta, $S_i$.
+where we have used the general relativistic Lorentz factor $W \equiv \alpha u^t$, the future directed unit normal to the foliated subspace slices is $n^\mu$, and $g$ is the determinant of the spatial \mbox{metric, $g_{ij}$}.  Here we have a matter term, $\rho_*$, an energy term, $\tau$ and the momenta, $S_i$.  The Lorentz factor is given by the normalization condition $W^2 = 1 + g^{ij} u_i u_j$
 
 The fluid equations \ref{e:ConsOfMass} and \ref{e:ConsOfEnergyMomentum} can then be expressed in conservative form:
 \begin{align}
