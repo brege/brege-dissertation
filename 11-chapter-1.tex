@@ -11,24 +11,26 @@ These objects form from super-massive stars,
  whose cores collapse from having burnt all their fissile material and thereby
  losing essential support from gas pressure.
 Neutron stars result from supernova on the smaller-mass end of this population,
- and are supported against gravitational collapse by degenerate neutron pressure,
+ and are self-supported against gravitational collapse by degenerate neutron gas pressure,
  not by burning fuel,
- and with masses ranging between $1-2\,M_{\odot}$.
-To the left,
- smaller mass stars collapse into white dwarfs,
- who are supported by degenerate electrons.  
-Fermi pressure from an electron gas is not as strong as that of a neutron star,
+ and with masses ranging between $\sym (1-2)\,M_{\odot}$.
+Smaller mass stars $M < 8\, M_\odot$ collapse into white dwarfs,
+ who are self-supported by degenerate electrons.  
+Fermi pressure from an electron gas is not as strong as that of a neutron gas,
  so white dwarfs cannot be supported unless they have masses $M\lesssim 1.4\,M_{\odot}$,
- known as the Chandrasekhar limit.  
+ the Chandrasekhar limit.  
 Lastly, for masses larger than $M\gtrsim 10\,M_{\odot}$,
  gas pressure of any kind cannot sustain an equilibrium with gravitational pressure.  
 These collapses result in stellar-massive black holes.
 
-Neutron stars are interesting species because during their formation for supernovae,
+Neutron stars are incredibly interesting species of exotic matter. 
+During their formation from core-collapse supernovae,
  they collapse to a density close to that of nuclei.
-Objects of such extreme densities have areal radii of $\sim 10 \textrm{km}$,
+Objects of such extreme densities have areal radii of $\sym 10 \textrm{km}$,
  smaller than the distance between Pullman, WA and Moscow, ID.
-While dangerous, you could bike around an area containing the entire mass of our solar system (plus some) in a single day. 
+While dangerous, 
+ you could bike around an area containing the entire mass of our solar system (plus some) in a single day.
+Neutron stars are very compact.
 Quantitatively, the compactness of an object is a measure of the how much mass is within an enclosed surface.
 Compactness is unitless and defined by $\mathcal{C}\equiv G M/c^2 R$.
 The factor $G M/c^2$ in the compactness paramater is the \textit{Schwartzchild radius},
@@ -49,7 +51,7 @@ Meanwhile, for neutron stars, and black holes, the compactnesses are
  $\mathcal{C}_\textrm{NS} \approx 0.15$
  and
  $\mathcal{C}_\textrm{BH} = 0.50$.
-At this end of the compaction scale, general relativity cannot be ignored.
+At this end of the compaction scale, general relativity cannot be ignored.  The spacetimes surrounding these two objects have extreme curvature.
 
 To further get a sense for how dense neutron stars are, a quick back of the envelope calculation is to consider a $M_\textrm{NS} = 1.4 M _\odot$ star, which when divided by the mass of a neutron accounts for $\sym 1.7 \times 10^{57}$ total nucleons.
 If the nucleons are homogeneously dispersed in this star, with areal radius of $12\,\textrm{km}$, the separation between them is then $\sym 1\,\textrm{fm}$.
@@ -57,13 +59,45 @@ From scattering experiments, we know the spacing of nucleons to be $\sym 0.8\,\t
 In this compactness regime, we expect all fundamental forces to be important.
 The gas pressure, especially in the inner and outer core, is largely dominated by the strong force.  
 The crust is mostly supported by coulomb forces which in equilibrium yield lattice structures.
-We will also talk discuss $\beta$ equilibrium in a Chap. \ref{chap:chapter-2}, which is governed by the weak force.
+We will also discuss $\beta$-equilibrium in a Chapter \ref{chap:chapter-2}, which is governed by the weak force and completely breaks down when the star is disrupted in extreme spacetime.
+
+
 
 Due to the conservation of angular momentum, neutron stars---much smaller in breadth than their mothers---have very high spins.
 
 Magnetized neutron stars with extreme spins, or pulsars that emit X-rays,
  have received immense interest within the community.
 
-But the focus of this dissertation is not on that of neutron stars in solitary,
- but their coupling with black holes and their violent, eventual merger.
 
+
+
+\section{Observables}
+\label{sec:observables}
+
+A number of observable phenomena involving black hole-neutron star and double neutron star mergers are considered.  
+In addition to gravitational waves, their mergers have the potential to produce strong electromagnetic signals, such as kilonovae where r-process nucleosynthesis occurs in the matter being ejected from the system, or short-duration gamma ray bursts shone after the merger once an accretion disk forms.
+What's important here is that having an optical counterpart to the gravitational signal provides information that can be detected on multiple astronomical instruments, so dubbed multi-messenger astronomy.
+Second, optical transients occur at different timescales to gravitational waves after the merger event.
+Kilonova formed in the outflowing tail material should be detectable seconds after the accompanying gravitational wave.  
+Magnetic- or neutrino-driven heating in the post-merger accretion disk can drive ultra-relativistic jets at the black hole poles, which may be observable on the order of second, or as long as the disk is still accreting.
+Neutrino-driven winds could also contribute to strong disk outflows, creating  kilonovae.
+
+\textbf{TODO: finish discussion of astrophysical observations}
+
+\section{Presentation of this thesis}
+
+For as many enriching astrophysical scenarios involving neutron stars, there are an order of magnitude more people studying, simulating, and observing their progenitors, mergers, and companionship with other compact objects.
+This thesis could never begin without the work of all those that contributed to our knowledge of neutron star matter thus far, and a wishful attempt has been made to excise the less relevant but no less important subfields from our discussion.
+Black hole-neutron sources and the observable information we can extract from them will help us probe the nature of neutron star structure.
+
+There is a decidedly chicken and egg problem to the order in which one begins to model stellar structure and how the star evolves in a dynamical system.
+In a short manuscript, the theoretical overview for both can be done in some sense in just a few pages. 
+However, the evolution system of \SpEC is complex, requiring many nuances to not only explain how the fluid and Einstein equations are solved, but the modifications and controls that must be made to the grids they are evolved on.
+And because the subject matter of this thesis is to study several nuclear theory based, finite-temperature equations of state of neutron stars being violently disrupted by black holes, I have likewise chosen to have a separate chapter devoted to that salient detail of the star.
+% still mulling over the order in which the EOS vs evolution equations are discussed
+
+I have decided to structure this manuscript putting the emphasis first on the equation of state of neutron star matter in Chapter \ref{chap:chapter-2}, and then discuss the evolution of the relativistic fluid and Einstein's equations in Chapter \ref{chap:chapter-3}.  
+I do this for several reasons: in our simulations, the neutron star is constructed before evolution of the fluid variables, and only requires a solve of static equilibrium equations that are a balance of gas and gravitational pressure.  After the star is constructed in isolation with the equation of state (in our simulations, only using a lower temperature, one dimensional slice of the table), we place it in quasi-circular orbit around the black hole.  
+These two objects inspiral in a decaying orbit, shedding away angular momentum in the form of gravitational waves.  
+For our specific configuration, our stars do not plunge directly into the black hole, but disrupt into a stream of neutron-rich matter. 
+Most of the matter accretes onto the black hole, but the remaining chunk either gets flung from the system if the matter is unbound, or circularizes into an accretion disk with the remaining bound matter falling back.
