@@ -1,0 +1,4 @@
+rsync -av --progress  brege@briaree2:/RQexec/brege/MicrophysicsSurvey/BHNS/gnuplot-scripts/initial-data/images/*.{tex,eps} images/
+
+rsync -av --progress  brege@briaree2:/RQexec/brege/MicrophysicsSurvey/BHNS/gnuplot-scripts/images/*.{tex,eps} images/
+

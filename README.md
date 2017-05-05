@@ -31,3 +31,15 @@
 * The bibliography shall be in:
 
     - `21-references.bib`: Uses `BibTeX` entries ([gscholar.py](https://github.com/venthur/gscholar) is your friend)
+
+* Gnuplot commands to make a vector image with an accompanying tex file to include in the manuscript.  On the remote:
+    ``` gnuplot
+    set terminal epslatex color solid 8
+    set output 'images/tov-mass-vs-radius.tex'
+    load 'tov-mass-vs-radius.cfg'
+    set output
+    ```
+then, to copy the resulting *.{eps,tex} files from the remote to the dissertation development folder:
+    ``` bash
+    ./sync-commands
+    ```
