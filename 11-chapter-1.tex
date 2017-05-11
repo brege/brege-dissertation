@@ -59,7 +59,7 @@ From scattering experiments, we know the spacing of nucleons to be $\sym 0.8\,\t
 In this compactness regime, we expect all fundamental forces to be important.
 The gas pressure, especially in the inner and outer core, is largely dominated by the strong force.  
 The crust is mostly supported by coulomb forces which in equilibrium yield lattice structures.
-We will also discuss $\beta$-equilibrium in a Chapter \ref{chap:chapter-2}, which is governed by the weak force and completely breaks down when the star is disrupted in extreme spacetime.
+An isolated neutron star is in $\beta$-equilibrium, which is governed by the weak force and completely breaks down when the star is disrupted in extreme spacetime.
 
 
 
@@ -69,20 +69,45 @@ Magnetized neutron stars with extreme spins, or pulsars that emit X-rays,
  have received immense interest within the community.
 
 
+%\section{Binary scenarios}
+%
+%Shibata et al determined that black hole-neutron star binaries that produce gravitational waves fall into three categories: (1) if the neutron star falls directly into the black hole, the waveform is similar to that of a double black hole waveform; (2) if the neutron star disrupts far from the innermost stable circular orbit (ISCO), no merger or ringdown signal is observed; (3) if the neutron star disrupts close to the ISCO, inspiral and merger waveforms are observed but with a reduced ringdown signal.
+%We expect tidal deformation to occur when the tidal force from object A overcomes the self-gravity of object B.  In the case of our black hole-neutron star systems, the separation distance in which tidal deformation occurs is given by
+%\begin{align}
+%d_{\rm TD} \sim R_{\rm NS} q^{1/3}
+%\end{align}
+%where q is the dimensionless mass ratio $q \equiv M_{\rm BH} / M_{\rm NS}$.
+%
+%\textbf{TODO: Finish...}
 
-
-\section{Observables}
+\section{Coalescence \& merger and their observables}
 \label{sec:observables}
 
+\paragraph{Inspiral and Gravitational waves}
 A number of observable phenomena involving black hole-neutron star and double neutron star mergers are considered.  
-In addition to gravitational waves, their mergers have the potential to produce strong electromagnetic signals, such as kilonovae where r-process nucleosynthesis occurs in the matter being ejected from the system, or short-duration gamma ray bursts shone after the merger once an accretion disk forms.
+The orbits of compact binaries decay as gravitational waves carry energy away from the system, causing them to inspiral and eventually merge.  Gravitational waves were observed by the advanced Laser Interferometer Gravitational-Wave Observatory (aLIGO) network on September 14, 2015 [cite:abbot et al]. 
+The SXS collaboration simulated thousands of double black hole inspirals and mergers with numerical relativity to probe the seven dimensional parameters space (mass ratio, two spin alignments for each object, and the spin magnitude).  From the SXS catalog, the observation of the GW150914 event was determined to have black holes with masses $29 M_\odot$ and $36 M_\odot$, forming a resulting $62 M_\odot$ black hole, radiating $~3 M_\odot c^2$ of energy away from the system.
+While the detection of mixed binary mergers is likely to only account for 1-2\% of measurable events from aLIGO, additional information on the electromagnetic spectrum is observable during and after merger. 
+
+\paragraph{Merger and Kilonovae}
+Shibata et al determined that black hole-neutron star binaries that produce gravitational waves fall into three categories: (1) if the neutron star falls directly into the black hole, the waveform is similar to that of a double black hole waveform; (2) if the neutron star disrupts far from the innermost stable circular orbit (ISCO), no merger or ringdown signal is observed; (3) if the neutron star disrupts close to the ISCO, inspiral and merger waveforms are observed but with a reduced ringdown signal.
+In our study, we are focused on the latter. 
+A highly spinning, stellar-massive black hole will cause maximal disruption, causing a large portion of the stellar matter to become unbound and get ejected from the system.
+In the ejecta, the fluid expands and cools, where r-process nuclear synthesis takes place.  Neutrons are absorbed by heavy nucleii, radiating optically bright neutrinos thorough the interstellar medium. 
+After a timescale of days, the unstable elements decay, which heats the ejecta, causing bright afterglows (kilonova) that can be observed with ground- and space-based optical and infrared detectors (\textbf{Such as?}).
+
+\paragraph{Post-merger and sGRB's}
+A large amount of bound material will remain in the post-merger system.  
+The fluid circularizes around the apparent event horizon, causing shock heating as it begins to axisymmetrize. 
+A large portion of bound material in the tail crashes back into the disk, causing further heating.
+Magnetic- or neutrino-driven heating in the post-merger accretion disk can drive ultra-relativistic jets at the black hole poles, which may be observable on the order of second, or as long as the disk is still accreting.
+The jet could beam high-energy gamma ray photons--an observable short-duration gamma ray burst (sGRB).
+Neutrino-driven winds could also contribute to strong disk outflows, contributing to post-merger kilonovae.
+
 What's important here is that having an optical counterpart to the gravitational signal provides information that can be detected on multiple astronomical instruments, so dubbed multi-messenger astronomy.
 Second, optical transients occur at different timescales to gravitational waves after the merger event.
 Kilonova formed in the outflowing tail material should be detectable seconds after the accompanying gravitational wave.  
-Magnetic- or neutrino-driven heating in the post-merger accretion disk can drive ultra-relativistic jets at the black hole poles, which may be observable on the order of second, or as long as the disk is still accreting.
-Neutrino-driven winds could also contribute to strong disk outflows, creating  kilonovae.
 
-\textbf{TODO: finish discussion of astrophysical observations}
 
 \section{Presentation of this thesis}
 
@@ -90,7 +115,7 @@ For as many enriching astrophysical scenarios involving neutron stars, there are
 This thesis could never begin without the work of all those that contributed to our knowledge of neutron star matter thus far, and a wishful attempt has been made to excise the less relevant but no less important subfields from our discussion.
 Black hole-neutron sources and the observable information we can extract from them will help us probe the nature of neutron star structure.
 
-There is a decidedly chicken and egg problem to the order in which one begins to model stellar structure and how the star evolves in a dynamical system.
+Alas, there is a decidedly chicken and egg problem to the order in which one begins to model stellar structure and how the star evolves in a dynamical system.
 In a short manuscript, the theoretical overview for both can be done in some sense in just a few pages. 
 However, the evolution system of \SpEC is complex, requiring many nuances to not only explain how the fluid and Einstein equations are solved, but the modifications and controls that must be made to the grids they are evolved on.
 And because the subject matter of this thesis is to study several nuclear theory based, finite-temperature equations of state of neutron stars being violently disrupted by black holes, I have likewise chosen to have a separate chapter devoted to that salient detail of the star.
