@@ -75,13 +75,13 @@ Observations from the neutron star-white dwarf binary PSR J1614-2230 revealed a 
 
 \subsection{Experimental Constraints}
 
+The most rapidly spinning pulsar PSR J1748-2446ad constrains the maximum radius of a neutron star: a star must rotate beneath the Keplerian frequency at which mass-shedding occurs [cite:Latt. 2015 eq 95].
+
 \textbf{TODO}: Use arguments from 1403.1186 which give general experimental constraints that all NS EOS need to satisfy. 
 
 \subsection{Theoretical Constraints}
 
-From \textit{Le Chatlier's principle}, the maximum mass of a neutron star can be no larger than 3.2 $M_\odot$.  
-
-Lower bounds on the neutron star radius can be obtained through causality, namely that the sound speed $c_s^2 \equiv c^2 \partial p / \partial \epsilon$ must not be superluminal (i.e. $c_s^2 \le c^2$).
+From \textit{Le Chatlier's principle}, the maximum mass of a neutron star can be no larger than 3.2 $M_\odot$.  Lower bounds on the neutron star radius can be obtained through causality, namely that the sound speed $c_s^2 \equiv c^2 \partial p / \partial \epsilon$ must not be superluminal (i.e. $c_s^2 \le c^2$).  
 
 \section{Hot, Microphysical Equations of State}
 \label{sec:nuclear-eos}
@@ -125,7 +125,7 @@ The incompressibility factor is $K = 245.4 {\rm MeV}$ for SFHo and $K = 238.8 {\
 \section{Our survey}
 
 In our survey, we use the Hempel's DD2, Fisher's FSU2.1, and the SFHo and SFHx equations of state.  LS220 may occasionally be used as a reference. 
-In Figure \ref{fig:MvsR}, we show the neutron star mass-radius relationship for each system used in this study.  We chose to study two neutron star masses, $M_{\rm NS} = (1.2, 1.4) M_{\odot}$, since the distribution of neutron star populations is expected to have a mean in this range. In addition, the LS220 equation of state is included, as it has already been simulated in [cite:Foucart et al (2014)].  To avoid some strange issues at the table minimum of $T_{\rm floor} = 0.01 {\rm MeV}$, we take a cold slice of  $T = 0.1 {\rm MeV}$ of the three-dimensional tables.  In addition, we assume $\beta$-equilibrium for the initial configuration of the star.  Therefore, the effective (cold, $\beta$-equilibrium) equation of state table is barotropic. 
+In Figure \ref{fig:MvsR}, we show the neutron star mass-radius relationship for each system used in this study.  We chose to study two neutron star masses, $M_{\rm NS} = (1.2, 1.4) M_{\odot}$, since the distribution of neutron star populations is expected to have a mean in this range. In addition, the LS220 equation of state is included, as it has already been simulated in [cite:Foucart et al (2014)].  For the initial configuration of the star in isolation, we take a cold, $\beta$-equilibrium slice of three-dimensional tables.  To avoid strange artifacts at the table minimum of $T_{\rm floor} = 0.01 {\rm MeV}$, we take a cold slice of  $T = 0.1 {\rm MeV}$.  Therefore, the effective (cold, $\beta$-equilibrium) equation of state table is barotropic. Once the star begins to tidally disrupt, we are no longer in $\beta$-equilibrium.
 
 In [cite:Lattimer 2015], Lattimer discusses the number of constraints on the equation of state and how they relate to the mass-radius relations in various ``zones'' of Figure \ref{fig:MvsR}.  Principally, an equation of state must not allow for superluminal sound speeds and allow for a maximum mass of $\sym 2.1 M_{\odot}$.
 
@@ -138,15 +138,26 @@ In [cite:Lattimer 2015], Lattimer discusses the number of constraints on the equ
 	\label{fig:MvsR}
 \end{figure}
 
-In Figure \ref{fig:PvsRho}, it can be seen that the relationship between pressure and density at low densities is similar to a $\Gamma \approx 2$ polytrope in the ``cold'' regime of the table.  Qualitatively, the pressure support at lower densities can be stronger for one equation of state, but softer at higher densities compared to other equations of state.  Indeed, it was noted in [cite: SFHo paper] that the concept of describing an equation of state as stiff or soft can be na\"{i}ve.  That is, the effective adiabatic index $\tilde{\Gamma}$ of Equation \ref{e:adiabat} for the poofier FSU2.1 model is smaller (larger) in the lower (higher) density regions compared to the more compact SFHo in the ``cold'' phase.
+From the $M-R$ curves in Figure \ref{fig:MvsR} alone, there are a bounty of astrophysics questions we can ask.  By adopting these finite-temperature, composition-dependent equation of state models for our neutron stars, what observable characterisitics are observed during inspiral and merger?  How much does the creation of r-process elements in the dynamical outflows vary?  Does the generated gravitational waveform vary outside of the compactness parameter?  Are the fitting formulae predictions of the resulting disk and ejecta masses correct, even though they were formed with barotropic equations of state?
 
 \begin{figure}
 	\centering
 	\input{images/pressure-vs-density}
 	\caption[Pressure vs. density for a cold, beta-equilibrium slice]{
-		Pressure vs. density for finite-temperature, nuclear equations of state used in this study. The initial fluid is chosen to be cold and in $\beta$-equilibrium: $T=0.1 {\rm MeV}$ and $Y_e = Y_e (n_b)$, respectively.
+		Pressure vs. density for finite-temperature, nuclear equations of state used in this study. The initial fluid is chosen to be cold and in $\beta$-equilibrium: $T=0.1 {\rm MeV}$ and $Y_e = Y_e (n_b)$, respectively.  Vertical dotted line represents the fiducial density.
 	}
 	\label{fig:PvsRho}
 \end{figure}
 
-From the $M-R$ curve alone, there are a bounty of astrophysics questions we can begin to ask.  By adopting these finite-temperature, composition-dependent equation of state models for our neutron stars, what observable characterisitics are observed during inspiral and merger?  How much does the creation of r-process elements in the dynamical outflows vary?  Is there a detectable gravitational wave \textbf{TODO}
+In Figure \ref{fig:PvsRho}, it can be seen that the relationship between pressure and density at low densities is similar to a $\Gamma \approx 2$ polytrope in the ``cold'' regime of the table.  Qualitatively, the pressure support at lower densities can be stronger for one equation of state, but softer at higher densities compared to another.  Indeed, it was noted in [cite: SFHo paper] that the concept of describing an equation of state as stiff or soft can be na\"{i}ve.  That is, the effective adiabatic index $\tilde{\Gamma}$ of Equation \ref{e:adiabat} for the poofier FSU2.1 model is smaller (larger) in the lower (higher) density regions compared to the more compact SFHo in the ``cold'' phase.
+
+\begin{figure}
+	\centering
+	\input{images/delta-pressure-vs-density}
+	\caption[]{
+		Normalized pressure difference at $Y_e = 0.05$ between $T = (0,5) {\rm MeV}$ (solid) and $T = (0,10) {\rm MeV}$ (dashed), both normalized by the zero-temperature pressure. Vertical dotted line represents the fiducial density.
+	}
+	\label{fig:dPvsRho}
+\end{figure}
+
+In Figure \ref{fig:dPvsRho}, we observe the effect temperature has on the pressure-density relations.  Past the fiducial density $\rho_s = 10^{14.7} {\rm g \, cm^{-3}}$ (with fixed $Y_e = 0.05$), changes in temperature do not alter the pressure-density relation by much at all.  As temperature increases in the lower density regime, the structures begin to converge and increase to similar $\tilde{\Gamma}$ between models.  The main differences occur in the intermediate region, where the increasing variance in $\tilde{\Gamma}$ between temperatures becomes clear.
