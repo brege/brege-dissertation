@@ -1,6 +1,7 @@
 \chapter{Tidal Disruption of Neutron Stars with New Nuclear Equations of State}
 \label{chap:chapter-5}
 
+\textbf{TODO: Much more analysis to be done...}
 
 \begin{table}
 	\begin{center}
@@ -10,8 +11,146 @@
 		consideration, $N_{\rm orbits}$ is the number of orbits up to the point at which $0.01M_\odot$ has been accreted by the black hole,
 		$\Omega_0$ is the initial angular velocity, and $M=M_{\rm BH}+M_{\rm NS}$. We use the same resolution for each simulation: $\Delta x_{\rm dis} = 245{\rm m}$ is the typical grid resolution in the laboratory frame
 		for the finest level of refinement used during the disruption of the neutron star (see Sec.~\ref{sec:hydro-amr} for more detail on the grid structure).}
+	\label{tab:id}
 	{
 		\include{tables/initial-data}
 	}
-\end{center}
+	\end{center}
 \end{table}
+
+\begin{table}
+	\begin{center}
+	\caption[Properties of the dynamical ejecta and post merger remnant]{
+		Properties of the dynamical ejecta and post merger remnant. $M_{\rm BH}^f$ and  $\chi_{\rm BH}^f$  are the mass and dimensionless spin of the black hole,
+		and $M_{\rm out}^f$ is the baryon mass remaining outside of the black hole. Those quantities are measured at the first minima of the accretion rate onto the black hole,
+		before circularization of the accretion disk. The baryon mass outside of the black hole immediately after disk formation (which is a more vaguely defined
+		time) is typically $10\%-20\%$ lower than $M_{\rm out}^f$. $M_{\rm ej}$ is the mass of the dynamical ejecta, and $\langle v/c\rangle_{\rm ej}$, 
+		$\langle i \rangle_{\rm ej}$ are the mass-weighted average of its velocity and orbital inclination with respect to the
+		equatorial plane of the black hole. All these properties are nearly constant, from about $1\,{\rm ms}$ after the merger. Bracketed numbers for
+		$M_{\rm out}^f$ and $M_{\rm ej}$ show semi-analytical predictions for the mass outside of the black hole $10\,{\rm ms}$ after merger~\cite{Foucart2012},
+		and the ejected mass~\cite{Kawaguchi:2016}, while bracketed numbers for $M_{\rm BH}^f$ and $\chi_{\rm BH}^f$ are semi-analytical predictions
+		from~\cite{Pannarale:2014}. The analytical values provided in this table for the final mass and spin of the black hole were kindly provided
+		to us by Francesco Pannarale. Relative errors in the determination of $M_{\rm ej}$ are $\sim 20\%$, the black holes properties are
+		accurate to $\sim 1\%$, and other quantities have relative errors of $\sim 10\%$.
+	}
+	\label{tab:results}
+	{
+		\include{tables/results}
+	}
+	\end{center}
+\end{table}
+
+
+
+\begin{figure}
+	\centering
+	\input{images/combined-restmass}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:restmass}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\input{images/combined-average-temp}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:avgtemp}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\input{images/combined-neutrino-luminosity}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:neutrinoluminosity}
+\end{figure}
+
+%\begin{figure}
+%	\centering
+%	\input{images/combined-unbound-mass}
+%	\caption[]{
+%		\textbf{TODO}
+%	}
+%	\label{fig:unboundmass}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\input{images/combined-densest-point}
+%	\caption[]{
+%		\textbf{TODO}
+%	}
+%	\label{fig:densestpoint}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\input{images/unbound-ye-sd}
+%	\caption[]{
+%		\textbf{TODO}
+%	}
+%	\label{fig:unboundYe}
+%\end{figure}
+
+
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=1.0\linewidth]{images/rho_DD2_M12-merger-inertial}
+		\label{fig:rho_M12_DD2}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/rho_FSU21_M12-merger-inertial}
+		\label{fig:rho_M12_FSU21}
+	\centering
+	\end{subfigure}
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/rho_SFHo_M12-merger-inertial}
+		\label{fig:rho_M12_SFHo}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/rho_SFHx_M12-merger-inertial}
+		\label{fig:rho_M12_SFHx}
+	\end{subfigure}
+	\caption[Density profiles on equatorial plane for $1.2 M_{\odot}$ models]{
+		Baryon density profiles on the equatorial plane for $M_{\rm NS} = 1.2 M_{\odot}$ models when $50\%$ of the neutron star material has been accreted onto the black hole.
+		\textit{Top left:} Model M12-M7-S9-DD2.
+		\textit{Top right:} Model M12-M7-S9-FSU21.
+		\textit{Bottom left:} Model M12-M7-S9-SFHo.
+		\textit{Bottom right:} Model M12-M7-S9-SFHx.
+		White regions are not covered by the finite volume grid, while some fluid subdomains overlap the excised region of the black hole which can be seen near the interface of inflowing matter and the horizon.  We bracket the baryon density between $\sym \rho_{\rm FMR}$ and the fiducial density, $10^{14.7} {\rm g\,cm^{-3}}$. Note the distortion (and rotation) of the finite volume subdomain boundaries in the finest, innermost level, since the fluid is evolved in the coordinates of the (non-rotating) pseudo-spectral grid and we are viewing the systems in the inertial frame.  Also note the difference in length scales between models at merger time.
+	}
+	\label{fig:rho_M12}
+\end{figure}
+
+
+\begin{figure*}
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=1.0\linewidth]{images/rho_DD2_M14-merger-inertial}
+		\label{fig:rho_M14_DD2}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/rho_FSU21_M14-merger-inertial}
+		\label{fig:rho_M14_FSU21}
+		\centering
+	\end{subfigure}
+	\caption[Density profiles on equatorial plane for $1.4 M_{\odot}$ models]{
+	Baryon density profiles on the equatorial plane for $M_{\rm NS} = 1.4 M_{\odot}$ models when $50\%$ of the neutron star material has been accreted onto the black hole.
+	\textit{Left:} Model M14-M7-S9-DD2.
+	\textit{Right:} Model M14-M7-S9-FSU21.
+	To add to the caption in Figure \ref{fig:rho_M12}, we note that the FSU2.1 profiles are represented with a $90^{\circ}$ counterclockwise rotation in the inertial frame.  This is done for sake of maintaining a similar aspect ratio to the others.  Note that FSU2.1 had the fewest number of orbits in our simulations (see Table \ref{tab:id}). 
+	}
+	\label{fig:rho_M14}
+\end{figure*}
