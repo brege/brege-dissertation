@@ -3,6 +3,10 @@
 
 \textbf{TODO: Much more analysis to be done...}
 
+\section{Initial Configuration}
+
+The models considered in this survey consider those black hole whose Christodoulou mass is $M_{\rm BH} = 7 M_\odot$ with an orbitally-aligned, prograde dimensionless spin of $\chi_{\rm BH} = 0.9$  The black hole mass is in the range of masses i of X-ray binary observations, while the spin is chosen to yield maximal disruption of the neutron star.  We choose a naming scheme such that model M12-M7-S9-FSU21 represents an ADM neutron star mass of $M_{\rm NS} = 1.2 M_\odot$, a black hole of mass and dimensionless spin $M_{\rm BH} = 7 M_\odot$ and $\chi_{\rm BH} = 0.9$, and the FSU2.1 neutron star equation of state.  In Table \ref{tab:id}, we provide a list of the initial values for the models used in this paper.  
+
 \begin{table}
 	\begin{center}
 	\caption[Initial parameters of binaries used in this survey]{
@@ -18,19 +22,22 @@
 	\end{center}
 \end{table}
 
+
+\section{Merger dynamics}
+
+Most of our systems evolve for 5 - 6 orbits before disruption of the neutron star by the black hole's tidal field.  All of our models disrupt outside the inner most stable circular orbit of the black hole.  All of our models were evolved with the same minimum grid spacing of $\Delta x_{\rm dis} = 245{\rm m}$ on the innermost level of refinement, in the spectral grid of the finite volume grid.  In the inertial frame, the average minimum grid spacing is typically around $\sym 150-200 {\rm m}$.  This is because in the grid frame, the grid spacing gets coarser in the direction in which the tidal stream expands and gets finer in the direction it contracts.
+
+
 \begin{table}
 	\begin{center}
 	\caption[Properties of the dynamical ejecta and post merger remnant]{
 		Properties of the dynamical ejecta and post merger remnant. $M_{\rm BH}^f$ and  $\chi_{\rm BH}^f$  are the mass and dimensionless spin of the black hole,
 		and $M_{\rm out}^f$ is the baryon mass remaining outside of the black hole. Those quantities are measured at the first minima of the accretion rate onto the black hole,
 		before circularization of the accretion disk. The baryon mass outside of the black hole immediately after disk formation (which is a more vaguely defined
-		time) is typically $10\%-20\%$ lower than $M_{\rm out}^f$. $M_{\rm ej}$ is the mass of the dynamical ejecta, and $\langle v/c\rangle_{\rm ej}$, 
-		$\langle i \rangle_{\rm ej}$ are the mass-weighted average of its velocity and orbital inclination with respect to the
-		equatorial plane of the black hole. All these properties are nearly constant, from about $1\,{\rm ms}$ after the merger. Bracketed numbers for
-		$M_{\rm out}^f$ and $M_{\rm ej}$ show semi-analytical predictions for the mass outside of the black hole $10\,{\rm ms}$ after merger~\cite{Foucart2012},
+		time) is typically $10\%-20\%$ lower than $M_{\rm out}^f$. $M_{\rm ej}$ is the mass of the dynamical ejecta, and $\langle v/c\rangle_{\rm ej}$. All these properties are nearly constant, from about $1\,{\rm ms}$ after the merger. Bracketed numbers for
+		$M_{\rm out}^f$ and $M_{\rm ej}$ show semi-analytical predictions for the mass outside of the black hole $10\,{\rm ms}$ after merger~\cite{Foucart:2012},
 		and the ejected mass~\cite{Kawaguchi:2016}, while bracketed numbers for $M_{\rm BH}^f$ and $\chi_{\rm BH}^f$ are semi-analytical predictions
-		from~\cite{Pannarale:2014}. The analytical values provided in this table for the final mass and spin of the black hole were kindly provided
-		to us by Francesco Pannarale. Relative errors in the determination of $M_{\rm ej}$ are $\sim 20\%$, the black holes properties are
+		from~\cite{Pannarale:2014}. The analytical values provided in this table for the final mass and spin of the black hole were calculated from the equations in ~\cite{Pannarale:2013} using a root-finding code for both the innermost stable spherical orbit and those quantities.  Relative errors in the determination of $M_{\rm ej}$ are $\sim 20\%$, the black holes properties are
 		accurate to $\sim 1\%$, and other quantities have relative errors of $\sim 10\%$.
 	}
 	\label{tab:results}
@@ -40,61 +47,6 @@
 	\end{center}
 \end{table}
 
-
-
-\begin{figure}
-	\centering
-	\input{images/combined-restmass}
-	\caption[]{
-		\textbf{TODO}
-	}
-	\label{fig:restmass}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\input{images/combined-average-temp}
-	\caption[]{
-		\textbf{TODO}
-	}
-	\label{fig:avgtemp}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\input{images/combined-neutrino-luminosity}
-	\caption[]{
-		\textbf{TODO}
-	}
-	\label{fig:neutrinoluminosity}
-\end{figure}
-
-%\begin{figure}
-%	\centering
-%	\input{images/combined-unbound-mass}
-%	\caption[]{
-%		\textbf{TODO}
-%	}
-%	\label{fig:unboundmass}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\input{images/combined-densest-point}
-%	\caption[]{
-%		\textbf{TODO}
-%	}
-%	\label{fig:densestpoint}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\input{images/unbound-ye-sd}
-%	\caption[]{
-%		\textbf{TODO}
-%	}
-%	\label{fig:unboundYe}
-%\end{figure}
 
 
 
@@ -132,6 +84,9 @@
 	\label{fig:rho_M12}
 \end{figure}
 
+In Figure \ref{fig:rho_M12} we show the snapshot of each $1.2 M_\odot$ model on the equatorial plane when 50\% of the neutron star material has been accreted onto the black hole.  In Figure \ref{fig:rho_M14}, Model M14-M7-S9-FSU21 shows the poofiest, outer tail, measuring $\sym 20 {\rm km}$ across, while M12-M7-S9-DD2 measures at $\sym 12 {\rm km}$ in breadth.  The infalling stream near the horizon gets very narrow, and as such caused a number of our softest models to become too difficult to evolve.  Both SFHx as well as the M14-M7-S9-SFHo models did not proceed past merger beyond a few fractions of a millisecond.  
+
+Consulting Figure \ref{fig:MultGammavsRho}, while all models soften near the fiducial density, the most drastic change in the high-density infalling region occurs in SFHx.  In our studies, the measured average temperature of the soft $1.4 M_\odot$ models was much higher near merger time (at which point the average temperature in all models reaches a maximum), and could indicate that they were poorly resolved, at least in the innermost level of the finite volume grid.  Therefore, we do not include the snapshots for M14-M7-S9-SFHo of M14-M7-S9-SFHx, while the snapshot for M12-M7-S9-SFHx is only included because it was well-behaved at merger time.
 
 \begin{figure*}
 	\centering
@@ -154,3 +109,72 @@
 	}
 	\label{fig:rho_M14}
 \end{figure*}
+
+Shortly after the merger, between the time of merger and the first local minimum of the accretion rate and average temperature, we derefine the innermost finite volume level by a factor of two.  The fluid begins to circularize $\sym (3-4) {\rm ms}$ after merger.  We perform a second derefinement by a factor of two more at this stage as well, since the material becomes less dense and easier to resolve.
+
+
+\begin{figure}
+	\centering
+	\input{images/combined-restmass}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:restmass}
+\end{figure}
+
+\section{Outflow analysis: properties of the ejacta}
+\label{tailanalysis}
+
+In this section, we consider the ejecta that results from the tidal disruption of the neutron star, leaving aside the second source of late-stage ejecta which occurs via neutrino driven winds and magnetic effects in accretion disk outlfows.  As our models do not incorporate magnetohydrodynamics and since we only implement a simple leakage scheme to approximately capture the effects of neutrino cooling on the post-merger remnant of Section \ref{sec:diskanalysis}, we do not evolve the remaining models beyond $10 {\rm ms}$ passed the onset of merger.
+
+For those models that evolved out to $5 {\rm ms}$ passed merger, we find that at that time, the ejecta mass $M_{\rm ej}$ is roughly constrained between $\sym (4 - 8) \times 10^{-2} M_\odot$.  In table \ref{tab:results}, we display our measured results at $5 {\rm ms}$ after measure compared to the predicted results from the fitting formulae.  As described by the fitting formulae, the stiffer, finite-temperature equations of state do indeed disrupt further outside the ISCO, while the softer one disrupt much closer and result in more interaction between the protodisk and the fallback material.
+
+\section{Post-merger remnant: formation of the protodisk and fallback material}
+\label{sec:diskanalysis}
+
+
+%\begin{figure}
+%	\centering
+%	\input{images/combined-average-temp}
+%	\caption[]{
+%		\textbf{TODO}
+%	}
+%	\label{fig:avgtemp}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\input{images/combined-neutrino-luminosity}
+%	\caption[]{
+%		\textbf{TODO}
+%	}
+%	\label{fig:neutrinoluminosity}
+%\end{figure}
+
+%\begin{figure}
+%	\centering
+%	\input{images/combined-unbound-mass}
+%	\caption[]{
+%		\textbf{TODO}
+%	}
+%	\label{fig:unboundmass}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\input{images/combined-densest-point}
+%	\caption[]{
+%		\textbf{TODO}
+%	}
+%	\label{fig:densestpoint}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\input{images/unbound-ye-sd}
+%	\caption[]{
+%		\textbf{TODO}
+%	}
+%	\label{fig:unboundYe}
+%\end{figure}
+
