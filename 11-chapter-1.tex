@@ -6,9 +6,9 @@ Black holes and neutron stars are the most compact objects in the known universe
 The mergers of these two objects,
  whether mixed in the form of black hole-neutron star (BHNS) systems or alike in the form of binary black hole (BBH) and neutron star-neutron star (NSNS) systems,
  are a primary source of gravitational waves.  
-These objects form from super-massive stars,
+These objects form from massive stars,
  with masses $M\gtrsim 8\,M_{\odot}$,
- whose cores collapse from having burnt all their fissile material and thereby
+ whose cores collapse from having burnt all their fusible material and thereby
  losing essential support from gas pressure.
 Neutron stars result from supernova on the smaller-mass end of this population,
  and are self-supported against gravitational collapse by degenerate neutron gas pressure,
@@ -20,8 +20,8 @@ Fermi pressure from an electron gas is not as strong as that of a neutron gas,
  so white dwarfs cannot be supported unless they have masses $M\lesssim 1.4\,M_{\odot}$,
  the Chandrasekhar limit.  
 Lastly, for masses larger than $M\gtrsim 10\,M_{\odot}$,
- gas pressure of any kind cannot sustain an equilibrium with gravitational pressure.  
-These collapses result in stellar-massive black holes.
+ supporting pressure of any kind cannot sustain an equilibrium with gravity.  
+These collapses result in stellar-mass black holes.
 
 Neutron stars are incredibly interesting species of exotic matter. 
 During their formation from core-collapse supernovae,
@@ -47,17 +47,17 @@ For reference,
  $\mathcal{C}_\textrm{WD} \approx 1.8 \times 10^{-4}$,
  respectively.
 Clearly general relativity does not play a major role in these stars.
-Meanwhile, for neutron stars, and black holes, the compactnesses are 
+Meanwhile, for neutron stars and black holes, the compactnesses are 
  $\mathcal{C}_\textrm{NS} \approx 0.15$
  and
  $\mathcal{C}_\textrm{BH} = 0.50$.
-At this end of the compaction scale, general relativity cannot be ignored.  The spacetimes surrounding these two objects have extreme curvature.
+At this end of the compaction scale, general relativity cannot be ignored.  The spacetime surrounding these two objects has extreme curvature.
 
 To further get a sense for how dense neutron stars are, a quick back of the envelope calculation is to consider a $M_\textrm{NS} = 1.4 M _\odot$ star, which when divided by the mass of a neutron accounts for $\sym 1.7 \times 10^{57}$ total nucleons.
 If the nucleons are homogeneously dispersed in this star, with areal radius of $12\,\textrm{km}$, the separation between them is then $\sym 1\,\textrm{fm}$.
 From scattering experiments, we know the spacing of nucleons to be $\sym 0.8\,\textrm{fm}$ so the baryons are essentially touching.
 In this compactness regime, we expect all fundamental forces to be important.
-The gas pressure, especially in the inner and outer core, is largely dominated by the strong force.  
+Nuclear forces strongly contribute to the pressures in the inner and outer core.
 The crust is mostly supported by coulomb forces which in equilibrium yield lattice structures.
 An isolated neutron star is in $\beta$-equilibrium, which is governed by the weak force and completely breaks down when the star is disrupted in extreme spacetime.
 
@@ -98,31 +98,34 @@ After a timescale of days, the unstable elements decay, which heats the ejecta, 
 
 \paragraph{Post-merger and sGRB's}
 A large amount of bound material will remain in the post-merger system.  
-The fluid circularizes around the apparent event horizon, causing shock heating as it begins to axisymmetrize. 
+The fluid circularizes around the black hole, causing shock heating as it begins to axisymmetrize. 
 A large portion of bound material in the tail crashes back into the disk, causing further heating.
 Magnetic- or neutrino-driven heating in the post-merger accretion disk can drive ultra-relativistic jets at the black hole poles, which may be observable on the order of second, or as long as the disk is still accreting.
 The jet could beam high-energy gamma ray photons--an observable short-duration gamma ray burst (sGRB).
 Neutrino-driven winds could also contribute to strong disk outflows, contributing to post-merger kilonovae.
 
-What's important here is that having an optical counterpart to the gravitational signal provides information that can be detected on multiple astronomical instruments, so dubbed multi-messenger astronomy.
-Second, optical transients occur at different timescales to gravitational waves after the merger event.
+What's important here is that having a near-infrared or sGRB counterpart to the gravitational signal provides information that can be detected on multiple astronomical instruments, so dubbed multi-messenger astronomy.
+Second, transients that emit near the infrared spectrum occur at different timescales to gravitational waves after the merger event.
 Kilonova formed in the outflowing tail material should be detectable seconds after the accompanying gravitational wave.  
 
 
 \section{Presentation of this thesis}
 
-For as many enriching astrophysical scenarios involving neutron stars, there are an order of magnitude more people studying, simulating, and observing their progenitors, mergers, and companionship with other compact objects.
-This thesis could never begin without the work of all those that contributed to our knowledge of neutron star matter thus far, and a wishful attempt has been made to excise the less relevant but no less important subfields from our discussion.
-Black hole-neutron sources and the observable information we can extract from them will help us probe the nature of neutron star structure.
+%For as many enriching astrophysical scenarios involving neutron stars, there are an order of magnitude more people studying, simulating, and observing their progenitors, mergers, and companionship with other compact objects.
+%This thesis could never begin without the work of all those that contributed to our knowledge of neutron star matter thus far, and a wishful attempt has been made to excise the less relevant but no less important subfields from our discussion.
+First, it must be acknowledged that we are only studying one type of system involving neutron stars in this paper.  Neutron star-neutron star mergers are 
+Black hole-neutron star sources and the observable information we can extract from them will help us probe the nature of neutron star structure.
 
 Alas, there is a decidedly chicken and egg problem to the order in which one begins to model stellar structure and how the star evolves in a dynamical system.
 In a short manuscript, the theoretical overview for both can be done in some sense in just a few pages. 
-However, the evolution system of \SpEC is complex, requiring many nuances to not only explain how the fluid and Einstein equations are solved, but the modifications and controls that must be made to the grids they are evolved on.
+However, the evolution system of the Spectral Einstein Code (\SpEC) is complex, requiring many nuances to not only explain how the fluid and Einstein equations are solved, but the modifications and controls that must be made to the grids they are evolved on.
 And because the subject matter of this thesis is to study several nuclear theory based, finite-temperature equations of state of neutron stars being violently disrupted by black holes, I have likewise chosen to have a separate chapter devoted to that salient detail of the star.
 % still mulling over the order in which the EOS vs evolution equations are discussed
 
 I have decided to structure this manuscript putting the emphasis first on the equation of state of neutron star matter in Chapter \ref{chap:chapter-2}, and then discuss the evolution of the relativistic fluid and Einstein's equations in Chapter \ref{chap:chapter-3}.  
-I do this for several reasons: in our simulations, the neutron star is constructed before evolution of the fluid variables, and only requires a solve of static equilibrium equations that are a balance of gas and gravitational pressure.  After the star is constructed in isolation with the equation of state (in our simulations, only using a lower temperature, one dimensional slice of the table), we place it in quasi-circular orbit around the black hole.  
+I've done this for several reasons: 
+in our simulations, the neutron star is constructed before evolution of the fluid variables, and only requires a solution of the equations of hydrostatic equilibrium (i.e. the Tolman–Oppenheimer–Volkoff equations) to model the star in isolation.  
+After the star is constructed in isolation with the equation of state (in our simulations, only using a low temperature, one dimensional slice of the table), we place it in quasi-circular orbit around the black hole by solving the constraint equations for the metric field and determining the stellar profile and orbital frequency for quasi-equilibrum circular orbit.
 These two objects inspiral in a decaying orbit, shedding away angular momentum in the form of gravitational waves.  
 For our specific configuration, our stars do not plunge directly into the black hole, but disrupt into a stream of neutron-rich matter. 
 Most of the matter accretes onto the black hole, but the remaining chunk either gets flung from the system if the matter is unbound, or circularizes into an accretion disk with the remaining bound matter falling back.

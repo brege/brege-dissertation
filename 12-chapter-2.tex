@@ -9,17 +9,17 @@ Here, the simple model for the equation of state is that of a polytrope, or one 
 \begin{align}
 P(\rho_0) = K \rho_0^\Gamma = (\Gamma -  1) \rho_0 \epsilon,
 \end{align}
-where $P$ is pressure, $\epsilon$ specific energy, $\rho_0$ rest-mass density, $K$ the gas constant, and $\Gamma$ is a unitless exponent often referred to as the adiabatic index.
+where $P$ is pressure, $\epsilon$ specific internal energy, $\rho_0$ rest-mass density, $K$ the gas constant, and $\Gamma$ is a unitless exponent often referred to as the adiabatic index.
 Since the density only varies with the pressure, this model assumes the fluid is barotropic.
 
 This simple model reveals itself to be important in limiting cases of stellar matter.  
 For a high-mass neutron star where the average density is well above the nuclear saturation number density $n_s$, the star can be adequately described with a $\Gamma \approx 2$ polytrope.  
-For a low-mass neutron star, where the average density is well below $n_s$, the star is mostly supported by degenerate Fermi pressure (as is in the white dwarf model) such that $\Gamma \simeq 4/3$.
-Introducing the notion that the interior region of the star may have a different equilibrium configuration to the crust, and that the core could be composed of exotic matter, a more adaptable equation of state can be constructed with a set of polytropes each defining these regions.  
+At low densities, where the average density is well below $n_s$, the star is mostly supported by degenerate Fermi pressure (as in the high-mass white dwarf model) such that $\Gamma \simeq 4/3$.
+Introducing the notion that the interior region of the star may have a different adiabatic index to the crust, and that the core could be composed of exotic matter, a more adaptable equation of state can be constructed with a set of polytropes each defining these regions.  
 These equations of state are called piecewise-polytropes.  
 
-However, the polytrope models do not adequately account for effects of temperature or composition elements of our very dense fluid matter.  
-So called ``hot'' or finite-temperature equations of state are much more nuanced, and generally constructed as multivariable tables utilizing many constraints from nuclear theory, astrophysics observations, and particle experiments.
+However, the polytrope models do not adequately account for effects of temperature or composition variation of our very dense fluid matter.  
+So called ``hot'' or finite-temperature equations of state are much more general, and generally constructed as multivariable tables utilizing many constraints from nuclear theory, astrophysics observations, and particle experiments.
 Because of the complexities for codes to utilize these equations of state, piecewise-polytropes are often used as a way to curve-fit and cheat the incorporation of temperature in their routines, as well as to provide a simple method to tune parameters of the PP to explore a wide range of neutron star compactnesses.
 In low-temperature bins of the fluid, a simple ``Gamma-Law'' is often used to smoothly transition from zero-temperature to the lower limit of some nuclear-theory based equation of state tables.
 In addition, an effective adiabatic index can be extracted to give one a sense how stiff the structure is in a given density regime:
@@ -28,21 +28,19 @@ In addition, an effective adiabatic index can be extracted to give one a sense h
 \tilde{\Gamma} \equiv \left( \frac{d\, {\rm log} P}{d\, {\rm log} \rho_0} \right) _S
 \end{align}
 
-Many of these equations of state are further supported by simulations of core-collapse supernovae.
-
 First, we'll review the theory of polytrope based models in Section \ref{sec:polytropes}. Then we will outline the many experimental, observational and nuclear theory constraints on the equation of state in Section \ref{sec:constraints}.   In Section \ref{sec:nuclear-eos}, we include a description of the microphysical equations of state used in the simulations of Chapter \ref{chap:chapter-5}. 
 
 
 \section{Polytropes}
 \label{sec:polytropes}
 
-Neutron stars were initially modeled with the polytrope, or ``Gamma-Law'', equation of state, in the range were $2 < \Gamma < 3$.
+Neutron stars in early simulations were initially modeled with the polytrope, or ``Gamma-Law'', equation of state, in the range where $2 < \Gamma < 3$.
 For higher $\Gamma$'s, the gas pressure is stronger, and we often refer to these as ``stiff'' equations of state and look poofier, or less compact.
 Conversely, stars with smaller $\Gamma$'s are called ``soft''.  Soft equations of state are hence more compact.
 
 We do not expect, further, that the core, interior or crust to all have the same polytropic description.
 In that case, the Gamma-Law description of neutron star structure can be improved by a so-called piecewise polytrope model.
-In such models, we allow each regime to have its own equation of state such that 
+In such models, we allow each specified dnesity interval to have its own equation of state such that 
 $$P(\rho_0) = K_i \rho_0^{\Gamma_i}$$
 where the adiabatic index $\Gamma_i$ is a constant in each regime, and $K_i$ is chosen so that the equation of state is continuous across interfaces.  
 Piecewise polytropes, while multi-parameter, are still single-variable descriptions of stellar structure.  
@@ -57,13 +55,15 @@ where $\epsilon_{\rm th}$ is a thermal specific energy, which is determined duri
 
 
 In addition to the density dependence of pressure, a more realistic equation of state has to include dependence on temperature, $T$, and composition, for instance the fraction of electrons per baryons $Y_e = n_e / n_b$.  
-We expect the temperature to be a factor, since hydrodynamical shocks heat the system, and the composition to vary since neutrons tend to decay and neutrinos allow for cooling or further heating. 
+We expect the temperature to be a factor, since hydrodynamical shocks heat the system, and the composition to vary since neutrons tend to decay and neutrinos allow for cooling or further heating via neutrino emission and absorption. 
 In general, this equation of state system takes the form:
 \begin{align}
 P &= P(\rho_0, T, X_i), \\
 u &= u(\rho_0, T, X_i),
 \end{align}
-where $X_i$ can be any number of composition variables.
+where $X_i$ can be any number of composition variables.  
+Note that in nuclear statistical equilibrium (NSE), as in our models, the only composition variable is the electron fraction, $Y_e$.  
+NSE only breaks down in the ejecta, only after the fluid has decompressed considerably.
 
 \section{Neutron Star Constraints}
 \label{sec:constraints}
@@ -89,7 +89,7 @@ From \textit{Le Chatlier's principle}, the maximum mass of a neutron star can be
 \subsection{LS220}
 \label{sec:ls220}
 
-One of the first finite-temperature equations of state developed is the Lattimer-Swesty (LS) model.  For this reason, computationally expensive full, three-dimensional fluid evolutions of core-collapse supernova have only been performed for LS220 and STOS [\textbf{TODO}: fact check this].
+One of the first finite-temperature equations of state developed for astrophysical simulations is the Lattimer-Swesty (LS) model.  For this reason, computationally expensive full, three-dimensional fluid evolutions of core-collapse supernova have only been performed for LS220 and STOS [\textbf{TODO}: fact check this].
 LS is based on a compressible liquid drop model, using a first-order phase transition from low-density vapor to the high-density liquid phase.  This makes the density dependence of the transition isobaric.  The incompressibility parameter is $K = 220 {\rm MeV}$.
 
 \subsection{DD2}
@@ -112,7 +112,7 @@ DD2, however, comes within $\sym 1 \textrm{km}$ of measured areal radii--being j
 \label{sec:fsu21}
 
 Another relativistic mean field equation of state is one based on the FSUGold model with modifications in the high density bins to allow for a maximal neutron star mass of $2.1 M_\odot$.  The RMF effective interaction FSUGold model only predicts a $1.7 M_\odot$ maximum mass, and was constructed before the detection of the $1.97 \pm 0.04 M_\odot$ neutron star.
-Among the assumptions and constraints that went into the FSUGold equation of state, FSU2.1 corrects the pressure approximately independent of proton fraction, and likewise independent of the temperature, as matter is degenerate at high densities.
+Among the assumptions and constraints that went into the FSUGold equation of state, FSU2.1 removes the restriction that the pressure approximates independently of proton fraction, and likewise independent of the temperature, as matter is degenerate at high densities.
 
 The upper limit on the baryon number density $n_B$ was modified from $10^{0.4} {\rm fm^{-3}}$ to $10^{0.2} {\rm fm^{-3}}$ for finite temperatures $T \in [10^{-0.8} , 10^{1.875}]\, {\rm MeV}$.  The lower limit is the same as FSU1.7 at $10^{-8.0} {\rm fm^{-3}}$.  For zero-temperature, the proton fraction $Y_p$ is held at $0$ while in the finite-temperature regime, $Y_p \in [0.05 , 0.56]$.  The incompressibility parameter is $K = 230.0 MeV$
 
@@ -124,8 +124,13 @@ The incompressibility factor is $K = 245.4 {\rm MeV}$ for SFHo and $K = 238.8 {\
 
 \section{Our survey}
 
-In our survey, we use the Hempel's DD2, Fisher's FSU2.1, and the SFHo and SFHx equations of state.  LS220 may occasionally be used as a reference. 
-In Figure \ref{fig:MvsR}, we show the neutron star mass-radius relationship for each system used in this study.  We chose to study two neutron star masses, $M_{\rm NS} = (1.2, 1.4) M_{\odot}$, since the distribution of neutron star populations is expected to have a mean in this range. In addition, the LS220 equation of state is included, as it has already been simulated in [cite:Foucart et al (2014)].  For the initial configuration of the star in isolation, we take a cold, $\beta$-equilibrium slice of three-dimensional tables.  To avoid strange artifacts at the table minimum of $T_{\rm floor} = 0.01 {\rm MeV}$, we take a cold slice of  $T = 0.1 {\rm MeV}$.  Therefore, the effective (cold, $\beta$-equilibrium) equation of state table is barotropic. Once the star begins to tidally disrupt, we are no longer in $\beta$-equilibrium.
+In our survey, we use the Hempel's DD2, Fisher's FSU2.1, and the SFHo and SFHx equations of state.  
+LS220 may occasionally be used as a reference. 
+In Figure \ref{fig:MvsR}, we show the neutron star mass-radius relationship for each system used in this study. 
+We chose to study two neutron star masses, $M_{\rm NS} = (1.2, 1.4) M_{\odot}$, since the distribution of neutron star populations is expected to have a mean in this range. 
+In addition, the LS220 equation of state is included, as it has already been simulated in [cite:Foucart et al (2014)].  
+For the initial configuration of the star in isolation, we take a cold, $\beta$-equilibrium slice of three-dimensional equation of state tables.  
+To avoid strange artifacts at the table minimum of $T_{\rm floor} = 0.01 {\rm MeV}$, we take a cold slice of  $T = 0.1 {\rm MeV}$.  Therefore, the effective (cold, $\beta$-equilibrium) equation of state table is barotropic. Once the star begins to tidally disrupt, we are no longer in $\beta$-equilibrium.
 
 In [cite:Lattimer 2015], Lattimer discusses the number of constraints on the equation of state and how they relate to the mass-radius relations in various ``zones'' of Figure \ref{fig:MvsR}.  Principally, an equation of state must not allow for superluminal sound speeds and allow for a maximum mass of $\sym 2.1 M_{\odot}$.
 
@@ -138,7 +143,11 @@ In [cite:Lattimer 2015], Lattimer discusses the number of constraints on the equ
 	\label{fig:MvsR}
 \end{figure}
 
-From the $M-R$ curves in Figure \ref{fig:MvsR} alone, there are a bounty of astrophysics questions we can ask.  By adopting these finite-temperature, composition-dependent equation of state models for our neutron stars, what observable characterisitics are observed during inspiral and merger?  How much does the creation of r-process elements in the dynamical outflows vary?  Does the generated gravitational waveform vary outside of the compactness parameter?  Are the fitting formulae predictions of the resulting disk and ejecta masses correct, even though they were formed with barotropic equations of state?
+From the $M-R$ curves in Figure \ref{fig:MvsR} alone, there are a bounty of astrophysics questions we can ask.  
+By adopting these finite-temperature, composition-dependent equation of state models for our neutron stars, what observable characterisitics are observed during inspiral and merger?  
+How much does the creation of r-process elements in the dynamical outflows vary?  
+Does the generated gravitational waveform vary aside from its dependence on the compactness parameter?  
+Are the fitting formulae predictions of the resulting disk and ejecta masses correct, even though they were formed with barotropic equations of state?
 
 \begin{figure}
 	\centering
@@ -149,7 +158,9 @@ From the $M-R$ curves in Figure \ref{fig:MvsR} alone, there are a bounty of astr
 	\label{fig:PvsRho}
 \end{figure}
 
-In Figure \ref{fig:PvsRho}, it can be seen that the relationship between pressure and density at low densities is similar to a $\Gamma \approx 2$ polytrope in the ``cold'' regime of the table.  Qualitatively, the pressure support at lower densities can be stronger for one equation of state, but softer at higher densities compared to another.  Indeed, it was noted in [cite: SFHo paper] that the concept of describing an equation of state as stiff or soft can be na\"{i}ve.  That is, the effective adiabatic index $\tilde{\Gamma}$ of Equation \ref{e:adiabat} for the poofier FSU2.1 model is smaller (larger) in the lower (higher) density regions compared to the more compact SFHo in the ``cold'' phase.
+In Figure \ref{fig:PvsRho}, it can be seen that the relationship between pressure and density at low densities is similar to a $\Gamma \approx 2$ polytrope in the ``cold'' regime of the table.  
+Qualitatively, the pressure support at lower densities can be stronger for one equation of state, but softer at higher densities compared to another.  
+Indeed, it was noted in [cite: SFHo paper] that the concept of describing an equation of state as stiff or soft can be na\"{i}ve.  That is, the effective adiabatic index $\tilde{\Gamma}$ of Equation \ref{e:adiabat} for the poofier FSU2.1 model is smaller (larger) in the lower (higher) density regions compared to the more compact SFHo in the ``cold'' phase.
 
 \begin{figure}
 	\centering
