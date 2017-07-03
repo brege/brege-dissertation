@@ -20,7 +20,81 @@ One difference between the two that might be significant is that disk outflows a
 Likewise, the polar regions of the disk outflow (jets) will also contribute to the total optical signal output of the event in the form of GRBs.
 
 
+% Kyoto group fitiing formulae paper
+\section{BHNS binaries with zero-temperature, piecewise polytrope EOS}
 
+Before reviewing the simulations of hot nuclear equations of state, 
+we first discuss the findings of the Kyoto group where mixed binaries are studied with a large swath of piecewise polytrope zero-temperature equations of state with the adaptive mesh refinement numerical relativity code, \SACRA (SimulAtor for Compact objects in Relativistic Astrophysics).  
+As mentioned in Chapter \ref{chap:chapter-2}, the utility of a PP equation of state is that it provides an approximation to realistic equations of state, making it easier to systematically explore a small number of different parameter estimates for the core and crust material of the star.  
+
+In [cite: 1502.05402], four different equations of state with a wide range of compactnesses $\mathcal{C} = (0.138 - 0.180)$ were studied with black hole spin $\chi = (0, 0.5, 0.75)$, and mass ratio $q \equiv M_{\rm BH}/M_{\rm NS} = (3, 5, 7)$ with the initial configuration for the star always assuming an ADM mass of $M_{\rm NS} = 1.35 M_\odot$.
+This survey led to the estimation of a semi-analytic fitting formula to determine the mass and velocity of the dynamical ejecta [cite: 1601.07711].  They obtained:
+\begin{align}
+\label{e:vej_sacra}
+\left\langle v_{\rm ej} \right\rangle = (0.01533 q + 0.1907) c
+\end{align}
+An analytic model for the light curve of the resulting kilonova/macronova is also determined.
+
+The resulting mass of the ejecta is determined to be:
+\begin{align}
+\label{e:mass_ejecta}
+\frac{M_{\rm ej}}{M^b_{\rm NS}} = 
+{\rm Max} 
+\left \{ 
+a_1 q^{n_1} (1- 2 \mathcal{C})\mathcal{C}^{-1}
+-a_2 q^{n_2} \bar{r}_{\rm ISCO}(\chi_{\rm eff} )
++a_3 \left( 1- \frac{M_{\rm NS}}{M^b_{\rm NS}} \right)
++a_4
+,
+0
+\right \},
+\end{align}
+where the neutron star has compactness $\mathcal{C}$, baryon and ADM mass $M^b_{\rm NS}$ and $M_{\rm NS}$, respectively, and the mixed binary system has mass ratio $q$.
+The effective spin of the black hole is determined by the tilt, $i$ between the spin $\chi$ and the orbital angular momentum and ($\chi_{\rm eff} = \chi \cos i$)
+The radius of the ISCO is determined by solving the formula
+\begin{align}
+\label{e:isco_r}
+\bar{r}_{\rm ISCO}(\chi) &=
+3+Z_2
+\mp (\chi)
+\sqrt{(3 - Z_1) (3 + Z_1 + 2 Z_2)} \\
+\label{e:isco_z1}
+Z_1 &= 
+1 + (1 - \chi^2)^{1/3}
+\left \{ 
+(1 + \chi)^{1/3} + (1 - \chi)^{1/3}
+\right \}  \\
+\label{e:isco_z2}
+Z_2 &= \sqrt{3 \chi^2 + Z_1^2}.
+\end{align}
+The fitting paremeters $\{n_i,a_i\}$ were determined from their simulation data via the least squares method.
+
+Prior to this study, Foucart [cite: 1207.6304] determined an semi-analytic formula to relate the dimensionless parameters of the initial configuration system ($\mathcal{C}_{\rm NS}, q, \chi_{\rm BH} $) with the baryonic mass of the post-merger remnant:
+\begin{align}
+\label{e:mass_disk}
+\frac{M^b_{\rm rem}}{M^b_{\rm NS}} = 
+\alpha (3 q)^{1/3} (1 - 2 \mathcal{C} )
+-\beta  \frac{R_{\rm ISCO}}{R_{\rm NS}},
+\end{align}
+where the fitting parameters here are $\alpha = 0.288$ and $\beta = 0.148$.
+This formula was fitted to reported disk masses available numerical relativity literature.
+One should note that $\bar{r}_{\rm ISCO} = R_{\rm ISCO}/M_{\rm BH}$ in the ejecta mass prediction is the radius of the ISCO in (dimensionless)  Boyer-Lindquist form.
+The determined remnant mass $M^b_{\rm rem}$ is defined to be any bound material outside the black hole 10 ms after merger.  
+Much of that matter isn't protodisk, but fallback.
+
+Lastly, Pannerele [cite: 2013 and 2014] determined semi-analytical fitting formulae for the final (10 ms after merger) black hole mass, spin, and inclination angle.  The black hole mass formula is based on the Buonanno, Kidder, and Lehner (BKL) approach of double black hole mergers to estimate the final spin, which itself accounts for first-order mass conservation, and that energy and angular momentum radiate away during inspiral.  
+In the presence of a neutron star, the baseline BKL approach is augmented by taking into account the (predicted) mass of the remnant disk (via Foucart's prediction formula \ref{e:mass_disk}), and further extended to include gravitational wave emission.  One the final spin magnitude  $\chi_f$ and inclination angle $i_f$ of the black hole is determined from a two-dimensional root-solving scheme, the final black hole mass is calculated to yield
+\begin{align}
+M^f_{\rm BH} &= 
+M \left \{ 
+1 - \left[1-e(\bar{r}^i_{\rm ISCO}, \chi_i) \right]
+\right \}
+- e(\bar{r}^f_{\rm ISCO}, \chi_f) M^b_{\rm rem}\\
+e(r, \chi) &= 
+\frac{ r^2 - 2 r \pm \chi \sqrt{r} }
+{ r \left(r^2 - 3r \pm 2 \chi \sqrt{r}\right)^{1/2} }
+\end{align}
+where $M$ is the total system mass, $M = M_{\rm BH} +M_{\rm NS}$
 
 % Foucart et al (2014)
 \section{BHNS Binaries with LS220 Equation of State}
@@ -28,12 +102,12 @@ Likewise, the polar regions of the disk outflow (jets) will also contribute to t
 While the inspiral of these systems can be adequately modeled with a simpler, approximate equation of state like a piecewise polytrope, the disruption phase requires a more detailed equation of state with composition and temperature dependence to more fully describe the physical effects.  
 To produce the late time gravitational wave signal, when finite size effects of the neutron star are potentially detectable and point mass post-Newtonian approximations begin to have significant errors, one must also evolve the system in the last tens of orbits prior to disruption.  
 On the other hand, to fully predict the electromagnetic signal and the nucleosynthesis yields, the number of requisite orbits can be relaxed.  
-In addition to the dependencies of neutron star structure (temperature, composition, pressure) to the nuclear reactions, we also have to accurately model magnetic fields effects of the post merger remnant disk and neutrino radiation on the disrupting fluid (and as a significant source of cooling on the disk).
+In addition to the dependencies of neutron star structure (temperature, composition, pressure) to the nuclear reactions, we also have to accurately model magnetic field effects of the post merger remnant disk and neutrino radiation on the disrupting fluid (and as a significant source of cooling on the disk).
 
 Neutrinos can also play a role on the composition of the unbound material ($u_t < -1$) that gets ejected from the system, as well as the heavy r-process elements created there during disruption. 
 Neutrino-antineutrino annihilation in the less dense regions and near the poles of the black hole can contribute to the production of short gamma ray bursts.  
 While magnetic fields and the magneto-rotational instability (MRI) are crucial to the late-stage evolution of the accretion disk, simulations have shown that they do not play an essential role during merger.  
-The equation of state, however, plays a significant role in all stages of evolution: compared to a stiff equation of state, the relative response of a soft star to the tidal diruption from the black hole during inspiral occurs closer to the black hole (likewise, if at all), can lead to qualitatively different features during merger (thinner stream of matter falling into the black hole), and the multivariate dependence of the equation of state on the evolution of the remnant accretion disk are all essential.
+The equation of state, however, plays a significant role in all stages of evolution: compared to a stiff equation of state, the relative response of a soft star to the tidal diruption from the black hole during inspiral occurs closer to the black hole (likewise, if at all), can lead to qualitatively different features during merger (thinner stream of matter falling into the black hole), and the multivariate dependence of the fluid evolution on the equation of state are all essential.
 
 In [cite: foucart, deaton 2014], the first relativistic simulations of black hole-neutron star mergers with a finite temperature equations of state with an accompanying neutrino leakage scheme were performed.  
 This work used the Lattimer-Swesty equation of state discussed in Section \ref{sec:ls220}, and explored the parameter space where the mass of the neutron star is in the lower mass range ($M_{\rm NS} = 1.2 M_\odot - 1.4 M_\odot$), while the black hole mass is in the peak of the distribution of likely stellar-mass black holes ($M_{\rm BH} = 7 M_\odot - 10 M_\odot$). 
@@ -48,15 +122,16 @@ First, the grid stricture of the finite difference grid was not adaptable at the
 That is, given that the tail is much larger in structure than the disk, accurately resolving the accretion disk would lead to over resolving the tail plus evolving enormous amounts of vacuum--far too computationally expensive.
 Conversely, lowering resolution by allowing the grid to expand in order to track the ejecta in the tail would drastically under resolve the disk.  
 Therefore, to evolve the disk, the large amount of unbound matter had to exit the grid unfortunately early.  Second, a full study of the disk evolution would require the effects of MRI turbulence, or an equivalent effective viscosity routine.
-Lastly, the neutrino leakage scheme only goes as far as an estimate for heavy eement nucleosynthesis.
+Lastly, the neutrino leakage scheme only goes as far as an estimate for the presence of neutrinos (no transport, absorption effects or spectral information).
 A more robust neutrino transport scheme would be needed to follow the production of neutrino driven winds and electron-positron creation in the baryon-poor polar axes of the black hole (gamma ray bursts).
 
-Key findings from this study found that a finite temperature equation of state neutron stars reliably ejects a large amount of material ($M_\textrm{ej} = 0.04 M_\odot -  0.16 M_\odot$), where less massive stars eject more material, and form accretion disks with mass $M_\textrm{disk} = 0.05 M_\odot -  0.15 M_\odot$, where larger black hole spin lend to more massive disks (and therefore less bound tail material).  The disks are initially hot ($T_\textrm{disk} \sim 5-15 \textrm{MeV}$) and bright in neutrinos ($L_\nu \sim 10^{53} \textrm{erg/s}$).  In the first 10 ms after merger, the disk quickly protonizes from $Y_e \sim 0.06$ to $Y_e \sim 0.1 - 0.4$. 
+Key findings from this study found that a finite temperature equation of state neutron stars reliably ejects a large amount of material ($M_\textrm{ej} = 0.04 M_\odot -  0.16 M_\odot$), where less massive stars eject more material, and form accretion disks with mass $M_\textrm{disk} = 0.05 M_\odot -  0.15 M_\odot$, where larger black hole spin lend to more massive disks (and therefore less bound tail material).  The disks are initially hot ($T_\textrm{disk} \sim 5-15 \textrm{MeV}$) and bright in neutrinos ($L_\nu \sim 10^{53} \textrm{erg/s}$).  In the first 10 ms after merger, the disk quickly protonizes from $Y_e \sim 0.06$ to $Y_e \sim 0.1 - 0.4$ because the electron antineutrino emission is highest.  
+At later times, $Y_e$ falls because of disk cooling.
 
 % Deaton et al (2016)
 \subsection{BHNS post-merger remnant study of LS220 Equation of State}
 
-In a follow-up, more in depth study, Deaton et al. [cite: 2016 paper] examined the effects of neutrino cooling on the remnant disk with the configuration system $M_{\rm NS} = 1.4 M_\odot$, $M_{\rm BH} = 5.6 M_\odot$, $\chi_{\rm BH} = 0.9$ for the LS220 equation of state.  
+In a more in depth study of one of the models studied in that paper, Deaton et al. [cite: 2016 paper] examined the effects of neutrino cooling on the remnant disk with the configuration system $M_{\rm NS} = 1.4 M_\odot$, $M_{\rm BH} = 5.6 M_\odot$, $\chi_{\rm BH} = 0.9$ for the LS220 equation of state.  
 This was the first study of a finite-temperature, composition-dependent equation of state black hole-neutron star system with full general relativity and neutrino cooling.  
 Although their disk remnant was only evolved to a fraction of the accretion timescale ($\sym 200$ms), they note that the effects of MRI heating might allow the disk to remain hot long after merger, where magnetic effects can be coupled to the fluid evolution system with magnetohydrodyanmics.
 
@@ -67,32 +142,24 @@ The neutrino luminosity peaked $\sym 10$ ms after merger at $L_\nu \sim 10^{54} 
 
 The ejecta had a mass of $M_{\rm ej} \sim 0.08 M_\odot$ with an average velocity $\sim 0.2 c$, although some matter was ejected at $0.5 c$. Additionally, the tail, while under resolved in their study, was very neutron rich with (density averaged) chemical composition $\left\langle Y_e \right\rangle_\textrm{ej} \sim 0.1$  and in nuclear statistically equilibrium as the temperature remained $T_\textrm{ej} \sim 1 \textrm{MeV}$.  The obervable radio transient from the kilonova emmision in the ejecta was estimated to be within the detectable range of the Expanded Very Large Array (EVLA).
 
-% Kyoto group fitiing formulae paper
-\section{BHNS binaries with zero-temperature, piecewise polytrope EOS}
-
-We take a quick pause from hot nuclear equations of state here to discuss the findings of the Kyoto group where mixed binaries are studied with a large swath of piecewise polytrope zero-temperature equations of state with the adaptive mesh refinement numerical relativity code, \SACRA (SimulAtor for Compact objects in Relativistic Astrophysics).  
-As mentioned in Chapter \ref{chap:chapter-2}, the utility of a PP equation of state is that it provides an approximation to realistic equations of state, making it easier to systematically explore a small number of different parameter estimates for the core and crust material of the star.  
-
-In [cite: 1502.05402], four different equations of state with a wide range of compactnesses $\mathcal{C} = (0.138 - 0.180)$ were studied with black hole spin $\chi = (0, 0.5, 0.75)$, and mass ratio $q \equiv M_{\rm BH}/M_{\rm NS} = (3, 5, 7)$ with the initial configuration for the star always assuming an ADM mass of $M_{\rm NS} = 1.35 M_\odot$.
-This survey led to the estimation of an updated analytic, fitting formula to determine the mass and velocity of the dynamical ejecta [cite: 1601.07711].  They obtained:
-\begin{align}
-\label{e:vej_sacra}
-\left\langle v_{\rm ej} \right\rangle = (0.01533 q + 0.1907) c
-\end{align}
-An analytic model for the light curve of the resulting kilonova/macronova is also determined.
-Prior to this study, Foucart [cite: 1207.6304] determined a simple formula to relate the dimensionless parameters of the initial configuration system ($\mathcal{C}_{\rm NS}, q, \chi_{\rm BH} $)  with the mass of the post-merger remnant.
 
 % Foucart et al (2016)
-
 \section{Precessing BHNS binaries with hot, microphysical EOS}
 
 Another recent exploration in the parameter space of hot, microphysical black hole-neutron star systems was done in [cite: focart, dhruv, brege et al (2016)].
 This was the first time such mergers were studied in the parameter space in which the black hole spin was inclined with respect to the orbital angular momentum. 
-In these simulations we used the DD2 equation of state (cf. Section \ref{sec:dd2}), again varying black hole mass $M_{\rm BH} = (5, 7) M_\odot$ and spin $\chi_{\rm BH} = (0.7, 0.9)$ with neutron star mass of $M_{\rm NS} = 1.4 M_\odot$, but this time not restricting the highly prograded spin of the black hole to be orbitally aligned.  The inclination angle was set to $i_{\rm BH}=60^{\circ}$ in all but the high-spin high-mass case where we set $i_{\rm BH}=20^{\circ}$.  We note here that the tidal tail is again much narrower than for the ideal gas or piecewise polytrope equation of state.  
+In these simulations we used the DD2 equation of state (cf. Section \ref{sec:dd2}), again varying black hole mass $M_{\rm BH} = (5, 7) M_\odot$ and spin $\chi_{\rm BH} = (0.7, 0.9)$ with neutron star mass of $M_{\rm NS} = 1.4 M_\odot$, but this time not restricting the highly prograded spin of the black hole to be orbitally aligned.  The inclination angle was set to $i_{\rm BH}=60^{\circ}$ in all but the high-spin high-mass case where we set $i_{\rm BH}=20^{\circ}$, since the ejecta is only expected for high-mass black holes for nearly-aligned mergers.  We note here that the tidal tail is again much narrower than for the ideal gas or piecewise polytrope equation of state.  
 
-The ejecta was measured to fall in the range of $M_{\rm ej} \sim (0.01 - 0.05) M_\odot$, while higher mass black holes and higher spinning black holes causing the most ejecta.  However, this ejecta masses are much smaller than that of aligned-spin black holes in the previous study [cite: Francois 2014]: the magnitude of the orbitally aligned component of the black hole spin is the central parameter in driving ejecta and tidal disruption.  The unbound material was again very neutron rich with $\left\langle Y_e \right\rangle_\textrm{ej} \sim 0.04 - 0.06$, where heavy elements and high-opacity lanthanides are produced, and all of the material has composition $Y_e \le 0.25$, where near this upper limit lighter r-process elements are produced.  The mass of the ejecta was $M_{\rm ej} = 0.014 M_\odot$.
+The ejecta was measured to fall in the range of $M_{\rm ej} \sim (0.01 - 0.05) M_\odot$, while higher mass black holes and higher spinning black holes causing the most ejecta.  
+However, the ejecta masses were much smaller than that of aligned-spin black holes in the previous study [cite: Francois 2014]: the magnitude of the orbitally aligned component of the black hole spin is the central parameter in driving ejecta and tidal disruption.  
+The unbound material was again very neutron rich with $\left\langle Y_e \right\rangle_\textrm{ej} \sim 0.04 - 0.06$, so that heavy elements and high-opacity lanthanides will be produced.
+All of the material has composition $Y_e \le 0.25$ such that near this upper limit lighter r-process elements will be produced.
 
-Comparing to the fitting formulae in Equation \ref{e:vej_sacra}, the results of the simulations with the hot, nuclear-theory based equation of state were quite different.  For the $5 M_{\rm BH}$ black hole system, one would expect that 
+As a note, the fitting parameters for the unbound mass used in this work (Version 2 on \url{arxiv.org}) were different to the parameters that are now available to the public (Version 3 on \url{arxiv.org}).
+The calculation of the ISCO radius (Equations \ref{e:isco_r} - \ref{e:isco_z2}) was also different, using instead the innermost stable \textit{spherical} orbit (ISSO) from Pannarelle [cite Pan 2014], which is used in both the disk- and ejecta-mass fitting formulae (Equations \ref{e:mass_disk} and \ref{e:mass_ejecta}, respectively).
+
+Comparing to the fitting formulae in Equation \ref{e:vej_sacra}, the results of the simulations with the hot, nuclear-theory based equation of state were quite different.  
+For the $5 M_{\rm BH}$ black hole system, the fitting formulae predict that that 
 $\left\langle v_{\rm ej, rms} \right\rangle = 0.245 c$.  The result in the \SpEC simulations gave $\left\langle v_{\rm ej, rms} \right\rangle = 0.175 c$.  To account for the $~40 \%$ difference between the two results, one has to keep in mind that the fitting formula of  Equation \ref{e:vej_sacra} was based on the use of zero-temperature equations of state, no composition dependence and bet-equilibrium.  The finite-temperature DD2 equation of state, on the other hand, only assumes muclear statistic equilibrium and is composition dependent.  
 
 \textbf{Section 4 of the paper (might not be worth explaining): }
