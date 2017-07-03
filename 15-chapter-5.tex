@@ -110,19 +110,48 @@ Consulting Figure \ref{fig:MultGammavsRho}, while all models soften near the fid
 	\label{fig:rho_M14}
 \end{figure*}
 
-Shortly after the merger, between the time of merger and the first local minimum of the accretion rate and average temperature, we derefine the innermost finite volume level by a factor of two.  The fluid begins to circularize $\sym (3-4) {\rm ms}$ after merger.  We perform a second derefinement by a factor of two more at this stage as well, since the material becomes less dense and easier to resolve.
-
+Shortly after the merger, between the time of merger and the first local minimum of the accretion rate and average temperature, we derefine the innermost finite volume level by a factor of two.  The fluid begins to circularize $\sym (3-4) {\rm ms}$ after merger.  We perform a second derefinement by a factor of two more at 
+this stage as well, since the material becomes less dense and easier to resolve.
 
 \begin{figure}
 	\centering
-	\input{images/combined-restmass}
+	\input{images/unbound-mass-vs-Ye}
 	\caption[]{
 		\textbf{TODO}
 	}
-	\label{fig:restmass}
+	\label{fig:Yehisto}
 \end{figure}
 
-\section{Outflow analysis: properties of the ejacta}
+\begin{figure}
+	\centering
+	\input{images/unbound-mass-vs-Vinf}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:vrhisto}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\input{images/unbound-mass-vs-costheta}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:costhetahisto}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\input{images/unbound-mass-vs-phi}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:phihisto}
+\end{figure}
+
+
+
+\section{Outflow analysis: properties of the ejecta}
 \label{tailanalysis}
 
 In this section, we consider the ejecta that results from the tidal disruption of the neutron star, leaving aside the second source of late-stage ejecta which occurs via neutrino driven winds and magnetic effects in accretion disk outlfows.  As our models do not incorporate magnetohydrodynamics and since we only implement a simple leakage scheme to approximately capture the effects of neutrino cooling on the post-merger remnant of Section \ref{sec:diskanalysis}, we do not evolve the remaining models beyond $10 {\rm ms}$ passed the onset of merger.
@@ -131,6 +160,43 @@ For those models that evolved out to $5 {\rm ms}$ passed merger, we find that at
 
 \section{Post-merger remnant: formation of the protodisk and fallback material}
 \label{sec:diskanalysis}
+
+
+\begin{figure}
+	\centering
+	\input{images/density-of-disk}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:diskdensities}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\input{images/temperature-of-disk}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:disktemps}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\input{images/composition-of-disk}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:diskYes}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\input{images/entropy-of-disk}
+	\caption[]{
+		\textbf{TODO}
+	}
+	\label{fig:diskentropies}
+\end{figure}
 
 
 %\begin{figure}
@@ -177,4 +243,22 @@ For those models that evolved out to $5 {\rm ms}$ passed merger, we find that at
 %	}
 %	\label{fig:unboundYe}
 %\end{figure}
+
+
+\section{Discussion}
+
+The first simulations of neutron stars with multiple hot, temperature- and composition-dependent nuclear theory-based equations of state in black hole-neutron star mergers using a general relativistic fluid code were performed in this study.  
+The mergers presented here all consider the same black hole parameters, with an orbitally aligned, relatively high black hole spin $\chi_{\rm BH} = 0.9$ and  mass $M_{\rm BH} = 7 M_\odot$, within the range of the most likely black hole masses.  
+The neutron stars considered in this paper were evolved with the SFHo, DD2 and FSU2.1 equations of state with relatively low masses $M_{\rm NS} = (1.2,1.4) M_\odot$ over a wide range of compactnesess.  
+These equations of state satisfy a number of observational, experimental and causal constraints.  
+The ejecta of the five models that evolved far enough passed merger (for the fluid to circularize near the horizon) is very neutron-rich $Y_e = 0.05$, allowing for the robust production of heavy elements on the 2nd and 3rd peak of r-process nucleosynthesis.
+
+We note that while we have implemented our improved algorithm to selectively evolve only non-vacuum subdomains, three of our models (M14-M17-S9-SFHo, M12-M17-S9-SFHx, and M14-M17-S9-SFHx) still had significant numerical error during merger. 
+This is because our hot, compositio- dependent, tidally-disrupting material forms a much narrower tidal tail than other piecewise polytrope models.
+An improvement to our algorithm would be to allow true adaptive mesh refinement, so that evolution subdomains could themselves shrink and expand given the average density gradient of the material inside.
+
+\paragraph{Future work} 
+
+The calculation of the gravitational waveform is in progress.  One simplification to the post-merger system is to  we are going to do is to turn off the fluid evolution and evolve only the metric quantities until the the waves propogate out to infinity.  For the neutrino emission, we did not include the effects of radiation transport in our simulations, which cannot be determnined by the relatively simple neutrino leakage scheme used in this work.  In order to capture an estimate of the production of electron-positron pairs in neutrino-driven winds near the spin axes of the black hole, evolving the fluid with a neutrino radiation code would improve the accuracy of the post-merger remnant evolution.  Furthermore, the effects of magnetic fields contribute heating through MRI turbulence.  Simulations of the post-merger remnant would be greatly enhanced with the inclusion of magnetohydrodynamics of an equivalent artificial viscosity scheme. 
+
 
