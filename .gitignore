@@ -11,6 +11,9 @@
 .\#*
 .DS_Store
 
+# Dirty images
+/pngs
+
 # TeX products
 *.aux
 *.log
