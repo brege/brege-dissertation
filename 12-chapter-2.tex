@@ -68,6 +68,8 @@ NSE only breaks down in the ejecta, only after the fluid has decompressed consid
 \section{Neutron Star Constraints}
 \label{sec:constraints}
 
+\textbf{TODO: NOT FINISHED}
+
 \subsection{Observational Constraints}
 
 Results from X-ray binary observations constrain the areal radius of $1.4M_\odot$ neutron stars between $10.4 - 12.9 \textrm{km}$.
@@ -138,7 +140,7 @@ In [cite:Lattimer 2015], Lattimer discusses the number of constraints on the equ
 	\centering
 	\input{images/tov-mass-vs-radius}
 	\caption[Neutron star mass vs. areal radius]{
-		ADM neutron star mass vs. areal radius for nuclear equations of state sliced at $T=0.1{\rm MeV}$ in $\beta$-equilibrium.  Intersections of dotted lines and colored curve represent the neutron star masses chosen for this survey: $M_{\rm NS} = (1.2, 1.4) M_{\odot}$.  
+		ADM neutron star mass vs. areal radius for nuclear equations of state sliced at $T=0.1{\rm MeV}$ in $\beta$-equilibrium.  Intersections of dotted lines and colored curves represent ADM the neutron star masses chosen for this survey: $M_{\rm NS} = (1.2, 1.4) M_{\odot}$.  
 	}
 	\label{fig:MvsR}
 \end{figure}
@@ -162,14 +164,14 @@ In Figure \ref{fig:PvsRho}, it can be seen that the relationship between pressur
 Qualitatively, the pressure support at lower densities can be stronger for one equation of state, but softer at higher densities compared to another.  
 Indeed, it was noted in [cite: SFHo paper] that the concept of describing an equation of state as stiff or soft can be na\"{i}ve.  That is, the effective adiabatic index $\tilde{\Gamma}$ of Equation \ref{e:adiabat} for the poofier FSU2.1 model is smaller (larger) in the lower (higher) density regions compared to the more compact SFHo in the ``cold'' phase.
 
-\begin{figure}
-	\centering
-	\input{images/delta-pressure-vs-density}
-	\caption[Difference in pressure vs. density for constant $Y_e$, varying temperature]{
-		Normalized pressure difference at $Y_e = 0.05$ between $T = (0,5) {\rm MeV}$ (solid) and $T = (0,10) {\rm MeV}$ (dashed), both normalized by the zero-temperature pressure. Vertical dotted line represents the fiducial density.
-	}
-	\label{fig:dPvsRho}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\input{images/delta-pressure-vs-density}
+%	\caption[Difference in pressure vs. density for constant $Y_e$, varying temperature]{
+%		Normalized pressure difference at $Y_e = 0.05$ between $T = (0,5) {\rm MeV}$ (solid) and $T = (0,10) {\rm MeV}$ (dashed), both normalized by the zero-temperature pressure. Vertical dotted line represents the fiducial density.
+%	}
+%	\label{fig:dPvsRho}
+%\end{figure}
 
 
 \begin{figure}
@@ -177,20 +179,19 @@ Indeed, it was noted in [cite: SFHo paper] that the concept of describing an equ
 	\input{images/gamma-vs-density}
 	\caption[Adiabatic index vs. density for constant $Y_e$, varying temperature]
 	{
-		\textbf{TODO}
 	}
 	\label{fig:GammavsRho}
 \end{figure}
 
 
-In Figure \ref{fig:dPvsRho}, we observe the effect temperature has on the pressure-density relations.  Past the fiducial density $\rho_s = 10^{14.7} {\rm g \, cm^{-3}}$ (with fixed $Y_e = 0.05$), changes in temperature do not alter the pressure-density relation by much at all.  As temperature increases in the lower density regime, the structures begin to converge and increase to similar $\tilde{\Gamma}$ between models.  The main differences occur in the intermediate region, where the increasing variance in $\tilde{\Gamma}$ between temperatures becomes clear.
+In Figure \ref{fig:MultGammavsRho}, we observe the effect temperature has on the pressure-density relations.  Past the fiducial density $\rho_s = 10^{14.7} {\rm g \, cm^{-3}}$ (with fixed $Y_e = 0.05$), changes in temperature do not alter the pressure-density relation by much at all.  As temperature increases in the lower density regime, the structures begin to converge and increase to similar $\tilde{\Gamma}$ between models.  The main differences occur in the intermediate region, where the increasing variance in $\tilde{\Gamma}$ between temperatures becomes clear.
 
 \begin{figure}
 	\centering
 	\input{images/one-gamma-vs-density}
-	\caption[Adiabatic index vs. density for constant $Y_e = 0.3$, varying temperature]
+	\caption[Adiabatic index vs. density for constant composition and temperature]
 	{
-		\textbf{TODO}
+		Effective adiabatic index as a function of baryon density for constant $Y_e = 0.3$ and temperature $T = 0.7 {\rm MeV}$, for comparison to the literature [cite FSU paper].  Displayed are verticle lines for the critical density $\rho_c$ and fiducial density $\rho_{\rm fid}$, while the third vertical line between those is the nuclear saturation density.  The horizontal line corresponds to a $\Gamma = 4/3$ polytrope law.
 	}
 	\label{fig:OneGammavsRho}
 \end{figure}
@@ -203,7 +204,13 @@ In Figure \ref{fig:dPvsRho}, we observe the effect temperature has on the pressu
 	}
 	\caption[Adiabatic index vs. density for constant $Y_e = 0.3$, varying temperature]
 	{
-		\textbf{TODO}
+		Effective adiabatic index as a function of density for the equaions of state considered, sliced along 
+		(a) cold $T=0.1 {\rm MeV}$, $\beta$-equilibrium,
+		(b) temperature $T=0 {\rm MeV}$,
+		(c) $T=5{\rm MeV}$,
+		(d) $T=10{\rm MeV}$,
+		where cases (b)-(d) also assume very neutron rich composition $Y_e = 0.05$.  In all models, as atmosphere temperature increases the equations of state all begin to soften and become less distinguishable.  
+		The step-effect in (a) is likely the result of a low resolution used in the $\beta$-equilibrium slice. 
 	}
 	\label{fig:MultGammavsRho}
 \end{figure}
