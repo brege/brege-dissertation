@@ -33,7 +33,7 @@
 
 * The bibliography shall be in:
 
-    -   `21-references.bib`: Uses `BibTeX` entries 
+    -   `references/`: Uses `BibTeX` entries 
         ([gscholar.py](https://github.com/venthur/gscholar) is your
 	friend)
 
