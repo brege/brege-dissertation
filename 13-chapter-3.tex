@@ -2,8 +2,10 @@
 \label{chap:chapter-3}
 	
 Simulating compact binary coalescence requires Einstein's full theory of general relativity.
-We approach the problem of evolving black hole-neutron star inspirals and mergers with the Spectral Einstein Code (\SpEC).  
-\SpEC, as in other codes [cite], uses a two-grid method to simultaneously evolve Einstein's equations and the fluid equations.
+We approach the problem of evolving black hole-neutron star inspirals and mergers with the Spectral Einstein Code
+\footnote{\url{https://black-holes.org/SpEC.html}}
+(\SpEC).  
+\SpEC uses a two-grid method to simultaneously evolve Einstein's equations~\cite{Lindblom:2007,Szilagyi:2014fna} and the fluid equations~\cite{Duez:2008rb,Foucart:2013a}.
 We evolve Einstein's equations using multi-domain pseudospectral methods on what we'll refer to as the GR grid.
 For the fluid matter, we evolve the fluid equations on a multi-domain finite volume grid, occasionally referred to in this work as the fluid grid.
 
@@ -50,7 +52,7 @@ where we have included only the principal (`$\simeq$') parts to be evolved.  We 
 \textbf{TODO:} Damping parameters $\rightarrow$ tie back to gauge function $H_a$
 
 
-The GR grid is first divided into touching but not overlapping subdomains consisting of: cubed spheres, wedges, and spherical shells (see Figure \ref{fig:pseudospectral-grid}).  The choice of the geometry of the subdomains are chosen so as to reflect the configuration symmetry.  A penalty method is employed at subdomain interfaces [cite].  In corotating coordinates, the black hole is spherically excised such that the excision surface lies between the inner and outer apparent horizons of the (Kerr) black hole.  We control the size of the horizon with a distribution function $f(r)$ and the shape of the excision surface as a series of spherical harmonics: $r \rightarrow r + f(r) \sum_{lm} { c_{lm} Y_{lm}(\theta, \varphi) }$, where $r$ is the distance from the horizon.  The control system also maintains the black hole to be centered on a stationary point, which is done by translational mapping.  
+The GR grid is first divided into touching but not overlapping subdomains consisting of: cubed spheres, wedges, and spherical shells (see Figure \ref{fig:pseudospectral-grid}).  The choice of the geometry of the subdomains are chosen so as to reflect the configuration symmetry.  A penalty method is employed at subdomain interfaces~\cite{Hesthaven1999,Hesthaven2000,Gottlieb2001,Hesthaven1997}.  In corotating coordinates, the black hole is spherically excised such that the excision surface lies between the inner and outer apparent horizons of the (Kerr) black hole.  We control the size of the horizon with a distribution function $f(r)$ and the shape of the excision surface as a series of spherical harmonics: $r \rightarrow r + f(r) \sum_{lm} { c_{lm} Y_{lm}(\theta, \varphi) }$, where $r$ is the distance from the coordinate center of the black hole.  The control system also maintains the black hole to be centered on a stationary point, which is done by translational mapping.  
 
 \begin{figure}
 	\centering
@@ -65,7 +67,7 @@ We use pseudospectral methods to evolve the generalized harmonic system, choosin
 \section{FD Grid}
 \label{sec:fd-grid}
 
-We assume the neutron star matter to be an ideal fluid.  The stress energy tensor is given by
+We assume the neutron star matter to be an ideal fluid (see, e.g.~\cite{Duez2005}).  The stress energy tensor is given by
 \begin{eqnarray}
 T^{\mu \nu} &=& \rho_0 h u^\mu u^\nu + P g^{\mu \nu}.
 \label{e:StressEnergyTensor}
@@ -108,15 +110,15 @@ The fluid equations \ref{e:ConsOfMass} and \ref{e:ConsOfEnergyMomentum} can then
 \end{align}
 where $v^i$ is the fluid three-velocity.  That is, each of the equations is in conservative form $\partial_t u  + \partial_i F^i = \sigma$, for  fluxes $F$ and  source term $\sigma$.  
 
-In addition to the above evolution equations, we evolve the conservative counterpart of the composition variable $\rho_* Y_e$ using the neutrino leakage scheme described in [cite].  That is, the neutrino radiation field appears only as source terms in the evolution equations.  In terms of the effective energy emission rate $Q_\nu$, neutrino radiation pressure $P_\nu$ and the effective lepton number emission rate $R_\nu$, the additional composition evolution equations are, in a local comoving frame of the fluid, 
+In addition to the above evolution equations, we evolve the conservative counterpart of the composition variable $\rho_* Y_e$ using the neutrino leakage scheme described in~\cite{Deaton2013}.  That is, the neutrino radiation field appears only as source terms in the evolution equations.  In terms of the effective energy emission rate $Q_\nu$, neutrino radiation pressure $P_\nu$ and the effective lepton number emission rate $R_\nu$, the additional composition evolution equations are, in a local comoving frame of the fluid, 
 \begin{align}
 \partial_t T^{00} &= -Q_\nu \\
 \partial_t T_{j0} &= - \partial_j P_\nu \\
 \partial_t (\rho_* Y_e) &= -R_\nu m_U ,
 \end{align}
-where $m_U$ is the atomic mass unit.  For the neutrino pressure, we can treat the gradient as a source term since the radiation field mostly changes by advection.
+where $m_U$ is the atomic mass unit.
 
-To evolve the fluid equations \ref{e:ADMConsOfMass} - \ref{e:ADMConsofMomentum}, there are a variety of different FD grid configurations and finite difference reconstructors available to \SpEC.  For our simulations, we use a fifth-order accurate, shock-capturing, weighted essentially non-oscillatory reconstruction scheme, WENO5, to perform interpolation of the conservative variables on the grid points to conservative fluxes on cell faces.  An HLLE approximate Riemann solver is used to compute the differences of the cell boundary fluxes.
+To evolve the fluid equations \ref{e:ADMConsOfMass} - \ref{e:ADMConsofMomentum}, there are a variety of different FD grid configurations and finite difference reconstructors available to \SpEC.  For our simulations, we use a fifth-order accurate, shock-capturing, weighted essentially non-oscillatory reconstruction scheme, WENO5, to perform interpolation of the conservative variables on the grid points to conservative fluxes on cell faces~\cite{Liu1994200,Jiang1996202}.  An HLLE approximate Riemann solver is used to compute the differences of the cell boundary fluxes~\cite{HLL}.
 In Section \ref{sec:communication}, we discuss the time integral used, while in Section \ref{sec:hydro-amr}, we will discuss the geometrical configuration of the finite difference grid.
 
 There are also a number of further physical constraints we must safeguard against.  When evolving the conservative variables ($\rho_*$, $\tau$, $S_i$) in low-density regimes, small numerical errors can lead to very large and nonphysical values for the primitive variables (pressure $P$, temperature $T$, velocities $v_i$).  To fix this, we employ two techniques to enforce restrictions on the variables to help prevent them from feeding nonphysical junk into the evolution equations.
@@ -193,7 +195,7 @@ To capture the interesting properties of the ejecta, the tail material must be c
 A first try at improving the cubic grid structure was a test implementation of ``fixed'' mesh refinement.  The subdomain cubes could be expanded every $2\,N_\textrm{ext}\,dx_i$ from a central point, where $N^i_\textrm{ext}$ is the number of points along spatial dimension $x_i$.  At each level of refinement the grid spacing doubles.  Note that in our implementation, each subdomain has an equal number of points regardless of refinement level.  Therefore, when we double the \textit{size} of a subdomain, we are \textit{halving} its resolution.
 
 Although this method provides the proper resolution to evolve both the longer tail material and the resulting accretion disk, only $\left(10 - 20\right) \%$ of the subdomains during peak disruption are evolving matter.  
-To improve on this further, we've introduced in [cite DD2 precession paper] a new implementation of an adaptive mesh refinement (AMR) algorithm that can turn  fluid subdomains off and on.
+To improve on this further, we've introduced in~\cite{FoucartDD2:2017} a new implementation of an adaptive mesh refinement (AMR) algorithm that can turn  fluid subdomains off and on.
 In general, we use $7$ levels of refinement, where each each subdomain has $300 \times 300 \times 200$ points in each Cartesian direction.
 Each refinement level is then divided into $12 \times 12 \times 8$ subdomains.
 The innermost finest level can evolve any of its subdomains so long as they are not completely enveloped within the excision region around the black hole.
@@ -210,12 +212,12 @@ where $r_\textrm{exc}$ is the excision radius and $r$ the coordinate distance fr
 Conversely, if the fluid density is $\rho < \rho_\textrm{FMR} / 2$ for every cell within $6$ grid points from the outer boundary.
 We perform these two checks every $20$ time steps.
 
-The numerous limitations of our Hydro-AMR algorithm are indeed an open place for improvement.  For instance, the size of the subdomains is still very much fixed, and must be manually adjusted when material is under resolved (or over resolved).  An improvement here would be to develop a criterion to adjust the subdomain block size anywhere on the grid as other fluid codes do (as does the pseudospectral method used in the evolution of Einstein's equations in our code), regardless of the evolution center.  
+The numerous limitations of our Hydro-AMR algorithm are indeed an open place for improvement.  For instance, the size of the subdomains is still very much fixed, and must be manually adjusted when material is under resolved (or over resolved).  An improvement here would be to develop a criterion to adjust the subdomain block size anywhere on the grid as other fluid codes do~\cite{YamamotoShibata2008} (as does the pseudospectral method used in the evolution of Einstein's equations in our code), regardless of the evolution center.  
 
 \section{Phases of the evolution}
 \label{sec:epochs}
 
-\subsection{Initial Data} As described in Chapter \ref{chap:chapter-2}, we construct the neutron star using the available Equation of State tables which contain a multidimensional relationship of baryonic rest mass density, $\rho_0$, temperature, $T$, and composition, $Y_e$.  In our study, our neutron stars have a ADM masses of $1.2 M_\odot$ and $1.4 M_\odot$ that span the expected range of observed neutron star masses in binary orbits [cite].  The star's initial temperature is cold, set at $0.01\,\textrm{MeV}$.  We choose the parameters of the black hole to yield a result that is highly disruptive to the fluid matter by prescribing a high prograde aligned spin of $a_* \equiv J_\textrm{BH}/M_\textrm{BH}^2 = 0.9$ and a Christodoulou mass of $7 M_\odot$, for each system, to be more conducive to tidal disruption and less likely for the star to directly plunge into the black hole.
+\subsection{Initial Data} As described in Chapter \ref{chap:chapter-2}, we construct the neutron star using the available Equation of State tables which contain a multidimensional relationship of baryonic rest mass density, $\rho_0$, temperature, $T$, and composition, $Y_e$.  In our study, our neutron stars have a ADM masses of $1.2 M_\odot$ and $1.4 M_\odot$ that span the expected range of observed neutron star masses in binary orbits~\cite{Ozel2012}.  The star's initial temperature is cold, set at $0.01\,\textrm{MeV}$.  We choose the parameters of the black hole to yield a result that is highly disruptive to the fluid matter by prescribing a high, prograde-aligned spin of $a_* \equiv J_\textrm{BH}/M_\textrm{BH}^2 = 0.9$ and a Christodoulou mass of $7 M_\odot$, for each system, to be more conducive to tidal disruption and less likely for the star to directly plunge into the black hole.
 In general, an orbitally aligned highly spinning black hole brings the innermost stable circular orbit (ISCO) closer to the horizon.
 The neutron star will maximally disrupt the closer the ISCO is to the black hole, since the  neutron star will disrupt deeper into the potential well.
 
@@ -227,7 +229,6 @@ An additional (although, in the large scheme, minor) benefit was that the number
 The box-size of the fluid grid was roughly set to $2 R_\textrm{NS}$.  
 The termination criteria for the inspiral in all simulations occurred when the binary separation dropped below a specified expansion factor, which is based on the neutron star's Hill radius.
 During this phase, we use a frozen harmonic gauge where the components of $H_a$ are all set to zero.  
-In essence, $H_a$ simply advects with the coordinates.
 	
 \subsection{Plunge}  
 The transition from inspiral to the ``plunge'' epoch of the merger, i.e. when tidal disruption starts, accelerating the accretion rate onto the black hole, required several steps.  First, the evolved upper-half fluid variables on the finite-difference grid must be reflected onto the lower-half, using a domain reflector tool in \SpEC.  Second, the new cubic Hydro-AMR domain needs to be constructed from the unigrid domain used during inspiral.
@@ -244,9 +245,8 @@ Since most of the disruption points radially toward the black hole, the corotati
 Because the inspiral grid contained only the neutron star, most of the available subdomains ($\sym 70\%$) will overlap the vacuum.  
 Therefore, to generate the new domain, we use our convention that starting from the corner subdomain in the negative Cartesian octant, subdomains are annotated integrally and stride along the positive direction to the outer, positive-sided boundary.
 At this stage, the star is still mostly spherical, so generating the subdomains in the initial cubic configuration of the star is fairly straightforward.
-This epoch lasts between $1 - 2$ orbits.
 
-We also modify the gauge function $H_a$ to a damped harmonic gauge discussed in [cite:bela 2013].  To smoothly transition to the new gauge from the frozen harmonic gauge used during inspiral, we roll on the damped harmonic gauge by setting
+We also modify the gauge function $H_a$ to a damped harmonic gauge discussed in~\cite{Szilagyi:2014fna}.  To smoothly transition to the new gauge from the frozen harmonic gauge used during inspiral, we roll on the damped harmonic gauge by setting
 \begin{equation}
 \partial_t H_a = f_\textrm{d}(t) (\partial_t H_a)_\textrm{damp} + (1 - f_\textrm{d}(t)) (\partial_t H_a)_\textrm{frozen}
 \end{equation}
@@ -256,12 +256,13 @@ f_\textrm{d}(t) = 1 - e^{ \left(\frac{t-t_\textrm{d}}{w_\textrm{d}} \right)^4 }
 \end{equation}
 and the width parameter $w_\textrm{d}$ is a timescale set to $20 M$ after which the damped harmonic gauge is fully turned on.  In our simulations (total system mass $M \sym 8 M_\odot$), the DH gauge takes over in just under a millisecond from the onset of accretion.
 
+This epoch lasts between $1 - 2$ orbits.
 
 \subsection{Post disruption}
 
 Once half of the neutron star mass has been accreted onto the black hole, we begin the final stage of the merger.  
 Since we expect an axisymmetric accretion disk to form, there is no longer a need use a rotational coordinate system.
-In addition, much of the mass of the outer tail becomes largely unbound and will be ejected from the system.  
+In addition, a sizable amount of the mass in the outer tail becomes unbound and will be ejected from the system.  
 The final post-merger remnant will axisymmetrize around the black hole.
 However, we must again determine the appropriate grid for the new epoch.
 
@@ -269,14 +270,11 @@ To avoid interpolating the primitive variables on restart, we center the grid an
 We bump the number of allowed levels from $4$ to $7$ to capture the outflow, with a total span of $\sym(4800 \times 4800 \times 3200) \textrm{km}$, although no more than $6$ levels were used in all eight of our simulations.
 Note that we symmetrized the boundaries of the $x$ and $y$ axes, whereas in plunge, $y$ and $z$ were symmetrized (we lose the coratating frame so the matter will secularly distort in the $xy$-plane).    
 
-After the leading edge of the infalling tail within the finest level begins to fallback onto the circularizing fluid, we reduce the resolution of the finest grid to that of the next outer grid. 
+After the leading edge of the infalling tail within the finest level begins to fully surround the horizon on the equator, we reduce the resolution of the finest grid to that of the next outer grid. 
 In this stage, the fluid around the apparent horizon begins to form a protodisk.
 Once this protodisk (roughly) begins to axisymmetrize, we reduce the resolution of the finest level a second and final time, resulting in five levels of refinement before the matter leaves the grid.
 
-\subsection{Post-merger remnant}
-
-\textbf{TODO:} probably don't even need this subsection for our study..
-
+As for the post-merger remnant and fallback material, no further adjustments to the grid are performed.
 
 
 

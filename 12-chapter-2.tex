@@ -9,12 +9,12 @@ Here, the simple model for the equation of state is that of a polytrope, or one 
 \begin{align}
 P(\rho_0) = K \rho_0^\Gamma = (\Gamma -  1) \rho_0 \epsilon,
 \end{align}
-where $P$ is pressure, $\epsilon$ specific internal energy, $\rho_0$ rest-mass density, $K$ the gas constant, and $\Gamma$ is a unitless exponent often referred to as the adiabatic index.
+where $P$ is pressure, $\epsilon$ specific internal energy, $\rho_0$ rest-mass density, $K$ the polytropic constant, and $\Gamma$ is a unitless exponent often referred to as the adiabatic index.
 Since the density only varies with the pressure, this model assumes the fluid is barotropic.
 
 This simple model reveals itself to be important in limiting cases of stellar matter.  
-For a high-mass neutron star where the average density is well above the nuclear saturation number density $n_s$, the star can be adequately described with a $\Gamma \approx 2$ polytrope.  
-At low densities, where the average density is well below $n_s$, the star is mostly supported by degenerate Fermi pressure (as in the high-mass white dwarf model) such that $\Gamma \simeq 4/3$.
+For a high-mass neutron star where the average density is well above the nuclear saturation number density $n_s$, the star can be adequately described with a $\Gamma \approx 2$ polytrope~\cite{lattimer2016equation}.  
+At low densities, where the average density is well below $n_s$, the star is mostly supported by degenerate relativistic Fermi pressure (as in the high-mass white dwarf model) such that $\Gamma \simeq 4/3$.
 Introducing the notion that the interior region of the star may have a different adiabatic index to the crust, and that the core could be composed of exotic matter, a more adaptable equation of state can be constructed with a set of polytropes each defining these regions.  
 These equations of state are called piecewise-polytropes.  
 
@@ -50,8 +50,8 @@ P &=  P_{\rm cold}(\rho_0) + (\Gamma_{\rm th}-1)\rho\epsilon_{\rm th} ,\\
 \epsilon &=  \epsilon_{\rm cold}(\rho_0) + \epsilon_{\rm th}, 
 \end{align}
 where $\epsilon_{\rm th}$ is a thermal specific energy, which is determined during the evolution of the energy density.
-
-\textbf{TODO: explain PP + GW detection and PP study by lackey+kyoto group}
+In~\cite{read2009constraints}, a systematic study of parametrizing the constraints of the neutron star equation of state  with piecewise polytrope models was studied.  
+Phenomenologically different piecewise polytrope models yielded different tidal deformability parameters, which was detectable in the gravitational wave signal.
 
 
 In addition to the density dependence of pressure, a more realistic equation of state has to include dependence on temperature, $T$, and composition, for instance the fraction of electrons per baryons $Y_e = n_e / n_b$.  
@@ -77,7 +77,7 @@ Observations from the neutron star-white dwarf binary PSR J1614-2230 revealed a 
 
 \subsection{Experimental Constraints}
 
-The most rapidly spinning pulsar PSR J1748-2446ad constrains the maximum radius of a neutron star: a star must rotate beneath the Keplerian frequency at which mass-shedding occurs [cite:Latt. 2015 eq 95].
+The most rapidly spinning pulsar PSR J1748-2446ad constrains the maximum radius of a neutron star: a star must rotate beneath the Keplerian frequency at which mass-shedding occurs (cf. Equation [95] in~\cite{lattimer2016equation}).
 
 \textbf{TODO}: Use arguments from 1403.1186 which give general experimental constraints that all NS EOS need to satisfy. 
 
@@ -91,20 +91,23 @@ From \textit{Le Chatlier's principle}, the maximum mass of a neutron star can be
 \subsection{LS220}
 \label{sec:ls220}
 
-One of the first finite-temperature equations of state developed for astrophysical simulations is the Lattimer-Swesty (LS) model.  For this reason, computationally expensive full, three-dimensional fluid evolutions of core-collapse supernova have only been performed for LS220 and STOS [\textbf{TODO}: fact check this].
-LS is based on a compressible liquid drop model, using a first-order phase transition from low-density vapor to the high-density liquid phase.  This makes the density dependence of the transition isobaric.  The incompressibility parameter is $K = 220 {\rm MeV}$.
+One of the first finite-temperature equations of state developed for astrophysical simulations is the Lattimer-Swesty (LS) model.  
+For this reason, computationally expensive full, three-dimensional fluid evolutions of core-collapse supernova have only been performed for LS220 and STOS [\textbf{TODO}: fact check this].
+LS is based on a compressible liquid drop model, using a first-order phase transition from low-density vapor to the high-density liquid phase.  
+This makes the density dependence of the transition isobaric.  
+The incompressibility parameter is $K = 220 {\rm MeV}$.
 
 \subsection{DD2}
 \label{sec:dd2}
 
-Another hot, composition dependent nuclear-theory based equation of state is DD2.  DD2 is relativistic mean field (RMF) model based on a nucleon-meson coupling model whose momentum is density dependent (DD).  
+Another hot, composition dependent nuclear-theory based equation of state is DD2~\cite{typel2010composition}.  DD2 is relativistic mean field (RMF) model based on a nucleon-meson coupling model whose momentum is density dependent (DD).  
 For DD, the reference density is the saturation density (when nucleons begin to touch) of symmetric nuclear matter (i.e. the number densities $n_\textrm{p} = n_\textrm{n}$), where the incompressibility factor is fixed at $K = 240$ MeV.
 In this model, the binding energy of eight nuclei were computed and compared to experimental values and found stronger agreement than the NL3 EOS.
-DD2 is the same as DD with additional corrections provided from experimental nucleon masses measured in a lab.
+DD2 is the same as DD~\cite{typel2005relativistic} with additional corrections provided from experimental nucleon masses measured in a lab.
 
-DD2 is also constrained by several nuclear theory based studies.
+DD2 is also constrained by several nuclear theory based studies~\cite{hempel2012new}.
 Several studies have shown that nuclear energy bounds fall within the predictions of Chiral Effective Field theory.
-Unlike the classical Lattimer-Swesty [cite] and the STOS [cite] EOS models that employ a single nucleus approximation, DD2 includes a detailed distribution of thousands of different nuclei.
+Unlike the classical Lattimer-Swesty~\cite{Lattimer:1991nc} and the STOS [cite] EOS models that employ a single nucleus approximation, DD2 includes a detailed distribution of thousands of different nuclei.
 
 In addition, DD2 allows for the existence of stars whose masses are above the observations we have to-date.
 Compared to observational constraints, DD2 can allow for masses as high as $\sym 2.4 M_\odot$, much greater than the observed $\sym 2 M_\odot$ neutron stars.
@@ -113,15 +116,15 @@ DD2, however, comes within $\sym 1 \textrm{km}$ of measured areal radii--being j
 \subsection{FSU2.1}
 \label{sec:fsu21}
 
-Another relativistic mean field equation of state is one based on the FSUGold model with modifications in the high density bins to allow for a maximal neutron star mass of $2.1 M_\odot$.  The RMF effective interaction FSUGold model only predicts a $1.7 M_\odot$ maximum mass, and was constructed before the detection of the $1.97 \pm 0.04 M_\odot$ neutron star.
+Another relativistic mean field equation of state is one based on the FSUGold model~\cite{todd2005neutron} with modifications in the high density bins to allow for a maximal neutron star mass of $2.1 M_\odot$~\cite{shen2011second}.  The RMF effective interaction FSUGold model only predicts a $1.7 M_\odot$ maximum mass, and was constructed before the detection of the $1.97 \pm 0.04 M_\odot$ neutron star.
 Among the assumptions and constraints that went into the FSUGold equation of state, FSU2.1 removes the restriction that the pressure approximates independently of proton fraction, and likewise independent of the temperature, as matter is degenerate at high densities.
 
-The upper limit on the baryon number density $n_B$ was modified from $10^{0.4} {\rm fm^{-3}}$ to $10^{0.2} {\rm fm^{-3}}$ for finite temperatures $T \in [10^{-0.8} , 10^{1.875}]\, {\rm MeV}$.  The lower limit is the same as FSU1.7 at $10^{-8.0} {\rm fm^{-3}}$.  For zero-temperature, the proton fraction $Y_p$ is held at $0$ while in the finite-temperature regime, $Y_p \in [0.05 , 0.56]$.  The incompressibility parameter is $K = 230.0 MeV$
+The upper limit on the baryon number density $n_B$ was modified from $10^{0.4} {\rm fm^{-3}}$ to $10^{0.2} {\rm fm^{-3}}$ for finite temperatures $T \in [10^{-0.8} , 10^{1.875}]\, {\rm MeV}$.  The lower limit is the same as FSU1.7 at $10^{-8.0} {\rm fm^{-3}}$.  For zero-temperature, the proton fraction $Y_p$ is held at $0$ while in the finite-temperature regime, $Y_p \in [0.05 , 0.56]$.  The incompressibility parameter is $K = 230.0 MeV$.  
 
 \subsection{SFHo and SFHx}
 \label{sec:sfh}
 
-Two additional systems were developed by Steiner, Hempel and Fischer that yielded much more compact stars.  In these models, the theoretical constraint enforcing subluminal sound speeds is automatically enforced.  A prediction for the region where the $M-R$ curve of a $1.4 M_\odot$  neutron star is given in [cite:1205.6871], where the authors argue that the radius should be $R_{\rm NS} \in [11.2,12.3] {\rm km}$.  The baseline model, SFHo, fits this prediction.  The extreme model, SFHx, attempts to minimize the radius of lower mass neutron stars.  In either case, the pressure monotonically increases with density in all phases.
+Two additional systems were developed by Steiner, Hempel and Fischer~\cite{steiner2013core} that yielded much more compact stars.  In these models, the theoretical constraint enforcing subluminal sound speeds is automatically enforced.  A prediction for the region where the $M-R$ curve of a $1.4 M_\odot$  neutron star is given in~\cite{steiner6871apjl}, where the authors argue that the radius should be $R_{\rm NS} \in [11.2,12.3] {\rm km}$.  The baseline model, SFHo, fits this prediction.  The extreme model, SFHx, attempts to minimize the radius of lower mass neutron stars.  In either case, the pressure monotonically increases with density in all phases.
 The incompressibility factor is $K = 245.4 {\rm MeV}$ for SFHo and $K = 238.8 {\rm MeV}$ for SFHx
 
 \section{Our survey}
@@ -130,11 +133,12 @@ In our survey, we use the Hempel's DD2, Fisher's FSU2.1, and the SFHo and SFHx e
 LS220 may occasionally be used as a reference. 
 In Figure \ref{fig:MvsR}, we show the neutron star mass-radius relationship for each system used in this study. 
 We chose to study two neutron star masses, $M_{\rm NS} = (1.2, 1.4) M_{\odot}$, since the distribution of neutron star populations is expected to have a mean in this range. 
-In addition, the LS220 equation of state is included, as it has already been simulated in [cite:Foucart et al (2014)].  
+In addition, the LS220 equation of state is included, as it has already been simulated in~\cite{Foucart:2014nda}.  
 For the initial configuration of the star in isolation, we take a cold, $\beta$-equilibrium slice of three-dimensional equation of state tables.  
 To avoid strange artifacts at the table minimum of $T_{\rm floor} = 0.01 {\rm MeV}$, we take a cold slice of  $T = 0.1 {\rm MeV}$.  Therefore, the effective (cold, $\beta$-equilibrium) equation of state table is barotropic. Once the star begins to tidally disrupt, we are no longer in $\beta$-equilibrium.
 
-In [cite:Lattimer 2015], Lattimer discusses the number of constraints on the equation of state and how they relate to the mass-radius relations in various ``zones'' of Figure \ref{fig:MvsR}.  Principally, an equation of state must not allow for superluminal sound speeds and allow for a maximum mass of $\sym 2.1 M_{\odot}$.
+In~\cite{lattimer2016equation}, Lattimer discusses the number of constraints on the equation of state and how they relate to the mass-radius relations in various ``zones'' of Figure \ref{fig:MvsR}.  
+Principally, an equation of state must not allow for superluminal sound speeds and allow for a maximum mass of $\sym 2.1 M_{\odot}$.
 
 \begin{figure}
 	\centering
@@ -149,7 +153,7 @@ From the $M-R$ curves in Figure \ref{fig:MvsR} alone, there are a bounty of astr
 By adopting these finite-temperature, composition-dependent equation of state models for our neutron stars, what observable characterisitics are observed during inspiral and merger?  
 How much does the creation of r-process elements in the dynamical outflows vary?  
 Does the generated gravitational waveform vary aside from its dependence on the compactness parameter?  
-Are the fitting formulae predictions of the resulting disk and ejecta masses correct, even though they were formed with barotropic equations of state?
+Are the predictions of the fitting formulae~\cite{foucart2012black,pannarale2014black,kawaguchi2016models} of the resulting remnant and ejecta masses correct, even though they were formed with barotropic equations of state?
 
 \begin{figure}
 	\centering
@@ -162,7 +166,8 @@ Are the fitting formulae predictions of the resulting disk and ejecta masses cor
 
 In Figure \ref{fig:PvsRho}, it can be seen that the relationship between pressure and density at low densities is similar to a $\Gamma \approx 2$ polytrope in the ``cold'' regime of the table.  
 Qualitatively, the pressure support at lower densities can be stronger for one equation of state, but softer at higher densities compared to another.  
-Indeed, it was noted in [cite: SFHo paper] that the concept of describing an equation of state as stiff or soft can be na\"{i}ve.  That is, the effective adiabatic index $\tilde{\Gamma}$ of Equation \ref{e:adiabat} for the poofier FSU2.1 model is smaller (larger) in the lower (higher) density regions compared to the more compact SFHo in the ``cold'' phase.
+Indeed, it was noted in~\cite{steiner2013core} that the concept of describing an equation of state as stiff or soft can be somewhat misleading.  
+That is, the effective adiabatic index $\tilde{\Gamma}$ of Equation \ref{e:adiabat} for the poofier FSU2.1 model is smaller (larger) in the lower (higher) density regions compared to the more compact SFHo in the ``cold'' phase.
 
 %\begin{figure}
 %	\centering
@@ -174,14 +179,14 @@ Indeed, it was noted in [cite: SFHo paper] that the concept of describing an equ
 %\end{figure}
 
 
-\begin{figure}
-	\centering
-	\input{images/gamma-vs-density}
-	\caption[Adiabatic index vs. density for constant $Y_e$, varying temperature]
-	{
-	}
-	\label{fig:GammavsRho}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\input{images/gamma-vs-density}
+%	\caption[Adiabatic index vs. density for constant $Y_e$, varying temperature]
+%	{
+%	}
+%	\label{fig:GammavsRho}
+%\end{figure}
 
 
 In Figure \ref{fig:MultGammavsRho}, we observe the effect temperature has on the pressure-density relations.  Past the fiducial density $\rho_s = 10^{14.7} {\rm g \, cm^{-3}}$ (with fixed $Y_e = 0.05$), changes in temperature do not alter the pressure-density relation by much at all.  As temperature increases in the lower density regime, the structures begin to converge and increase to similar $\tilde{\Gamma}$ between models.  The main differences occur in the intermediate region, where the increasing variance in $\tilde{\Gamma}$ between temperatures becomes clear.
@@ -191,7 +196,7 @@ In Figure \ref{fig:MultGammavsRho}, we observe the effect temperature has on the
 	\input{images/one-gamma-vs-density}
 	\caption[Adiabatic index vs. density for constant composition and temperature]
 	{
-		Effective adiabatic index as a function of baryon density for constant $Y_e = 0.3$ and temperature $T = 0.7 {\rm MeV}$, for comparison to the literature [cite FSU paper].  Displayed are verticle lines for the critical density $\rho_c$ and fiducial density $\rho_{\rm fid}$, while the third vertical line between those is the nuclear saturation density.  The horizontal line corresponds to a $\Gamma = 4/3$ polytrope law.
+		Effective adiabatic index as a function of baryon density for constant $Y_e = 0.3$ and temperature $T = 0.7 {\rm MeV}$, for comparison to the literature~\cite{Fischer2014}.  Displayed are verticle lines for the critical density $\rho_c$ and fiducial density $\rho_{\rm fid}$, while the third vertical line between those is the nuclear saturation density.  The horizontal line corresponds to a $\Gamma = 4/3$ polytrope law.
 	}
 	\label{fig:OneGammavsRho}
 \end{figure}

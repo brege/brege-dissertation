@@ -4,9 +4,9 @@
 \section{Initial Configuration}
 \label{sec:initial-config}
 
-The models considered in this survey consider those black hole whose Christodoulou mass is $M_{\rm BH} = 7 M_\odot$ with an orbitally-aligned, prograde dimensionless spin of $\chi_{\rm BH} = 0.9$  The black hole mass is in the range of masses i of X-ray binary observations, while the spin is chosen to yield maximal disruption of the neutron star.  We choose a naming scheme such that model M12-M7-S9-FSU21 represents an ADM neutron star mass of $M_{\rm NS} = 1.2 M_\odot$, a black hole of mass and dimensionless spin $M_{\rm BH} = 7 M_\odot$ and $\chi_{\rm BH} = 0.9$, and the FSU2.1 neutron star equation of state.  In Table \ref{tab:id}, we provide a list of the initial values for the models used in this paper.
+The models considered in this survey consider those black hole whose Christodoulou mass is $M_{\rm BH} = 7 M_\odot$ with an orbitally-aligned, prograde dimensionless spin of $\chi_{\rm BH} = 0.9$  The black hole mass is in the range of masses i of X-ray binary observations~\cite{Ozel:2010,Kreidberg:2012}, while the spin is chosen to yield maximal disruption of the neutron star.  We choose a naming scheme such that model M12-M7-S9-FSU21 represents an ADM neutron star mass of $M_{\rm NS} = 1.2 M_\odot$, a black hole of mass and dimensionless spin $M_{\rm BH} = 7 M_\odot$ and $\chi_{\rm BH} = 0.9$, and the FSU2.1 neutron star equation of state.  In Table \ref{tab:id}, we provide a list of the initial values for the models used in this paper.
 
-The TOV equations which govern gravitational equilibrium under general relativity are solved with an in-house solver in \SpEC to produce the initial central density $\rho_c$, neutron star baryon mass $M^b_{\rm NS}$ and radius $R_{\rm NS}$ via a basic root solving technique in density given an available finite-temperature, nuclear theory-based equation of state table.  
+The TOV equations which govern gravitational equilibrium under general relativity are solved with an in-house elliptic solver in \SpEC to produce the initial central density $\rho_c$, neutron star baryon mass $M^b_{\rm NS}$ and radius $R_{\rm NS}$ via a basic root solving technique in density given an available finite-temperature, nuclear theory-based equation of state table.  
 The neutron star fluid is assumed to be in hydrostatic equilibrium, irrotational, cold ($T = 0.1 {\rm MeV}$) and in $\beta$-equilibrium.
 We start with an initial separation between the two objects that is fairly close ($d \sim 80 {\rm km}$), where the binary is in a quasicircular orbit
 (i.e. small eccentricities $e \sim 0.01$).
@@ -125,7 +125,7 @@ this stage as well, since the material becomes less dense and easier to resolve.
 \section{Outflow analysis: properties of the ejecta}
 \label{sec:tail-analysis}
 
-In this section, we consider the ejecta that results from the tidal disruption of the neutron star, leaving aside the second source of late-stage ejecta which occurs via neutrino driven winds and magnetic effects in accretion disk outlfows.  As our models do not incorporate magnetohydrodynamics and since we only implement a simple leakage scheme to approximately capture the effects of neutrino cooling on the post-merger remnant of Section \ref{sec:diskanalysis}, we do not evolve the remaining models beyond $10 {\rm ms}$ passed the onset of merger.
+In this section, we consider the ejecta that results from the tidal disruption of the neutron star, leaving aside the second source of late-stage ejecta which occurs via neutrino driven winds and magnetic effects in accretion disk outlfows.  As our models do not incorporate magnetohydrodynamics and since we only implement a simple leakage scheme to approximately capture the effects of neutrino cooling on the post-merger remnant of Section \ref{sec:disk-analysis}, we do not evolve the remaining models beyond $10 {\rm ms}$ passed the onset of merger.
 
 For those models that evolved out to $5 {\rm ms}$ passed merger, we find that at that time, the ejecta mass $M_{\rm ej}$ is roughly constrained between $\sym (4 - 8) \times 10^{-2} M_\odot$.
 In table \ref{tab:results}, we display our measured results at $5 {\rm ms}$ after measure compared to the predicted results from the fitting formulae.  
@@ -136,7 +136,7 @@ As described by the fitting formulae, the stiffer, finite-temperature equations 
 	\centering
 	\input{images/unbound-mass-vs-Ye}
 	\caption[Composition of the ejecta]{
-		Electron fraction $Y_e$ of the ejecta measured 5 ms after merger.  We note that all of the matter peaks in the $Y_e \sym 0.05$ range, where M12-M7-S9-DD2 has the largest electron fraction range ($0.011 - 0.07$) while neither FSU21 models produce ejecta with $Y_e < 0.05$.
+		Electron fraction $Y_e$ of the ejecta measured 5 ms after merger.  We note that all of the matter peaks in the $Y_e \sym 0.05$ range, where M12-M7-S9-DD2 has the largest electron fraction range ($0.011 - 0.07$) while neither FSU21 models produce ejecta with $Y_e < 0.05$. ( FSU2.1 does not allow for $Y_e < 0.05$.  See Section \ref{sec:fsu21} and ~\cite{shen2011second}).
 	}
 	\label{fig:Yehisto}
 \end{figure}
