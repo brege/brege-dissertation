@@ -31,7 +31,10 @@ All models studied here orbit $5 - 6$ times during inspiral, before the neutron 
 \section{Merger dynamics}
 \label{sec:merger-dynamics}
 
-All of our models disrupt outside the inner most stable circular orbit of the black hole.  All of our models were evolved with the same minimum grid spacing of $\Delta x_{\rm dis} = 245{\rm m}$ on the innermost level of refinement, in the grid coordinates.  In the inertial frame, the average minimum grid spacing is typically around $\sym 150-200 {\rm m}$.  This is because in the grid frame, the grid spacing gets coarser in the direction in which the tidal stream expands and gets finer in the direction it contracts.
+All of our models disrupt outside the inner most stable circular orbit of the black hole.  
+All of our models were evolved with the same minimum grid spacing of $\Delta x_{\rm dis} = 245{\rm m}$ on the innermost level of refinement, in the grid coordinates.  
+In the inertial frame, the average minimum grid spacing is typically around $\sym 150-200 {\rm m}$.  
+This is because in the grid frame, the grid spacing gets coarser in the direction in which the tidal stream expands and gets finer in the direction it contracts.
 
 
 \begin{figure}
@@ -125,7 +128,8 @@ this stage as well, since the material becomes less dense and easier to resolve.
 \section{Outflow analysis: properties of the ejecta}
 \label{sec:tail-analysis}
 
-In this section, we consider the ejecta that results from the tidal disruption of the neutron star, leaving aside the second source of late-stage ejecta which occurs via neutrino driven winds and magnetic effects in accretion disk outlfows.  As our models do not incorporate magnetohydrodynamics and since we only implement a simple leakage scheme to approximately capture the effects of neutrino cooling on the post-merger remnant of Section \ref{sec:disk-analysis}, we do not evolve the remaining models beyond $10 {\rm ms}$ passed the onset of merger.
+In this section, we consider the ejecta that results from the tidal disruption of the neutron star, leaving aside the second source of late-stage ejecta which occurs via neutrino driven winds and magnetic effects in accretion disk outlfows.  
+As our models do not incorporate magnetohydrodynamics and since we only implement a simple leakage scheme to approximately capture the effects of neutrino cooling on the post-merger remnant of Section \ref{sec:disk-analysis}, we do not evolve the remaining models beyond $10 {\rm ms}$ passed the onset of merger.
 
 For those models that evolved out to $5 {\rm ms}$ passed merger, we find that at that time, the ejecta mass $M_{\rm ej}$ is roughly constrained between $\sym (4 - 8) \times 10^{-2} M_\odot$.
 In table \ref{tab:results}, we display our measured results at $5 {\rm ms}$ after measure compared to the predicted results from the fitting formulae.  
@@ -136,14 +140,16 @@ As described by the fitting formulae, the stiffer, finite-temperature equations 
 	\centering
 	\input{images/unbound-mass-vs-Ye}
 	\caption[Composition of the ejecta]{
-		Electron fraction $Y_e$ of the ejecta measured 5 ms after merger.  We note that all of the matter peaks in the $Y_e \sym 0.05$ range, where M12-M7-S9-DD2 has the largest electron fraction range ($0.011 - 0.07$) while neither FSU21 models produce ejecta with $Y_e < 0.05$. ( FSU2.1 does not allow for $Y_e < 0.05$.  See Section \ref{sec:fsu21} and ~\cite{shen2011second}).
+		Electron fraction $Y_e$ of the ejecta measured 5 ms after merger.  
+		We note that all of the matter peaks in the $Y_e \sym 0.05$ range, where M12-M7-S9-DD2 has the largest electron fraction range ($0.011 - 0.07$) while neither FSU21 models produce ejecta with $Y_e < 0.05$. 
+		(FSU2.1 does not allow for $Y_e < 0.05$.  See Section \ref{sec:fsu21} and ~\cite{shen2011second}).
 	}
 	\label{fig:Yehisto}
 \end{figure}
 
 As in previous simulations of black hole-neutron star mergers, the ejecta in our models is very neutron rich, with a density-weighted average electron fraction of $Y_e \sim 0.05$).  
 In Figure \ref{fig:Yehisto}, we show the (logarithmic) distribution of matter over the chemical composition in the unbound material.  
-Most of the ejecta has $Y_e < 0.7$ while none of it has $Y_e > 0.25$ --- where lighter r-process elements might be produced.
+Most of the ejecta has $Y_e \lesssim 0.07$ while none of it has $Y_e > 0.25$ --- where lighter r-process elements might be produced.
 Therefore, r-process nucleosynthesis will produce 2nd and 3rd peak heavy elements in the ejecta, with little production of light elements in the 1st peak.  
 The unbound material will be very opaque, leading to an electromagnetic transient to peak in the infrared by the r-process ~\cite{2013ApJ...775...18B}.
 
@@ -163,13 +169,13 @@ Model M12-M7-S9-SFHo clearly has the least amount of ejecta.
 
 The average kinetic energy of the ejecta was measured to lie between $3.7 \times 10^{52} {\rm ergs} $ for the SFHo model and $4.8 \times 10^{52} {\rm ergs} $ for the M12-M7-S9-DD2 model.  
 The $1.4 M_\odot$ models had energies inside this range. 
-The ejecta steadily cools within 1 ms after merger with to a steady temperature in the range of $T \sim (0.1 - 0.4) {\rm MeV}$, bounded by both FSU2.1 models in the higher range and the remaining models in the lower range.
+The ejecta steadily cools within 1 ms after merger to a steady temperature in the range of $T \sim (0.1 - 0.4) {\rm MeV}$, bounded by both FSU2.1 models in the higher range and the remaining models in the lower range.
 
 \begin{figure}
 	\centering
 	\input{images/unbound-mass-vs-phi}
 	\caption[Angular distribution (in $\phi$) of the ejecta]{
-		Angular distribution (in $\phi$) of the ejecta 5 ms after merger.  The ejecta spans approximately half of the zonal sky, with an angle of $\delta \phi \sim (0.99-1.13) \pi$, where M12-M7-S9-SFHo is the smallest and M12-M7-S9-FSU21 has the widest arc.
+		Angular distribution (in $\phi$) of the ejecta 5 ms after merger.  The ejecta spans approximately half of the zonal sky, with an angle of $\Delta \phi \sim (0.99-1.13) \pi$, where M12-M7-S9-SFHo has the smallest arc and M12-M7-S9-FSU21 the widest.
 	}
 	\label{fig:phihisto}
 \end{figure}
@@ -187,7 +193,7 @@ The ejecta steadily cools within 1 ms after merger with to a steady temperature 
 
 In addition, the ejecta geometry plays an integral role in the kilonova properties.  
 In Figures \ref{fig:phihisto} and \ref{fig:costhetahisto}, we show the angular distribution of the ejecta in a spherical coordinate system in the inertial frame, where $\cos(\theta) = 0$ corresponds to the equator.  
-Our results are consistent with previous black hole neutron star simulations, where the unbound material form a crescent with an opening zonal angle $\sym \pi$ and meridional angle $\sym \pi/4$.
+Our results are consistent with previous black hole-neutron star simulations, where the unbound material forms a crescent with an opening zonal angle $\Delta \phi \sim \pi$ and meridional angle $\Delta \theta \lesssim \pi/4$.
 
 
 \section{Post-merger remnant: formation of the protodisk and fallback}
@@ -240,8 +246,9 @@ This is because more compact stars disrupt closer to the ISCO.
 We see that in Figure \ref{fig:diskdensities}, most of the material is within 
 $25 {\rm km} < r < 75{\rm km}$ for all models and drops off exponentially after that upper-bound, while the peak of the matter distribution is $r _{\rm disk} \sim (30 - 50) {\rm km}$.  
 The composition is roughly constant outside the ISCO, $Y_e \sim 0.05 - 0.08$.  The temperature at the peak of the matter distribution varies as $T \sim (4-7) {\rm MeV}$ between runs, with M12-M7-S9-SFHo having the hottest protodisk and being only slightly more protonized. 
-The neutrino luminosities at this time are high, $L_\nu \sim (1.5 - 5.5) \times 10^{53} {\rm egs/s}$, 
-
+The neutrino luminosities at this time are high, $L_\nu \sim (1.5 - 5.5) \times 10^{53} {\rm egs/s}$, where the less compact M12-M7-S9-DD2 and M12-M7-S9-FSU21 models emit on the lower end, but the more compact models M12-M7-S9-SFHo  and M14-M7-S9-FSU21 are much brighter.
+Model M14-M7-S9-DD2 is the brightest.
+Most of the emission is in the form of electron anti-neutrinos.
 
 
 \begin{figure}
@@ -254,15 +261,41 @@ The neutrino luminosities at this time are high, $L_\nu \sim (1.5 - 5.5) \times 
 	\label{fig:diskYes}
 \end{figure}
 
+%\begin{figure}
+%	\centering
+%	\input{images/entropy-of-disk}
+%	\caption[Average entropy of the protodisks 5 ms after merger]{
+%		Average entropy of the protodisks 5 ms after merger. \textbf{TODO}
+%	}
+%	\label{fig:diskentropies}
+%\end{figure}
+
+In general, more compact stars led to protodisks that peak in averaged density closer to the black hole, and hotter (Figure \ref{fig:disktemps}).
+
+\subsection{Evolution of the protodisk}
+
+For one model, M12-M7-S9-M12, we evolved the remnant and fluid $\sym 11$ms passed merger time, and are able to track the changes in protodisk structure during peak fallback.
+The accretion rate during this time is high $\dot{M}_{\rm BH} \sim 7 M_\odot s^{-1}$, but not as high as the fallback rate of the bound tail onto the disk $\dot{M}_{\rm fall} \sim 17 M_\odot s^{-1}$.
+We find that the protodisk mass increased $\sym 2 \times 10^{-2} M_\odot$ during the first $5$ms and $8$ms after merger, and $\sym4 \times 10^{-2} M_\odot$ between $8$ms and $11$ms after merger.
+We conclude that much of early-formation protodisk material will either accrete onto the black hole or eventually mix with the fallback.
+Most of the longterm evolution disk, therefore, will be composed of fallback, as opposed to the initially circulating fluid.
+
+During the fallback time, the disk initially thermalizes between $5-8$ms after merger, and then cools during the $8-11$ms interval. 
+During the first interval, the fallback is shock-heating the protodisk.
+During the second interval, 
+as hotter and more protonized fluid is being deposited into the blackhole,
+the remnant begins to get much smoother in the density profile as the proper accretion disk begins to form.
+
+
+
 \begin{figure}
 	\centering
-	\input{images/entropy-of-disk}
-	\caption[Average entropy of the protodisks 5 ms after merger]{
-		Average entropy of the protodisks 5 ms after merger. \textbf{TODO}
+	\input{images/long-temperature-of-disk}
+	\caption[Average entropy of the protodisks 5, 8, and 11 ms after merger]{
+		Average entropy of the protodisk 5, 8, and 11 ms after merger in model M12-M7-S9-FSU21.
 	}
-	\label{fig:diskentropies}
+	\label{fig:longdiskentropies}
 \end{figure}
-
 
 \section{Discussion}
 \label{sec:discussion}
@@ -277,8 +310,24 @@ We note that while we have implemented our improved algorithm to selectively evo
 This is because our hot, compositio- dependent, tidally-disrupting material forms a much narrower tidal tail than other piecewise polytrope models.
 An improvement to our algorithm would be to allow true adaptive mesh refinement, so that evolution subdomains could themselves shrink and expand given the average density gradient of the material inside.
 
+\paragraph{In-progress work}
+
+We are performing code-validation for two of our runs using a $\sym\,125\%$ grid-spacing of that used in our work.
+We are also attempting to get at least one of our more troublesome models evolving again, by globally increasing resolution on the finite volume grid.
+There are a number of automation tasks left to do for the Hydro-AMR algorithm, chiefly: automating the process of derefining the innermost levels of the grid at the appropriate time.
+Since this project began (it began before Hydro-AMR was available), we have made progress in most of the automation tasks. For example:
+(1) re-centering the grid before merger to collocate with the horizon center, 
+(2) automating fluid-evolution checkpoint cleaning, 
+(3) developing a set of scripts that allow for the easier monitoring and visualization of the simulation volume data, 
+and (4) building a set of modular visualization tools for joining and monitoring columnated data.
+
 \paragraph{Future work} 
 
-The calculation of the gravitational waveform is in progress.  One simplification to the post-merger system is to  we are going to do is to turn off the fluid evolution and evolve only the metric quantities until the the waves propogate out to infinity.  For the neutrino emission, we did not include the effects of radiation transport in our simulations, which cannot be determnined by the relatively simple neutrino leakage scheme used in this work.  In order to capture an estimate of the production of electron-positron pairs in neutrino-driven winds near the spin axes of the black hole, evolving the fluid with a neutrino radiation code would improve the accuracy of the post-merger remnant evolution.  Furthermore, the effects of magnetic fields contribute heating through MRI turbulence.  Simulations of the post-merger remnant would be greatly enhanced with the inclusion of magnetohydrodynamics of an equivalent artificial viscosity scheme. 
+The calculation of the gravitational waveform is in progress.
+One simplification to the post-merger system is to  we are going to do is to turn off the fluid evolution and evolve only the metric quantities until the the waves propogate out to infinity.
+For the neutrino emission, we did not include the effects of radiation transport in our simulations, which cannot be determined by the relatively simple neutrino leakage scheme used in this work.
+In order to capture an estimate of the production of electron-positron pairs in neutrino-driven winds near the spin axes of the black hole, evolving the fluid with a neutrino radiation code would improve the accuracy of the post-merger remnant evolution.
+Furthermore, the effects of magnetic fields on the disk contribute heating through MRI turbulence.
+Simulations of the post-merger remnant would be greatly enhanced with the inclusion of magnetohydrodynamics or an equivalent artificial viscosity scheme. 
 
 

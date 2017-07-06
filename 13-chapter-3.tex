@@ -14,17 +14,18 @@ In Section \ref{sec:gr-grid}, we discuss the design implementation we use to evo
 \section{GR Grid}
 \label{sec:gr-grid}
 
+In the 3+1 formalism, three dimensional spatial subsurfaces of four dimensional spacetime are foliated from time, implementing a coordinate system $\{t, x^k\}$.  The line element of the metric is written as
+\begin{equation}
+ds^2 = g_{ab} {dx}^a {dx}^b = -\alpha^2 {dt}^2 + \gamma_{ij} (dx^i + \beta^i dt) (dx^j + \beta^j dt)
+\end{equation} 
+defining the lapse $\alpha$, the shift vector $\beta^k$ and the 3-metric $\gamma_{ij}$. 
 In \SpEC, we use the generalized harmonic formulation of Einstein's field equations.  By harmonic, we assume the coordinates $x^\alpha$ obey the inhomogeneous  wave equation
 \begin{equation}
 g_{ab} \nabla^c \nabla_c x^b = H_a (x, g_{ab})
 \end{equation}
 for some specified harmonic gauge function $H_a$.  Here, we note that $\nabla_c$ is the covariant derivative associated with $g_{ab}$.  
 
-In the 3+1 formalism, three dimensional spatial subsurfaces of four dimensional spacetime are foliated from time, implementing a coordinate system $\{t, x^k\}$.  The line element of the metric is written as
-\begin{equation}
-ds^2 = g_{ab} {dx}^a {dx}^b = -\alpha^2 {dt}^2 + \gamma_{ij} (dx^i + \beta^i dt) (dx^j + \beta^j dt)
-\end{equation} 
-defining the lapse $\alpha$, the shift vector $\beta^k$ and the 3-metric $\gamma_{ij}$. 
+
 In order to turn the second order time derivatives of Einstein's equations into a set of first order symmetric hyperbolic equations in time, we introduce the following variables:
 \begin{align}
 \Phi_{iab} &\equiv \partial_i g_{ab} \\
@@ -33,8 +34,8 @@ In order to turn the second order time derivatives of Einstein's equations into 
 the spatial and time derivatives of the metric, respectively, where we have introduced the slice normal $n^c$.  
 Therefore, assuming the constraints
 \begin{align}
-{\cal{C}}_a &\equiv H_a (x, g_{ab} ) = 0 \\
-{\cal{C}}_{iab} &\equiv \partial_i g_{ab} - \Phi_{iab} = 0
+{\cal{C}}_a &\equiv H_a (x, g_{ab} )  \\
+{\cal{C}}_{iab} &\equiv \partial_i g_{ab} - \Phi_{iab} 
 \end{align}
 aren't violated, Einstein's equations can be rewritten in general harmonic form:
 \begin{align}
@@ -46,13 +47,17 @@ where we have included only the principal (`$\simeq$') parts to be evolved.  We 
 \begin{equation}
 \partial_t u^\alpha + {A^{k\alpha}}_\beta \partial_k u^\beta \simeq 0
 \end{equation}
+The gauge function $H_a$ is chosen given assumptions of the coordinate system dynamics.  
+A gauge of $H_a = 0$ is some the ``harmonic'' gauge; 
+if $H_a$ is set to some constant other than zero--known as the ``frozen gauge'', it will just advect with the evolution;
+during the merger, we generally roll-on a `damped-harmonic'' gauge because the spacetime is so dynamical in black hole-neutron star mergers.
 
-
-
-\textbf{TODO:} Damping parameters $\rightarrow$ tie back to gauge function $H_a$
-
-
-The GR grid is first divided into touching but not overlapping subdomains consisting of: cubed spheres, wedges, and spherical shells (see Figure \ref{fig:pseudospectral-grid}).  The choice of the geometry of the subdomains are chosen so as to reflect the configuration symmetry.  A penalty method is employed at subdomain interfaces~\cite{Hesthaven1999,Hesthaven2000,Gottlieb2001,Hesthaven1997}.  In corotating coordinates, the black hole is spherically excised such that the excision surface lies between the inner and outer apparent horizons of the (Kerr) black hole.  We control the size of the horizon with a distribution function $f(r)$ and the shape of the excision surface as a series of spherical harmonics: $r \rightarrow r + f(r) \sum_{lm} { c_{lm} Y_{lm}(\theta, \varphi) }$, where $r$ is the distance from the coordinate center of the black hole.  The control system also maintains the black hole to be centered on a stationary point, which is done by translational mapping.  
+The GR grid is first divided into touching but not overlapping subdomains consisting of: cubed spheres, wedges, and spherical shells (see Figure \ref{fig:pseudospectral-grid}).
+The choice of the geometry of the subdomains are chosen so as to reflect the configuration symmetry.  
+A penalty method is employed at subdomain interfaces~\cite{Hesthaven1999,Hesthaven2000,Gottlieb2001,Hesthaven1997}.  
+In corotating coordinates, the black hole is spherically excised such that the excision surface lies between the inner and outer apparent horizons of the (Kerr) black hole. 
+We control the size of the horizon with a function $f(r)$ and the shape of the excision surface as a series of spherical harmonics: $r \rightarrow r + f(r) \sum_{lm} { c_{lm} Y_{lm}(\theta, \varphi) }$, where $r$ is the distance from the coordinate center of the black hole.
+The control system also maintains the black hole to be centered on a stationary point, which is done by translational mapping.  
 
 \begin{figure}
 	\centering
@@ -61,7 +66,13 @@ The GR grid is first divided into touching but not overlapping subdomains consis
 	\label{fig:pseudospectral-grid}
 \end{figure}
 
-We use pseudospectral methods to evolve the generalized harmonic system, choosing an appropriate set of basis functions for each subdomain configuration.  For example, geometries with an $I1$ (cubes) topology expands solutions in terms of Chebyshev polynomials, spheres S2 use spherical harmonics.  The number of collocation points per subdomains is allowed to grow or shrink in order to maintain a specified truncation error in the elliptic solver.  In addition, subdomains may be split or merged depending on the growth of the collocation points to help maintain load balancing.  In our runs, we only enable this feature of spectral AMR (domain creation) on select runs (i.e., for ADM neutron star masses $M_\textrm{NS} = 1.4 M_\odot$) during peak disruption as the number of collocation points on the distorted cubes outside the excision zone were rapidly growing.  Note that subdividing the subdomains with too many points helps with load balancing and thus simulation speed; but does not affect the accuracy of the simulation speed.  Ideally, we would have just left this feature on and disabled active domain creation once the post-merger remnant has formed.
+We use pseudospectral methods to evolve the generalized harmonic system, choosing an appropriate set of basis functions for each subdomain configuration.
+For example, geometries with an $I1$ (cubes) topology expands solutions in terms of Chebyshev polynomials, spheres S2 use spherical harmonics.
+The number of collocation points per subdomains is allowed to grow or shrink in order to maintain a specified truncation error in the elliptic solver.
+In addition, subdomains may be split or merged depending on the growth of the collocation points to help maintain load balancing.
+In our runs, we only enable this feature of spectral AMR (domain creation) on select runs (i.e., for ADM neutron star masses $M_\textrm{NS} = 1.4 M_\odot$) during peak disruption as the number of collocation points on the distorted cubes outside the excision zone were rapidly growing.
+Note that subdividing the subdomains with too many points helps with load balancing and thus simulation speed, but does not affect the accuracy of the simulation speed.
+Ideally, we would have just left this feature on and disabled active domain creation once the post-merger remnant has formed.
 
 
 \section{FD Grid}
@@ -110,7 +121,9 @@ The fluid equations \ref{e:ConsOfMass} and \ref{e:ConsOfEnergyMomentum} can then
 \end{align}
 where $v^i$ is the fluid three-velocity.  That is, each of the equations is in conservative form $\partial_t u  + \partial_i F^i = \sigma$, for  fluxes $F$ and  source term $\sigma$.  
 
-In addition to the above evolution equations, we evolve the conservative counterpart of the composition variable $\rho_* Y_e$ using the neutrino leakage scheme described in~\cite{Deaton2013}.  That is, the neutrino radiation field appears only as source terms in the evolution equations.  In terms of the effective energy emission rate $Q_\nu$, neutrino radiation pressure $P_\nu$ and the effective lepton number emission rate $R_\nu$, the additional composition evolution equations are, in a local comoving frame of the fluid, 
+In addition to the above evolution equations, we evolve the conservative counterpart of the composition variable $\rho_* Y_e$ using the neutrino leakage scheme described in~\cite{Deaton2013}.
+That is, the neutrino radiation field appears only as source terms in the evolution equations.
+In terms of the effective energy emission rate $Q_\nu$, neutrino radiation pressure $P_\nu$ and the effective lepton number emission rate $R_\nu$, the additional composition evolution equations are, in a local comoving frame of the fluid, 
 \begin{align}
 \partial_t T^{00} &= -Q_\nu \\
 \partial_t T_{j0} &= - \partial_j P_\nu \\
@@ -118,10 +131,14 @@ In addition to the above evolution equations, we evolve the conservative counter
 \end{align}
 where $m_U$ is the atomic mass unit.
 
-To evolve the fluid equations \ref{e:ADMConsOfMass} - \ref{e:ADMConsofMomentum}, there are a variety of different FD grid configurations and finite difference reconstructors available to \SpEC.  For our simulations, we use a fifth-order accurate, shock-capturing, weighted essentially non-oscillatory reconstruction scheme, WENO5, to perform interpolation of the conservative variables on the grid points to conservative fluxes on cell faces~\cite{Liu1994200,Jiang1996202}.  An HLLE approximate Riemann solver is used to compute the differences of the cell boundary fluxes~\cite{HLL}.
+To evolve the fluid equations \ref{e:ADMConsOfMass} - \ref{e:ADMConsofMomentum}, there are a variety of different FD grid configurations and finite difference reconstructors available to \SpEC.
+For our simulations, we use a fifth-order accurate, shock-capturing, weighted essentially non-oscillatory reconstruction scheme, WENO5, to perform interpolation of the conservative variables on the grid points to conservative fluxes on cell faces~\cite{Liu1994200,Jiang1996202}.
+An HLLE approximate Riemann solver is used to compute the differences of the cell boundary fluxes~\cite{HLL}.
 In Section \ref{sec:communication}, we discuss the time integral used, while in Section \ref{sec:hydro-amr}, we will discuss the geometrical configuration of the finite difference grid.
 
-There are also a number of further physical constraints we must safeguard against.  When evolving the conservative variables ($\rho_*$, $\tau$, $S_i$) in low-density regimes, small numerical errors can lead to very large and nonphysical values for the primitive variables (pressure $P$, temperature $T$, velocities $v_i$).  To fix this, we employ two techniques to enforce restrictions on the variables to help prevent them from feeding nonphysical junk into the evolution equations.
+There are also a number of further physical constraints we must safeguard against.
+When evolving the conservative variables ($\rho_*$, $\tau$, $S_i$) in low-density regimes, small numerical errors can lead to very large and nonphysical values for the primitive variables (pressure $P$, temperature $T$, velocities $v_i$).
+To fix this, we employ two techniques to enforce restrictions on the variables to help prevent them from feeding nonphysical junk into the evolution equations.
 
 \subsection*{Fix Point Parameters}
 
@@ -141,7 +158,11 @@ After these ``fix points'' constraints are enforced, the fixed conservative quan
 
 \subsection*{Atmosphere Parameters}
 
-Further fixes are applied after primitive conversion.  First, in regions where the (physical) density $\rho_0 < 10^{-6} \rho_0^\textrm{max}(t)$, with $\rho_0^\textrm{max}(t)$ the maximum rest mass density on the grid at a given time, we set $T=0$ and $u_i=0$.  On the other end, we prevent negative densities by enforcing that $\rho_0 > 10^{-11} \rho_0^\textrm{max}(t=0)$ at all points.  We also note that the reference density $\rho_0^\textrm{max}(t)$ is also ``smoothed'' so that the occasional high density spike cannot zap the rest of the points on the grid.  Density thresholds are also multiplied by a so-called ``atmosphere multiplier'', which contains a spherical Gaussian around the black hole:
+Further fixes are applied after primitive conversion.
+First, in regions where the (physical) density $\rho_0 < 10^{-6} \rho_0^\textrm{max}(t)$, with $\rho_0^\textrm{max}(t)$ the maximum rest mass density on the grid at a given time, we set $T=0$ and $u_i=0$.
+On the other end, we prevent negative densities by enforcing that $\rho_0 > 10^{-11} \rho_0^\textrm{max}(t=0)$ at all points.
+We also note that the reference density $\rho_0^\textrm{max}(t)$ is also ``smoothed'' so that the occasional high density spike cannot zap the rest of the points on the grid.
+Density thresholds are also multiplied by a so-called ``atmosphere multiplier'', which contains a spherical Gaussian around the black hole:
 \begin{equation}
 \xi_1 \equiv {e^{- \left(2 \frac{ r_\textrm{dist}[i] - r_\textrm{exc}}{r_\textrm{exc}}\right)}}^2 ,
 \end{equation}
@@ -156,10 +177,16 @@ Heuristically, the Gaussian component $\xi_1$ enforces higher cutoff values in t
 The damping component $\xi_2$ is engaged only during the merger to increase the density threshold between the intertial matter and the apparent horizon.
 We do not allow a pure vacuum in our code, as velocity would not be defined for zero-densities.  Therefore, an absolute density floor is set to $\rho_0 >  \rho_\textrm{floor} = 10^{-14} \rho_0(t)_\textrm{max}$.  
 
-In general, there are three ways to control the temperature in our code, either via: enthalpy constraints, controlling the polytopic constant, $K = P/{\rho^{\Gamma}}$ or through the temperature directly.  In our simulations, it is more straightforward to restrict the temperature via the latter, since our equation of state is directly dependent on the temperature.  In low density regions where $\rho_0 \le 10^{-11} \rho_0^\textrm{max}(t)$, we do not allow the temperature to exceed $T_\textrm{max} < 100\,\textrm{MeV}$.  We also applied $T < T_\textrm{max}$ globally, i.e. even in low density regions since this is the upper limit of the highest temperature bin in the our equation of state tables.  
+In general, there are three ways to control the temperature in our code, either via: enthalpy constraints, controlling the polytopic constant, $K = P/{\rho^{\Gamma}}$ or through the temperature directly.
+In our simulations, it is more straightforward to restrict the temperature via the latter, since our equation of state is directly dependent on the temperature.
+In low density regions where $\rho_0 \le 10^{-11} \rho_0^\textrm{max}(t)$, we do not allow the temperature to exceed $T_\textrm{max} < 100\,\textrm{MeV}$.
+We also applied $T < T_\textrm{max}$ globally, i.e. even in low density regions since this is the upper limit of the highest temperature bin in the our equation of state tables.  
 Conversely, while the equation of state tables may go down to $0.01 \textrm{MeV}$, we set the temperature minimum to $T_\textrm{min} = 0.5 \textrm{MeV}$ in the low density $\rho_0 \le 10^{-11} \rho_0^\textrm{max}(t)$ regions as the $T < T_\textrm{min}$ bins are typically inaccurate in the tables.
 
-Errors in the density profile or non-smooth bins in the equation of state can lead to errant temperature spikes.  On those grid points, and if the density is below the threshold, we zap temperature spikes by replacing the temperature with averaged values from its neighboring points.  More commonly, these temperature deltas are much more attributable to numerical error.  We impose a maximum on the Lorentz factor $W = \alpha u^t$ by constraining $u \equiv \sqrt{g^{ij} u_i u_j} < 1000$ in low density regions.
+Errors in the density profile or non-smooth bins in the equation of state can lead to errant temperature spikes.
+On those grid points, and if the density is below the threshold, we zap temperature spikes by replacing the temperature with averaged values from its neighboring points.
+More commonly, these temperature deltas are much more attributable to numerical error.
+We impose a maximum on the Lorentz factor $W = \alpha u^t$ by constraining $u \equiv \sqrt{g^{ij} u_i u_j} < 1000$ in low density regions.
 
 
 \section{Time-steps and communicating source terms}
@@ -187,12 +214,17 @@ Continuous meshing schemes like the Discontinuous-Galerkin method are also being
 \label{sec:hydro-amr}
 
 Prior FD-grid structures in \SpEC for evolving black hole-neutron star systems involved using a Cartesian, cubic ``unigrid'', where the grid consisted of a number of equally sized subdomains defined to extend to a specified outer boundary.  
-The issue with unigrids, however, is that they can only evolve the large tail region well and the accreting tail poorly, or they can evolve the interior protodisk well while limited to evolving the matter outflow.  You cannot do both.  
+Unigrids, however, can only evolve the large tail region well and the accreting tail poorly, or they can evolve the interior protodisk well while limited to evolving the matter outflow.  
+You cannot do both.  
 The accretion disk spans an areal radius $\sym 50 \textrm{km}$.  
 In linear space, the width of the tail for high spin black holes can be as thin as $\sym 5 \textrm{km}$ across.  
 To capture the interesting properties of the ejecta, the tail material must be captured well out of the frame at length scales comparable to the excision radius, to the tune of $\sym 1000 \textrm{km}$.
 
-A first try at improving the cubic grid structure was a test implementation of ``fixed'' mesh refinement.  The subdomain cubes could be expanded every $2\,N_\textrm{ext}\,dx_i$ from a central point, where $N^i_\textrm{ext}$ is the number of points along spatial dimension $x_i$.  At each level of refinement the grid spacing doubles.  Note that in our implementation, each subdomain has an equal number of points regardless of refinement level.  Therefore, when we double the \textit{size} of a subdomain, we are \textit{halving} its resolution.
+A first try at improving the cubic grid structure was a test implementation of ``fixed'' mesh refinement.
+The subdomain cubes could be expanded every $2\,N_\textrm{ext}\,dx_i$ from a central point, where $N^i_\textrm{ext}$ is the number of points along spatial dimension $x_i$.
+At each level of refinement the grid spacing doubles.
+Note that in our implementation, each subdomain has an equal number of points regardless of refinement level.
+Therefore, when we double the \textit{size} of a subdomain, we are \textit{halving} its resolution.
 
 Although this method provides the proper resolution to evolve both the longer tail material and the resulting accretion disk, only $\left(10 - 20\right) \%$ of the subdomains during peak disruption are evolving matter.  
 To improve on this further, we've introduced in~\cite{FoucartDD2:2017} a new implementation of an adaptive mesh refinement (AMR) algorithm that can turn  fluid subdomains off and on.
