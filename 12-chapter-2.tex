@@ -13,7 +13,7 @@ where $P$ is pressure, $\epsilon$ specific internal energy, $\rho_0$ rest-mass d
 Since the density only varies with the pressure, this model assumes the fluid is barotropic.
 
 This simple model reveals itself to be important in limiting cases of stellar matter.  
-For a high-mass neutron star where the average density is well above the nuclear saturation number density $n_s$, the star can be adequately described with a $\Gamma \approx 2$ polytrope~\cite{lattimer2016equation}.  
+For a high-mass neutron star where the average density is well above the nuclear saturation number density $n_s$, the star can be roughly approximated with a $\Gamma \approx 2$ polytrope~\cite{lattimer2016equation}.  
 At low densities, where the average density is well below $n_s$, the star is mostly supported by degenerate relativistic Fermi pressure (as in the high-mass white dwarf model) such that $\Gamma \simeq 4/3$.
 Introducing the notion that the interior region of the star may have a different adiabatic index to the crust, and that the core could be composed of exotic matter, a more adaptable equation of state can be constructed with a set of polytropes each defining these regions.  
 These equations of state are called piecewise-polytropes.  
@@ -21,7 +21,6 @@ These equations of state are called piecewise-polytropes.
 However, the polytrope models do not adequately account for effects of temperature or composition variation of our very dense fluid matter.  
 So called ``hot'' or finite-temperature equations of state are much more general, and generally constructed as multivariable tables utilizing many constraints from nuclear theory, astrophysics observations, and particle experiments.
 Because of the complexities for codes to utilize these equations of state, piecewise-polytropes are often used as a way to curve-fit and cheat the incorporation of temperature in their routines, as well as to provide a simple method to tune parameters of the PP to explore a wide range of neutron star compactnesses.
-In low-temperature bins of the fluid, a simple ``Gamma-Law'' is often used to smoothly transition from zero-temperature to the lower limit of some nuclear-theory based equation of state tables.
 In addition, an effective adiabatic index can be extracted to give one a sense how stiff the structure is in a given density regime:
 \begin{align}
 \label{e:adiabat}
@@ -42,7 +41,7 @@ We do not expect, further, that the core, interior or crust to all have the same
 In that case, the Gamma-Law description of neutron star structure can be improved by a so-called piecewise polytrope model.
 In such models, we allow each specified dnesity interval to have its own equation of state such that 
 $$P(\rho_0) = K_i \rho_0^{\Gamma_i}$$
-where the adiabatic index $\Gamma_i$ is a constant in each regime, and $K_i$ is chosen so that the equation of state is continuous across interfaces.  
+where the adiabatic index $\Gamma_i$ is a constant in between each density interval (defined by a set of dividing-densities $\{\rho_1,\rho_2,...,\rho_{i-1} \}$), and $K_i$ is chosen so that the equation of state is continuous across interfaces.
 Piecewise polytropes, while multi-parameter, are still single-variable descriptions of stellar structure.  
 A first method of adding thermal dependencies to any polytrope model is to augment the ``cold'' equation of state:
 \begin{align}
@@ -55,7 +54,7 @@ Phenomenologically different piecewise polytrope models yielded different tidal 
 
 
 In addition to the density dependence of pressure, a more realistic equation of state has to include dependence on temperature, $T$, and composition, for instance the fraction of electrons per baryons $Y_e = n_e / n_b$.  
-We expect the temperature to be a factor, since hydrodynamical shocks heat the system, and the composition to vary since neutrons tend to decay and neutrinos allow for cooling or further heating via neutrino emission and absorption. 
+We expect the temperature to be a factor, since hydrodynamical shocks heat the system, and the composition to vary due to charged-current weak nuclear processes that may be on the timescales of the merger time, and neutrinos allow for cooling or further heating via neutrino emission and absorption. 
 In general, this equation of state system takes the form:
 \begin{align}
 P &= P(\rho_0, T, X_i), \\
@@ -68,22 +67,14 @@ NSE only breaks down in the ejecta, only after the fluid has decompressed consid
 \section{Neutron Star Constraints}
 \label{sec:constraints}
 
-\textbf{TODO: NOT FINISHED}
+Results from X-ray binary observations constrain the areal radius of $1.4M_\odot$ neutron stars between $10.4 - 12.9 \textrm{km}$, using X-ray bursts to obtain both the mass and radius simultaneously~\cite{van1979possible,ozel2006soft}.
+Observations from the neutron star-white dwarf binary PSR J1614-2230~\cite{ozel2010massive} revealed a neutron star mass $1.97 \pm 0.04 M_\odot$, and later measurements from PSR J0348+0432~\cite{antoniadis2013massive} showed masses slightly higher at  $2.01 \pm 0.04 M_\odot$.  Therefore, an equation of state must allow for a maximal mass of $2.05 M_{\odot}$.
+The most rapidly spinning pulsar PSR J1748-2446ad~\cite{hessels2006radio} constrains the maximum radius of a neutron star: a star must rotate beneath the Keplerian frequency at which mass-shedding occurs (cf. Equation [95] in~\cite{lattimer2016equation}).
+Lower bounds on the neutron star radius can be obtained through causality, namely that the sound speed $c_s^2 \equiv c^2 \partial p / \partial \epsilon$ must not be superluminal (i.e. $c_s^2 \le c^2$), which gives bounds on the maximal neutron star compaction, or larger minimum radii~\cite{Haensel:1999}.
 
-\subsection{Observational Constraints}
-
-Results from X-ray binary observations constrain the areal radius of $1.4M_\odot$ neutron stars between $10.4 - 12.9 \textrm{km}$.
-Observations from the neutron star-white dwarf binary PSR J1614-2230 revealed a neutron star mass $1.97 \pm 0.04 M_\odot$, and later measurements from PSR J0348+0432 showed masses slightly higher at  $2.01 \pm 0.04 M_\odot$.  Therefore, an equation of state must allow for a maximal mass of at least $2.05 M_{\odot}$.
-
-\subsection{Experimental Constraints}
-
-The most rapidly spinning pulsar PSR J1748-2446ad constrains the maximum radius of a neutron star: a star must rotate beneath the Keplerian frequency at which mass-shedding occurs (cf. Equation [95] in~\cite{lattimer2016equation}).
-
-\textbf{TODO}: Use arguments from 1403.1186 which give general experimental constraints that all NS EOS need to satisfy. 
-
-\subsection{Theoretical Constraints}
-
-From \textit{Le Chatlier's principle}, the maximum mass of a neutron star can be no larger than 3.2 $M_\odot$.  Lower bounds on the neutron star radius can be obtained through causality, namely that the sound speed $c_s^2 \equiv c^2 \partial p / \partial \epsilon$ must not be superluminal (i.e. $c_s^2 \le c^2$).  
+The equations of state discussed in the next few sections all satisfy that the observational constraint that $M_{\rm NS} \gtrsim 2 M_\odot$.
+The radii of their $1.2 M_\odot$ neutron stars are also in the most likely range provided by studies supported by nuclear theory and X-ray binary observations~\cite{Steiner2010,2013ApJ...765L...5S}, although a separate study of the same astronomical data suggests smaller radii~\cite{Guillot:2013wu}.  
+That argument is also  applied in~\cite{steiner2013core} (the foundation of one of the models used in our study), where they modeled their equation of state to give radii closer to this range, $R_{\rm NS} \sim (11-12.5) {\rm km}$, to give slightly more compact stars.
 
 \section{Hot, Microphysical Equations of State}
 \label{sec:nuclear-eos}
@@ -91,27 +82,27 @@ From \textit{Le Chatlier's principle}, the maximum mass of a neutron star can be
 \subsection{LS220}
 \label{sec:ls220}
 
-One of the first finite-temperature equations of state developed for astrophysical simulations is the Lattimer-Swesty (LS) model.  
-For this reason, computationally expensive full, three-dimensional fluid evolutions of core-collapse supernova have only been performed for LS220 and STOS [\textbf{TODO}: fact check this].
+One of the first finite-temperature equations of state developed for astrophysical simulations is the Lattimer-Swesty (LS) model~\cite{Lattimer:1991nc}.  
+For this reason, computationally expensive full, three-dimensional fluid evolutions of core-collapse supernova have only been performed for LS220 and STOS~\cite{Marek2009}.
 LS is based on a compressible liquid drop model, using a first-order phase transition from low-density vapor to the high-density liquid phase.  
 This makes the density dependence of the transition isobaric.  
 The incompressibility parameter is $K = 220 {\rm MeV}$.
+This equation of state is no longer compatible with recent results~\cite{Fischer2014}.
 
 \subsection{DD2}
 \label{sec:dd2}
 
 Another hot, composition dependent nuclear-theory based equation of state is DD2~\cite{typel2010composition}.  DD2 is relativistic mean field (RMF) model based on a nucleon-meson coupling model whose momentum is density dependent (DD).  
-For DD, the reference density is the saturation density (when nucleons begin to touch) of symmetric nuclear matter (i.e. the number densities $n_\textrm{p} = n_\textrm{n}$), where the incompressibility factor is fixed at $K = 240$ MeV.
-In this model, the binding energy of eight nuclei were computed and compared to experimental values and found stronger agreement than the NL3 EOS.
+For DD, the coupling parameters in the model are set by the saturation density (when nucleons begin to touch) of symmetric nuclear matter (i.e. the number densities $n_\textrm{p} = n_\textrm{n}$), where the incompressibility factor is fixed at $K = 240$ MeV~\cite{typel2005relativistic}.
+In this model, the binding energy of eight nuclei were computed and compared to experimental values and found stronger agreement than other earlier EOS models.
 DD2 is the same as DD~\cite{typel2005relativistic} with additional corrections provided from experimental nucleon masses measured in a lab.
 
 DD2 is also constrained by several nuclear theory based studies~\cite{hempel2012new}.
 Several studies have shown that nuclear energy bounds fall within the predictions of Chiral Effective Field theory.
-Unlike the classical Lattimer-Swesty~\cite{Lattimer:1991nc} and the STOS [cite] EOS models that employ a single nucleus approximation, DD2 includes a detailed distribution of thousands of different nuclei.
-
+Unlike the classical Lattimer-Swesty~\cite{Lattimer:1991nc} and the STOS ~\cite{Shen:1998gq} EOS models that employ a single nucleus approximation, DD2 includes a detailed distribution of thousands of different nuclei.
 In addition, DD2 allows for the existence of stars whose masses are above the observations we have to-date.
 Compared to observational constraints, DD2 can allow for masses as high as $\sym 2.4 M_\odot$, much greater than the observed $\sym 2 M_\odot$ neutron stars.
-DD2, however, comes within $\sym 1 \textrm{km}$ of measured areal radii--being just slightly outside of with $13.22 \textrm{km}$, but within statistical uncertainties.
+DD2, however, comes within $\sym 1 \textrm{km}$ of measured areal radii--being just slightly outside with $13.22 \textrm{km}$.
 
 \subsection{FSU2.1}
 \label{sec:fsu21}
@@ -124,7 +115,9 @@ The upper limit on the baryon number density $n_B$ was modified from $10^{0.4} {
 \subsection{SFHo and SFHx}
 \label{sec:sfh}
 
-Two additional systems were developed by Steiner, Hempel and Fischer~\cite{steiner2013core} that yielded much more compact stars.  In these models, the theoretical constraint enforcing subluminal sound speeds is automatically enforced.  A prediction for the region where the $M-R$ curve of a $1.4 M_\odot$  neutron star is given in~\cite{steiner6871apjl}, where the authors argue that the radius should be $R_{\rm NS} \in [11.2,12.3] {\rm km}$.  The baseline model, SFHo, fits this prediction.  The extreme model, SFHx, attempts to minimize the radius of lower mass neutron stars.  In either case, the pressure monotonically increases with density in all phases.
+Two additional systems were developed by Steiner, Hempel and Fischer~\cite{steiner2013core} that yielded much more compact stars.
+In these models, the theoretical constraint enforcing subluminal sound speeds is automatically enforced.  The region where the $M-R$ curve of a $1.4 M_\odot$ neutron star is constrained to lie $R_{\rm NS} \in [11.2,12.3] {\rm km}$ is shown in~\cite{steiner6871apjl}.
+The baseline model, SFHo, fits this prediction.  The extreme model, SFHx, attempts to minimize the radius of lower mass neutron stars.  In either case, the pressure monotonically increases with density in all phases.
 The incompressibility factor is $K = 245.4 {\rm MeV}$ for SFHo and $K = 238.8 {\rm MeV}$ for SFHx
 
 \section{Our survey}
@@ -189,7 +182,7 @@ That is, the effective adiabatic index $\tilde{\Gamma}$ of Equation \ref{e:adiab
 %\end{figure}
 
 
-In Figure \ref{fig:MultGammavsRho}, we observe the effect temperature has on the pressure-density relations.  Past the fiducial density $\rho_s = 10^{14.7} {\rm g \, cm^{-3}}$ (with fixed $Y_e = 0.05$), changes in temperature do not alter the pressure-density relation by much at all.  As temperature increases in the lower density regime, the structures begin to converge and increase to similar $\tilde{\Gamma}$ between models.  The main differences occur in the intermediate region, where the increasing variance in $\tilde{\Gamma}$ between temperatures becomes clear.
+In Figure \ref{fig:MultGammavsRho}, we observe the effect temperature has on the pressure-density relations.  Past the fiducial density $\rho_s = 10^{14.7} {\rm g \, cm^{-3}}$ (with fixed $Y_e = 0.05$), changes in temperature up to $10$MeV do not alter the pressure-density relation by much at all.  As temperature increases in the lower density regime, the structures begin to converge and increase to similar $\tilde{\Gamma}$ between models.  The main differences occur in the intermediate region, where the increasing variance in $\tilde{\Gamma}$ between temperatures becomes clear.
 
 \begin{figure}
 	\centering

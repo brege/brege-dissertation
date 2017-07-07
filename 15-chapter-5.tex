@@ -196,7 +196,7 @@ In Figures \ref{fig:phihisto} and \ref{fig:costhetahisto}, we show the angular d
 Our results are consistent with previous black hole-neutron star simulations, where the unbound material forms a crescent with an opening zonal angle $\Delta \phi \sim \pi$ and meridional angle $\Delta \theta \lesssim \pi/4$.
 
 
-\section{Post-merger remnant: formation of the protodisk and fallback}
+\section{Post-merger remnant: formation of the protodisk and fallback admixture}
 \label{sec:disk-analysis}
 
 Accretion of the fluid happens at a maximal rate during the merger. 
@@ -225,8 +225,7 @@ eventually forming an axisymmetric disk that could be evolved on much longer tim
 \end{figure}
 
 Because most of our simulations have yet to reach this approximate time of axisymmetrization ($\sim 10$ ms post-merger) where one normally measures the properties of the disk, we will at least analyze the protodisk and fallback properties at 5 ms past merger.
-One argument we can \textit{a priori} make for this is demonstrated in [cite:foucart2014], where simulations with more massive post-
-merger remnants rapidly form massive, hot inner disks and have less variability during the first $5-10$ ms, as with ours and in comparison to those with less massive disks yields.
+One argument we can \textit{a priori} make for this is demonstrated in~\cite{Foucart:2014nda}, where simulations with more massive post-merger remnants rapidly form massive, hot inner disks and have less variability during the first $5-10$ ms, as with ours and in comparison to those with less massive disks yields.
 The disk mass predictions of Equation \ref{e:mass_disk} are for the total bound baryonic mass remaining in the system, which include both the protodisk and fallback matter.
 Roughly speaking, we define the disk as the bound matter having a minimum threshold of rotational velocity (i.e., $-1 < v_r/v_\phi < 0$) and a minimum temperature ($T>0.1$) in order to ditinguish the disk from the fallback,
 while the fallback material is the remaining bound matter in the tidal tail.
@@ -245,10 +244,10 @@ This is because more compact stars disrupt closer to the ISCO.
 
 We see that in Figure \ref{fig:diskdensities}, most of the material is within 
 $25 {\rm km} < r < 75{\rm km}$ for all models and drops off exponentially after that upper-bound, while the peak of the matter distribution is $r _{\rm disk} \sim (30 - 50) {\rm km}$.  
-The composition is roughly constant outside the ISCO, $Y_e \sim 0.05 - 0.08$.  The temperature at the peak of the matter distribution varies as $T \sim (4-7) {\rm MeV}$ between runs, with M12-M7-S9-SFHo having the hottest protodisk and being only slightly more protonized. 
+The composition is roughly constant outside the ISCO, and it is very neutron rich $Y_e \sim 0.05 - 0.08$.  The temperature at the peak of the matter distribution varies as $T \sim (4-7) {\rm MeV}$ between runs, with M12-M7-S9-SFHo having the hottest protodisk and being only slightly more protonized. 
 The neutrino luminosities at this time are high, $L_\nu \sim (1.5 - 5.5) \times 10^{53} {\rm egs/s}$, where the less compact M12-M7-S9-DD2 and M12-M7-S9-FSU21 models emit on the lower end, but the more compact models M12-M7-S9-SFHo  and M14-M7-S9-FSU21 are much brighter.
-Model M14-M7-S9-DD2 is the brightest.
-Most of the emission is in the form of electron anti-neutrinos.
+Model M14-M7-S9-DD2 is the most optically bright in neutrinos.
+Most of the emission in all models is in the form of electron anti-neutrinos.
 
 
 \begin{figure}
@@ -280,35 +279,62 @@ We find that the protodisk mass increased $\sym 2 \times 10^{-2} M_\odot$ during
 We conclude that much of early-formation protodisk material will either accrete onto the black hole or eventually mix with the fallback.
 Most of the longterm evolution disk, therefore, will be composed of fallback, as opposed to the initially circulating fluid.
 
-During the fallback time, the disk initially thermalizes between $5-8$ms after merger, and then cools during the $8-11$ms interval. 
+During the fallback time, the disk initially thermalizes between $(5-8)$ms after merger, and then cools during the $(8-11)$ms interval. 
 During the first interval, the fallback is shock-heating the protodisk.
 During the second interval, 
 as hotter and more protonized fluid is being deposited into the blackhole,
 the remnant begins to get much smoother in the density profile as the proper accretion disk begins to form.
 
+We think that this distinction between fallback matter and protodisk could be of significant interest, and is worth exploring the nature of the fallback rate between models.
+The protodisk is certainly energetic enough to contribute to sGRB's, even ones that occur later on in the evolution.
+%The lifespan of a GRB depends on the accretion rate, which, at least in the limit where the accretion timescale is only a function of $\alpha$-viscosity, is on the order of the dynamical timescale of the disk.
+%That timescale in turn depends on the height of the disk.
+Indeed,~\cite{Aloy:2004nh} determined that SGRBs may last $\sym10$ times longer than the duration of the energy input $L_{\nu \bar{\nu}}$, a timescale of $\sym 10$ms ~\cite{shibata2006magnetized}.
+In simulations performed by ~\cite{noori2016dissertation}, accretion disk simulations with fallback seem to suggest including MHD in earlier times is necessary, as the timeframe on which the (proto-)disk cools could be in the ~$(5-20)$ms range.
+Neutrinos begin to quickly cool the circulating fluid if there's no heating from shocks (fallback) or magnetic turbulence (MRI), so the matter begins to lose its ability to transport angular momentum, and therefore accrete.
 
+Including Lagrangian tracers in the evolution of the fallback material could also provide an estimate for the amount of matter that remains in the later-time, axisymmetric disk from the primordial circularizing remnant.
+In~\cite{FoucartDD2:2017}, we collected the ballistic trajectories of the outflowing particles in order to determine the asymptotic velocities.
+Likewise, a similar processing of our data could do this for following the bound material.
+Tracking the trajectories from bound-particle Keplerian velocities will give us a measure of the fallback rate over time.
 
 \begin{figure}
 	\centering
 	\input{images/long-temperature-of-disk}
-	\caption[Average entropy of the protodisks 5, 8, and 11 ms after merger]{
-		Average entropy of the protodisk 5, 8, and 11 ms after merger in model M12-M7-S9-FSU21.
+	\caption[Average temperature of the protodisks 5, 8, and 11 ms after merger]{
+		Average temperature of the protodisk 5, 8, and 11 ms after merger in model M12-M7-S9-FSU21.
 	}
 	\label{fig:longdiskentropies}
 \end{figure}
 
+\textit{To my committee: we are currently working on this technique and should have it included in the final draft of this manuscript.  I will also be adding some multi-dimensional profiles in $\rho_0$, $Y_e$, and $T$ for this case, particularly to show the spread of the radius of densest point and the deposition of highly protonized matter onto the black hole.}
+
+
 \section{Discussion}
 \label{sec:discussion}
 
-The first simulations of neutron stars with multiple hot, temperature- and composition-dependent nuclear theory-based equations of state in black hole-neutron star mergers using a general relativistic fluid code were performed in this study.  
+The first simulations of neutron stars with multiple hot, composition-dependent nuclear theory-based equations of state in black hole-neutron star mergers using a general relativistic fluid code were performed in this study.  
 The mergers presented here all consider the same black hole parameters, with an orbitally aligned, relatively high black hole spin $\chi_{\rm BH} = 0.9$ and  mass $M_{\rm BH} = 7 M_\odot$, within the range of the most likely black hole masses.  
 The neutron stars considered in this paper were evolved with the SFHo, DD2 and FSU2.1 equations of state with relatively low masses $M_{\rm NS} = (1.2,1.4) M_\odot$ over a wide range of compactnesess.  
 These equations of state satisfy a number of observational, experimental and causal constraints.  
-The ejecta of the five models that evolved far enough passed merger (for the fluid to circularize near the horizon) is very neutron-rich $Y_e = 0.05$, allowing for the robust production of heavy elements on the 2nd and 3rd peak of r-process nucleosynthesis.
+The ejecta of the five models that evolved far enough passed merger ($t - t_{\rm merger} \sim 3$ms) is very neutron-rich $Y_e = 0.05$, allowing for the robust production of heavy elements on the 2nd and 3rd peak of r-process nucleosynthesis.
+Comparing with previous results in the literature, we do no find much distinction in the crescent size and localization of the ejecta between models that cannot adequately be understood by compactness alone.  The composition of the ejecta is all roughly the same, i.e. very neutron rich $Y_e \sim 0.05$, just $5$ms after merger, with a high, average velocity similar to the predicted value for $q=7$ systems, $\langle v \rangle_{\rm ej} \sim 0.2 c$.
 
-We note that while we have implemented our improved algorithm to selectively evolve only non-vacuum subdomains, three of our models (M14-M17-S9-SFHo, M12-M17-S9-SFHx, and M14-M17-S9-SFHx) still had significant numerical error during merger. 
-This is because our hot, compositio- dependent, tidally-disrupting material forms a much narrower tidal tail than other piecewise polytrope models.
+We note that while we have implemented our improved algorithm to selectively evolve only non-vacuum subdomains on the finite volume grid, three of our models (M14-M17-S9-SFHo, M12-M17-S9-SFHx, and M14-M17-S9-SFHx) still had significant numerical error during merger. 
+This is because our hot, composition-dependent, tidally-disrupting material forms a much narrower tidal tail than other piecewise polytrope models.
 An improvement to our algorithm would be to allow true adaptive mesh refinement, so that evolution subdomains could themselves shrink and expand given the average density gradient of the material inside.
+The ejecta has an average velocity consistent with the prediction of the fitting formulae, and a measured mass that is somewhat consistent with the predicted values.
+Two of the models predicted masses outside the relative error range $\sym20\%$ from the results of the experiment.
+The discrepancies appear in both least compact model M12-M7-S9-FSU21 and in the most compact model M14-M7-S9-DD2.
+We find that the fitting-formula prescription for the ejecta mass from Version 2 of the~\cite{Kyutoku:2015} paper was better than the updated Version 3 of the paper, and have chosen to display the ``v2'' predictions in Table \ref{tab:results}.
+
+We find that the protodisk and fallback physics might be a worthwhile investigation into the cosmogenic origins of accretion disk GRB's.
+The protodisk phase is certainly the most energetic phase of the post-merger evolution, which is emitting a lot of energy in the form of electron neutrinos and antineutrinos. 
+The accretion rate for our long-term evolution study of the protodisk remains low in the first $5-8$ ms after merger ($\dot{M}^{5-8 {\rm ms}}_{\rm BH} \sim 5 M_\odot s^{-1}$), but as the fallback rate begins to increase, this drives heating via shocks, transporting angular momentum through a higher rate of accretion onto the black hole ($\dot{M}^{8-11 {\rm ms}}_{\rm BH} \sim 10 M_\odot s^{-1}$).
+The average fallback rate during each of these intervals is almost twice as high as the accretion rate.
+It would be interesting to learn what percentage of fluid elements from the accretion disks were protodisk.
+At 5ms passed merger, depending on how closely the star disrupts to the ISCO (determined both by compactness and the mass-ratio), roughly half of the bound matter remaining in the system is fallback.
+
 
 \paragraph{In-progress work}
 
@@ -320,11 +346,11 @@ Since this project began (it began before Hydro-AMR was available), we have made
 (2) automating fluid-evolution checkpoint cleaning, 
 (3) developing a set of scripts that allow for the easier monitoring and visualization of the simulation volume data, 
 and (4) building a set of modular visualization tools for joining and monitoring columnated data.
+The calculation of the gravitational waveform is in progress.
+One simplification to the post-merger system is to  we are going to do is to turn off the fluid evolution and evolve only the metric quantities until the the waves propogate out to infinity.
 
 \paragraph{Future work} 
 
-The calculation of the gravitational waveform is in progress.
-One simplification to the post-merger system is to  we are going to do is to turn off the fluid evolution and evolve only the metric quantities until the the waves propogate out to infinity.
 For the neutrino emission, we did not include the effects of radiation transport in our simulations, which cannot be determined by the relatively simple neutrino leakage scheme used in this work.
 In order to capture an estimate of the production of electron-positron pairs in neutrino-driven winds near the spin axes of the black hole, evolving the fluid with a neutrino radiation code would improve the accuracy of the post-merger remnant evolution.
 Furthermore, the effects of magnetic fields on the disk contribute heating through MRI turbulence.

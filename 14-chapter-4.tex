@@ -16,7 +16,7 @@ Extremely neutron-rich matter ($Y_e \le 0.25$) is expected to produced 2nd and 3
 Their cosmogenic origin of the r-process elements is still uncertain today, so getting a sense of how many of the heavy elements are produced during the merger can help us address this problem.
   
 (2)  The accretion disk also contributes to the outflow via disk winds (e.g. by viscous or neutrino-absorption heating), although the disk ejecta typically is a factor of a few smaller compared to the tail.
-However, disk outflows occur only about 100 ms later than the nucleosynthesis in the tail, and can produce electromagnetic transients in late radio afterglow.
+However, disk outflows occur only about 100 ms later than the nucleosynthesis in the tail, and can produce electromagnetic transients via interaction with the interstellar gas, emitting late radio afterglow.
 One difference between the two that might be significant is that disk outflows are expected to undergo more neutrino processing and be more neutron starved (higher $Y_e$), which would affect what elements are formed.
 Likewise, the polar regions of the disk outflow (jets) will also contribute to the total optical signal output of the event in the form of GRBs.
 
@@ -110,15 +110,15 @@ where $M$ is the total system mass, $M = M_{\rm BH} +M_{\rm NS}$
 
 While the inspiral of these systems can be adequately modeled with a simpler, approximate equation of state like a piecewise polytrope, the disruption phase requires a more detailed equation of state with composition and temperature dependence to more fully describe the physical effects.  
 To produce the late time gravitational wave signal, when finite size effects of the neutron star are potentially detectable and point mass post-Newtonian approximations begin to have significant errors, one must also evolve the system in the last tens of orbits prior to disruption.  
-On the other hand, to fully predict the electromagnetic signal and the nucleosynthesis yields, the number of requisite orbits can be relaxed.  
+On the other hand, if the effort is to predict the electromagnetic signal and the nucleosynthesis yields, the number of requisite orbits can be relaxed.  
 In addition to the dependencies of neutron star structure (temperature, composition, pressure), we also have to accurately model magnetic field effects of the post merger remnant disk and neutrino radiation on the disrupting fluid (and as a significant source of cooling on the disk).
 Nuclear reactions weren't modeled, since they were in nuclear statistical equilibrium, but during merger non-$\beta$-equilibrium parts of the table were sampled.
 
 Neutrinos can also play a role on the composition of the unbound material ($u_t < -1$) that gets ejected from the system, as well as the heavy r-process elements created there during disruption.
 This is quite significant in double neutron star mergers, but probably not for mixed binaries~\cite{Roberts:2016}.
 Neutrino-antineutrino annihilation in the less dense regions and near the poles of the black hole can contribute to the production of short gamma ray bursts.  
-While magnetic fields and the magneto-rotational instability (MRI) are crucial to the late-stage evolution of the accretion disk, simulations have shown that they do not play an essential role during merger [citation needed].  
-The equation of state, however, plays a significant role in all stages of evolution: compared to a stiff equation of state, the relative response of a soft star to the tidal diruption from the black hole during inspiral occurs closer to the black hole (likewise, if at all), can lead to qualitatively different features during merger (thinner stream of matter falling into the black hole), and the multivariate dependence of the fluid evolution on the equation of state are all essential.
+While magnetic fields and the magneto-rotational instability (MRI) are crucial to the late-stage evolution of the accretion disk, which contribute to disk winds via magnetically driven outflows ~\cite{Paschalidis2014,Kiuchi:2015qua}.
+The equation of state, however, plays a significant role in all stages of evolution: compared to a stiff equation of state, the relative response of a soft star to the tidal disruption from the black hole during inspiral occurs closer to the black hole (likewise, if at all), can lead to qualitatively different features during merger (thinner stream of matter falling into the black hole), and the multivariate dependence of the fluid evolution on the equation of state are all essential.
 
 In~\cite{Foucart:2014nda}, the first relativistic simulations of black hole-neutron star mergers with a finite temperature equations of state with an accompanying neutrino leakage scheme were performed.  
 This work used the Lattimer-Swesty equation of state discussed in Section \ref{sec:ls220}, and explored the parameter space where the mass of the neutron star is in the lower mass range ($M_{\rm NS} = 1.2 M_\odot - 1.4 M_\odot$), while the black hole mass is in the peak of the distribution of likely stellar-mass black holes ($M_{\rm BH} = 7 M_\odot - 10 M_\odot$). 
@@ -142,7 +142,7 @@ In the first 10 ms after merger, the disk quickly protonizes from $Y_e \sim 0.06
 At later times, $Y_e$ falls because of disk cooling.
 They also found recoil velocities from the asymmetric ejection of matter that were much larger than the kick velocities imparted by gravitational waves.
 
-% Deaton et al (2016)
+% Deaton et al (2013)
 \subsection{BHNS post-merger remnant study of LS220 Equation of State}
 
 In a more in-depth study of one of the models studied in that paper, ~\cite{Deaton2013} examined the effects of neutrino cooling on the remnant disk with the configuration system $M_{\rm NS} = 1.4 M_\odot$, $M_{\rm BH} = 5.6 M_\odot$, $\chi_{\rm BH} = 0.9$ for the LS220 equation of state.  
@@ -155,9 +155,17 @@ However, there are two sources of cooling: neutrino emission and the advection o
 
 In this study, the post merger remnant had baryon rest mass $M_\textrm{disk} \sim 0.3 M_\odot$, much larger than the disk masses in the~\cite{Foucart:2014nda} study.  
 This is to be expected because of the smaller black hole mass.
-The neutrino luminosity peaked $\sym 10$ ms after merger at $L_\nu \sim 10^{54} \textrm{erg} s^{-1}$ and fell to a fifth of this value 50 ms after merger---the disk was quite optically thick in the neutrino sense.  The temperature of the disk and the resulting structure was susceptible to a substantial amount of neutrino cooling, which makes the areal radius of the disk smaller than hotter remnants but still hot and optically thick with non-Keplerian velocities dominating the circulization.
+The neutrino luminosity peaked $\sym 10$ ms after merger at $L_\nu \sim 10^{54} \textrm{erg} s^{-1}$ and fell to a fifth of this value 50 ms after merger---the disk was quite optically thick in the neutrino sense.  
+The temperature of the disk and the resulting structure was susceptible to a substantial amount of neutrino cooling, which makes the areal radius of the disk smaller than hotter remnants but still hot and optically thick.
+Neutrino cooling first drives up $Y_e$ as emission is antineutrino-dominant (causing more neutrons to turn into protons)
+and then the equilibrium $Y_e$ shifts back down as the gas cools.  
+Electrons become degenerate since there are fewer positrons for $n + e^+ \rightarrow p + \bar{\nu_e}$.
 
-The ejecta had a mass of $M_{\rm ej} \sim 0.08 M_\odot$ with an average velocity $\sim 0.2 c$, although some matter was ejected at $0.5 c$. Additionally, the tail, while under resolved in their study, was very neutron rich with (density averaged) chemical composition $\left\langle Y_e \right\rangle_\textrm{ej} \sim 0.1$  and in nuclear statistically equilibrium as the temperature remained $T_\textrm{ej} \sim 1 \textrm{MeV}$.  The obervable radio transient from the kilonova emmision in the ejecta was estimated to be within the detectable range of the Expanded Very Large Array (EVLA).
+The ejecta had a mass of $M_{\rm ej} \sim 0.08 M_\odot$ with an average velocity $\sim 0.2 c$, although some matter was ejected at $0.5 c$. 
+Additionally, the tail, while under resolved in their study, was very neutron rich with (density averaged) chemical composition $\left\langle Y_e \right\rangle_\textrm{ej} \sim 0.1$  and in nuclear statistically equilibrium as the temperature remained $T_\textrm{ej} \sim 1 \textrm{MeV}$.  
+This was the only black hole-neutron star study that found a second source of ejecta, resulting from the shock region near the black hole, instead of only the tail.
+This secondary ejecta source is more common in double neutron star binaries, since this second component is spilled away where the stars collide, and provides a more protonization, greater entropy component of the ejecta, but not enough to significantly affect nucleosynthesis outcomes, as found in ~\cite{Roberts2012}.
+The observable radio transient in the interaction between the ejecta and interstellar medium was estimated to be within the detectable range of the Expanded Very Large Array (EVLA).
 
 
 % Foucart et al (2016)
@@ -199,5 +207,5 @@ After merger (where half of the baryonic matter has already been accreted onto t
 This protodisk begins to axisymmetrize $\sim 10$ ms after merger.  
 For the M5-S7-I60 system, the disk reached a finite average temperature of $3 - 6$ MeV and average electron fraction $Y_e \sim 0.1 - 0.2$.  The disk, still accreting at a rate of $\dot{M}_{\rm BH} \sim 5 M_\odot {\rm s}^{-1}$, has a mass of $M_{\rm disk} = (0.045 - 0.06) M_\odot$ 17 and 10 ms after merger.
 
-In some of the \SpEC simulations, the ejecta was ran through a smooth particle hydrodynamics (SPH) code coupled to the SkyNet nuclear reaction network to determine nucleosynthesis output~\cite{Lippuner2015,Roberts:2016}.
+In some of the \SpEC simulations in the past, the ejecta was ran through a smooth particle hydrodynamics (SPH) code coupled to the SkyNet nuclear reaction network to determine nucleosynthesis output~\cite{Lippuner2015,Roberts:2016}.
 It was found in that work 2nd and 3rd peaks in the r-process, as expected, with a minor production of 1st peak elements seeded by late-time ($\sym100$ms) irradiation of ejecta by neutrinos from the remnant. 

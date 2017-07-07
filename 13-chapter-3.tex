@@ -214,7 +214,7 @@ Continuous meshing schemes like the Discontinuous-Galerkin method are also being
 \label{sec:hydro-amr}
 
 Prior FD-grid structures in \SpEC for evolving black hole-neutron star systems involved using a Cartesian, cubic ``unigrid'', where the grid consisted of a number of equally sized subdomains defined to extend to a specified outer boundary.  
-Unigrids, however, can only evolve the large tail region well and the accreting tail poorly, or they can evolve the interior protodisk well while limited to evolving the matter outflow.  
+Unigrids, however, you can either follow the large tail region outwards or the inner accretion disk.
 You cannot do both.  
 The accretion disk spans an areal radius $\sym 50 \textrm{km}$.  
 In linear space, the width of the tail for high spin black holes can be as thin as $\sym 5 \textrm{km}$ across.  
@@ -227,7 +227,7 @@ Note that in our implementation, each subdomain has an equal number of points re
 Therefore, when we double the \textit{size} of a subdomain, we are \textit{halving} its resolution.
 
 Although this method provides the proper resolution to evolve both the longer tail material and the resulting accretion disk, only $\left(10 - 20\right) \%$ of the subdomains during peak disruption are evolving matter.  
-To improve on this further, we've introduced in~\cite{FoucartDD2:2017} a new implementation of an adaptive mesh refinement (AMR) algorithm that can turn  fluid subdomains off and on.
+To improve on this further, we introduced in\mbox{~\cite{FoucartDD2:2017}} a new implementation of an adaptive mesh refinement (AMR) algorithm that can turn  fluid subdomains off and on.
 In general, we use $7$ levels of refinement, where each each subdomain has $300 \times 300 \times 200$ points in each Cartesian direction.
 Each refinement level is then divided into $12 \times 12 \times 8$ subdomains.
 The innermost finest level can evolve any of its subdomains so long as they are not completely enveloped within the excision region around the black hole.
