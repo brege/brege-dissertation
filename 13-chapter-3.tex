@@ -197,7 +197,6 @@ For instance, after each time-step, both systems compute the time integral with 
 The source terms are then communicated between the two grids after each time step:
 
 (1) The fix-point corrected evolved conservative fluid variables ($\rho_*, \tau, S_i, Y_e$ of Equations \ref{e:RhoStar} - \ref{e:Sflux}) are transformed back to primitive variables ($\rho_0, h, W, P, u_i$) on the fluid grid.  After atmosphere-paramater corrections are applied, the primitives are then communicated to the pseudospectral grid, where the stress energy tensor $T^{\mu\nu}$ is computed (see Equation \ref{e:StressEnergyTensor}).  The FD $\rightarrow$ GR interpolation uses a third-order shock-capturing WENO3 interpolator. 
-
 (2) The evolved metric quantities from the pseudospectral grid ($g_{ij}, \partial_i g_{jk}, \beta^i, \partial_i \beta^j, \alpha, \partial_i \alpha,  K_{ij}$) are likewise communicated to the finite volume grid to provide the metric quantities in and compute the source terms on the right hand side of Equations \ref{e:ADMConsOfMass} - \ref{e:ADMConsofMomentum}.  The GR grid is derefined in this step (only every third point on the pseudospectral grid has non-zero coefficients for the basis functions) for efficiency.  The GR $\rightarrow$ FD communication uses a polynomial interpolator with fourth-order accuracy.
 In the final step of this communication, we convert the primitives back to conservative form.
 

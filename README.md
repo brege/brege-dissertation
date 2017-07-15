@@ -48,8 +48,8 @@
     As needed, we will add the plot commands to `make-images.cfg` from
     my [gnuplot-scripts](https://github.com/brege/bhns-gnuplot-scripts)
     repo and simply do
-    ``` gnuplot
-    load 'make-images.cfg
+    ``` bash
+    gnuplot make-images.cfg
     ```
     on the remote. Then, to copy the resulting `*.{eps,tex}` files from
     the remote to the dissertation development folder:
