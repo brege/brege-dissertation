@@ -120,14 +120,15 @@ this stage as well, since the material becomes less dense and easier to resolve.
 \begin{table}
 	\begin{center}
 		\caption[Properties of the dynamical ejecta and post merger remnant]{
-			Properties of the dynamical ejecta and post merger remnant. $M_{\rm BH}^f$ and  $\chi_{\rm BH}^f$  are the mass and dimensionless spin of the black hole,
-			and $M_{\rm out}^f$ is the baryon mass remaining outside of the black hole. Those quantities are measured at the first minima of the accretion rate onto the black hole,
-			before circularization of the accretion disk. The baryon mass outside of the black hole immediately after disk formation (which is a more vaguely defined
-			time) is typically $10\%-20\%$ lower than $M_{\rm out}^f$. $M_{\rm ej}$ is the mass of the dynamical ejecta, and $\langle v/c\rangle_{\rm ej}$. All these properties are nearly constant, from about $1\,{\rm ms}$ after the merger. Bracketed numbers for
+			Properties of the dynamical ejecta and the post merger fallback and remnant measured $5$ms after merger. 
+			$M_{\rm BH}^f$ and  $\chi_{\rm BH}^f$  are the mass and dimensionless spin of the black hole,
+			and $M_{\rm out}^f$ is the baryon mass remaining outside of the black hole.
+			$M_{\rm ej}$ is the mass of the dynamical ejecta, and $\langle v/c\rangle_{\rm ej}$, which are nearly constant after $\sym 2\,{\rm ms}$ post merger. 
+			Bracketed numbers for
 			$M_{\rm out}^f$ and $M_{\rm ej}$ show semi-analytical predictions for the mass outside of the black hole $10\,{\rm ms}$ after merger~\cite{Foucart2012},
-			and the ejected mass~\cite{Kawaguchi:2016}, while bracketed numbers for $M_{\rm BH}^f$ and $\chi_{\rm BH}^f$ are semi-analytical predictions
-			from~\cite{Pannarale:2014}. Those values were calculated from the equations in~\cite{Pannarale:2014} using a root-finding code for both the innermost stable spherical orbit and the reported quantities.  Relative errors in the determination of $M_{\rm ej}$ are $\sim 20\%$, the black holes properties are
-			accurate to $\sim 1\%$, and other quantities have relative errors of $\sim 10\%$.
+			and the ejected mass and velocity~\cite{Kawaguchi:2016}, while bracketed numbers for $M_{\rm BH}^f$ and $\chi_{\rm BH}^f$ are semi-analytical predictions
+			from~\cite{pannarale2013black,Pannarale:2014}. Those values were calculated from the equations in~\cite{Pannarale:2014} using a root-finding code for both the innermost stable spherical orbit and the reported quantities.  Relative errors in the determination of $M_{\rm ej}$ are $\sym 20\%$, the black holes properties are
+			accurate to $\sym 1\%$, and other quantities have relative errors of $\sym 10\%$.
 		}
 		\label{tab:results}
 		{
@@ -187,9 +188,14 @@ Since greater velocities lead to faster expansion of the unbound material, the t
 In Figure \ref{fig:vrhisto}, the distribution of the ejecta velocities peak around $\langle v \rangle \sim 0.2 c$, with a broad distribution  $ 0 \le v \le 2 \langle v \rangle $.
 Model M12-M7-S9-SFHo clearly has the least amount of ejecta.
 
-The average kinetic energy of the ejecta was measured to lie between $3.7 \times 10^{52} {\rm ergs} $ for the SFHo model and $4.8 \times 10^{52} {\rm ergs} $ for the M12-M7-S9-DD2 model.  
+The average kinetic energy of the ejecta was measured to lie between $3.7 \times 10^{52} {\rm ergs} $ for the SFHo model and $4.8 \times 10^{52} {\rm ergs} $ for the M12-M7-S9-DD2 model.
 The $1.4 M_\odot$ models had energies inside this range. 
-The ejecta steadily cools within 1 ms after merger to a steady temperature in the range of $T \sim (0.1 - 0.4) {\rm MeV}$, bounded by both FSU2.1 models in the higher range and the remaining models in the lower range.
+Kinetic energy in the ejecta plays an essential role, providing enough energy in our range to power bright radio transients as the unbound material interacts with the interstellar medium~\cite{Nakar:2011cw}.
+The ejecta steadily cools within $\sym 1$ms after merger to a temperature in the range of $T \sim (0.02 - 0.04) {\rm MeV}$, bracketed by both the FSU2.1 models in the higher range and the remaining models in the lower range.
+Before then, during peak disruption, the stars are heated to an average temperature of $(2-8)$MeV by tidal ejection, caused by numerical heating and represents a very low entropy compared to what the disk will achieve via shocks and the ejecta will achieve by nuclear reactions.
+Then cooling in the ejecta is not due to neutrino luminosity as in the disk, but by adiabatic decompression of the unbound tail, which continues to undergo homologous expansion.
+Ultimately, the average temperature for all matter in the circumbinary region reaches a clear minimum $\sym 2$ms post-merger, at $T \sim (1-2)$MeV, and starts to drive back up to $T \sim (1-2)$MeV with 1 ms after the minima, caused by shock heating from protodisk-fallback infusion.
+
 
 \begin{figure}
 	\centering
@@ -247,12 +253,34 @@ eventually forming an axisymmetric disk that could be evolved on much longer tim
 \end{figure}
 
 Because most of our simulations have yet to reach this approximate time of axisymmetrization ($\sym 10$ms post-merger) where one normally measures the properties of the disk, we will at least analyze the protodisk and fallback properties at $5$ms past merger.
-The protodisk is a sitinct phase of the evolution and worthy of study in its own right.  
+The protodisk is a distinct phase of the evolution and worthy of study in its own right.  
 That is, even if we had $100$ms of data, it would still be useful to look at the $5$ms mark.
-One argument we can \textit{a priori} make for this is demonstrated in~\cite{Foucart:2014nda}, where simulations with more massive post-merger remnants rapidly form massive, hot inner disks and have less variability during the first $(5-10)$ms, as with ours and in comparison to those with less massive disks yields.
+One argument we can \textit{a priori} make for this was discussed in~\cite{Foucart:2014nda}, where simulations with more massive post-merger remnants rapidly form massive, hot inner disks, have less variability in neutrino luminosity during the first $(5-10)$ms in comparison to those with less massive disks yields.
 The disk mass predictions of Equation \ref{e:mass_disk} are for the total bound baryonic mass remaining in the system, which include both the protodisk and fallback matter.
-We define the disk as the bound matter having a minimum threshold of rotational velocity (i.e., $-1 < v_r/v_\phi < 0$) and a minimum temperature ($T>0.1 {\rm MeV}$ since material shocks when processed into the disk) in order to distinguish the disk from the fallback.
-This transition is sharp, with all of the fluid clearly in one mass category or another, and mass counts are insensitive to moderate changes in cutoffs.
+
+\begin{figure*}
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=1.0\linewidth]{images/rho_DD2_M12-5ms-inertial-flagged}
+		\label{fig:rho_M12_DD2_5ms}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/temp_DD2_M12-5ms-inertial}
+		\label{fig:temp_M12_DD2_5ms}
+		\centering
+	\end{subfigure}
+	\caption[Temperature and density profiles on equatorial plane for DD2 $1.2 M_\odot$ model]{
+		Temperature and baryon density profiles on the equatorial plane for the DD2 equation of state, where $M_{\rm NS} = 1.2 M_{\odot}$ 5 ms after merger.
+		\textit{Left:} Density of the fluid with two interfacing contours (demarcated in \textit{yellow} on the inner lip of the unbound crescent): fallback (\textit{cyan}) and dynamical ejecta (\textit{orange}).  The matter that is defined as disk is the rest in the system, in other words non-atmospheric, non-zero azimuthal velocity, and non-cold ($T > 0.1$MeV) matter.
+		\textit{Right:} Temperature of the fluid, where it is decidedly hot ($T>0.1$MeV) in the protodisk region, while the ejecta front is also hotter than the bulk of the tail.  We mask out the unbound matter in our measurements of the disk and fallback masses.  Also note the size of the system compared to that of Figure \ref{fig:rho_M12} (a), which is now $\sym 10 \times$'s larger in the laboratory frame.
+	}
+	\label{fig:dd2_m12_5ms}
+\end{figure*}
+
+We define the disk as the bound matter having a minimum threshold of nonzero rotational velocity and a minimum temperature ($T>0.1 {\rm MeV}$, since material shocking within the disk) in order to distinguish the disk from the fallback.
+This transition is sharp, with all of the fluid clearly in one mass category or another, and mass counts are insensitive to moderate changes in cutoffs (cf. Figure \ref{fig:dd2_m12_5ms}).
 The fallback material, by conservation of baryon mass, is then defined as the  remaining bound matter in the tidal tail.
 At 5 ms past merger, our simulations yield a wide range of fallback material, in the range of $(32 - 71)\%$ fallback.  
 The lowest fallback yield is that of the M12-M7-S9-SFHo model, while both $1.4 M_\odot$ models have the most amount of infalling matter at this time.
@@ -313,17 +341,18 @@ as hotter and more protonized fluid is being deposited into the black hole,
 the remnant begins to get much smoother in the density profile as the longer-term  accretion disk begins to form.
 
 We think that this distinction between fallback matter and protodisk could be of significant interest, and is worth exploring the nature of the fallback rate between models.
-The protodisk is certainly energetic enough to contribute to sGRB's, even ones that occur later on in the evolution.
+The protodisk is certainly energetic enough to contribute to sGRB's, even ones that occur later on in the evolution, and is the most neutrino luminous component of the merger.
 %The lifespan of a GRB depends on the accretion rate, which, at least in the limit where the accretion timescale is only a function of $\alpha$-viscosity, is on the order of the dynamical timescale of the disk.
 %That timescale in turn depends on the height of the disk.
 Indeed,~\cite{Aloy:2004nh} determined that SGRBs may last $\sym10$ times longer than the duration of the energy input $L_{\nu \bar{\nu}}$, a timescale of $\sym 10$ms ~\cite{shibata2006magnetized}.
-In simulations performed by ~\cite{noori2016dissertation}, accretion disk simulations with fallback seem to suggest including MHD in earlier times is necessary, as the timeframe on which the (proto-)disk cools could be in the ~$(5-20)$ms range.
-Neutrinos begin to quickly cool the circulating fluid if there's no heating from shocks (fallback) or magnetic turbulence (MRI), so the matter begins to lose its ability to transport angular momentum, and therefore accrete.
+In simulations performed by ~\cite{noori2016dissertation}, accretion disk simulations with fallback seem to suggest including MHD in earlier times is not necessary in the protodisk phase, where the main source of heating is shocks, not by magnetic or ``viscous'' effects, as the time frame on which the (proto-)disk cools could be in the ~$(5-20)$ms range.
+In that study, they found that magnetic turbulence (MRI) heating is offset by MRI-driven advective cooling, since the extra turbulance causes (hotter) matter to fall into the black hole.
+Neutrinos therefore begin to quickly cool the circulating fluid if there's no heating from shocks or magnetic turbulence, so the matter begins to lose its ability to transport angular momentum, accreting, leading to rapid luminosity drops regardless if the MRI is active.
 
 Including Lagrangian tracers in the evolution of the fallback material could provide an estimate for the amount of matter that remains in the later-time, axisymmetric disk from the primordial circularizing remnant.
 In~\cite{FoucartDD2:2017}, we collected the ballistic trajectories of the outflowing particles in order to determine the asymptotic velocities.
 Likewise, a similar processing of our data could do this for following the bound material.
-Tracking the trajectories from bound-particle Keplerian velocities will give us a measure of the fallback rate over time.
+Tracking the trajectories from bound-particle Keplerian velocities will give us a measure of the fallback rate over time~\cite{Chawla:2010sw}.
 
 \begin{figure}
 	\centering
