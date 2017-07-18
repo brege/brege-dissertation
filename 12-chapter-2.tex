@@ -30,7 +30,7 @@ In addition, an effective adiabatic index can be extracted to give one a sense h
 First, we'll review the theory of polytrope based models in Section \ref{sec:polytropes}. Then we will outline the many experimental, observational and nuclear theory constraints on the equation of state in Section \ref{sec:constraints}.   In Section \ref{sec:nuclear-eos}, we include a description of the microphysical equations of state used in the simulations of Chapter \ref{chap:chapter-5}. 
 
 
-\section{Polytropes}
+\section{Polytrope-based models}
 \label{sec:polytropes}
 
 Neutron stars in early simulations were initially modeled with the polytrope, or ``Gamma-Law'', equation of state, in the range where $2 < \Gamma < 3$.
@@ -68,7 +68,7 @@ NSE only breaks down in the ejecta, only after the fluid has decompressed consid
 \label{sec:constraints}
 
 Results from X-ray binary observations constrain the areal radius of $1.4M_\odot$ neutron stars between $10.4 - 12.9 \textrm{km}$, using X-ray bursts to obtain both the mass and radius simultaneously~\cite{van1979possible,ozel2006soft}.
-Observations from the neutron star-white dwarf binary PSR J1614-2230~\cite{ozel2010massive} revealed a neutron star mass $1.97 \pm 0.04 M_\odot$, and later measurements from PSR J0348+0432~\cite{antoniadis2013massive} showed masses slightly higher at  $2.01 \pm 0.04 M_\odot$.  Therefore, an equation of state must allow for a maximal mass of $2.05 M_{\odot}$.
+Observations from the neutron star-white dwarf binary PSR J1614-2230~\cite{ozel2010massive} revealed a neutron star mass $1.97 \pm 0.04 M_\odot$, and later measurements from PSR J0348+0432~\cite{antoniadis2013massive} showed masses slightly higher at  $2.01 \pm 0.04 M_\odot$.  Therefore, an equation of state must allow for a maximal mass of $\sym 2 M_{\odot}$.
 The most rapidly spinning pulsar PSR J1748-2446ad~\cite{hessels2006radio} constrains the maximum radius of a neutron star: a star must rotate beneath the Keplerian frequency at which mass-shedding occurs (cf. Equation [95] in~\cite{lattimer2016equation}).
 Lower bounds on the neutron star radius can be obtained through causality, namely that the sound speed $c_s^2 \equiv c^2 \partial p / \partial \epsilon$ must not be superluminal (i.e. $c_s^2 \le c^2$), which gives bounds on the maximal neutron star compaction, or larger minimum radii~\cite{Haensel:1999}.
 
@@ -87,7 +87,7 @@ For this reason, computationally expensive full, three-dimensional fluid evoluti
 LS is based on a compressible liquid drop model, using a first-order phase transition from low-density vapor to the high-density liquid phase.  
 This makes the density dependence of the transition isobaric.  
 The incompressibility parameter is $K_0 = 220 {\rm MeV}$, which is a measure of the incompressibility of nuclear matter, while the symmetry energy is $S_\nu = 29.3$MeV, which represents the binding enregy of symmetric nuclear matter.
-This equation of state is no longer compatible with recent results~\cite{Fischer2014}.
+This equation of state is argued to be no longer compatible with recent results~\cite{Fischer2014}, based on results from Chiral Effective Field Theory (EFT) that constrain the equation of state at low densities.
 
 \subsection{DD2}
 \label{sec:dd2}
@@ -98,7 +98,7 @@ In this model, the binding energy of eight nuclei were computed and compared to 
 DD2 is the same as DD~\cite{typel2005relativistic} with additional corrections provided from experimental nucleon masses measured in a lab, with incompressibility $K_0 = 243$MeV and symmetry energy $S_\nu=31.67$MeV.
 
 DD2 is also constrained by several nuclear theory based studies~\cite{hempel2012new}.
-Several studies have shown that nuclear energy bounds fall within the predictions of Chiral Effective Field theory, which constrains the equation of state in the sub-saturation density regime.
+Several studies have shown that nuclear energy bounds fall within the predictions of Chiral EFT, which constrains the equation of state in the sub-saturation density regime, so that the free parameters in the DD2 equation of state are constrained by those predictions. 
 Unlike the classical Lattimer-Swesty~\cite{Lattimer:1991nc} and the STOS ~\cite{Shen:1998gq} EOS models that employ a single nucleus approximation, DD2 includes a detailed distribution of thousands of different nuclei.
 In addition, DD2 allows for the existence of stars whose masses are above the observations we have to-date.
 Compared to observational constraints, DD2 can allow for masses as high as $\sym 2.4 M_\odot$, much greater than the observed $\sym 2 M_\odot$ neutron stars.

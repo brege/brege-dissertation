@@ -188,14 +188,27 @@ Since greater velocities lead to faster expansion of the unbound material, the t
 In Figure \ref{fig:vrhisto}, the distribution of the ejecta velocities peak around $\langle v \rangle \sim 0.2 c$, with a broad distribution  $ 0 \le v \le 2 \langle v \rangle $.
 Model M12-M7-S9-SFHo clearly has the least amount of ejecta.
 
-The average kinetic energy of the ejecta was measured to lie between $3.7 \times 10^{52} {\rm ergs} $ for the SFHo model and $4.8 \times 10^{52} {\rm ergs} $ for the M12-M7-S9-DD2 model.
-The $1.4 M_\odot$ models had energies inside this range. 
+\begin{table}
+	\begin{center}
+		\caption[Measured ejecta quantities]{
+			Properties of the dynamical ejecta measured $5$ms after merger.  This table supplements the results of Table \ref{tab:results} to include average kinetic energy $E_{\rm ej}$ and temperature $T_{\rm ej}$ of the ejecta.  The ejected material has \textit{nearly constant composition} in all runs, $Y_e^{\rm ej} \approx 0.05$.
+			The large recoil velocity caused by the asymmetric ejection of unbound material $v_{\rm kick,ej}$ is quite large, and is determined by momentum conservation with the black hole.
+		}
+		\label{tab:ejecta}
+		{
+			\include{tables/ejecta}
+		}
+	\end{center}
+\end{table}
+
+The average kinetic energy of the ejecta was measured to lie between $1.2 \times 10^{51} {\rm erg} $ for the SFHo model and $2.9 \times 10^{51} {\rm erg} $ for the M12-M7-S9-FSU21 model.
+The remaining (more compact) $1.4 M_\odot$ models had energies inside this range. 
 Kinetic energy in the ejecta plays an essential role, providing enough energy in our range to power bright radio transients as the unbound material interacts with the interstellar medium~\cite{Nakar:2011cw}.
 The ejecta steadily cools within $\sym 1$ms after merger to a temperature in the range of $T \sim (0.02 - 0.04) {\rm MeV}$, bracketed by both the FSU2.1 models in the higher range and the remaining models in the lower range.
 Before then, during peak disruption, the stars are heated to an average temperature of $(2-8)$MeV by tidal ejection, caused by numerical heating and represents a very low entropy compared to what the disk will achieve via shocks and the ejecta will achieve by nuclear reactions.
 Then cooling in the ejecta is not due to neutrino luminosity as in the disk, but by adiabatic decompression of the unbound tail, which continues to undergo homologous expansion.
-Ultimately, the average temperature for all matter in the circumbinary region reaches a clear minimum $\sym 2$ms post-merger, at $T \sim (1-2)$MeV, and starts to drive back up to $T \sim (1-2)$MeV with 1 ms after the minima, caused by shock heating from protodisk-fallback infusion.
-
+Ultimately, the average temperature for all matter in the circumbinary region reaches a clear minimum $\sym 2$ms post-merger, at $T \sim (1-2)$MeV, and starts to drive back up to $T \sim (2-3)$MeV within 1 ms after the minima, caused by shock heating from protodisk-fallback infusion.
+A summary of the measured ejecta quantities discussed here may be found in \mbox{Table \ref{tab:ejecta}}.
 
 \begin{figure}
 	\centering
@@ -220,15 +233,17 @@ Ultimately, the average temperature for all matter in the circumbinary region re
 In addition, the ejecta geometry plays an integral role in the kilonova properties, introducing a dependence between the kilonovae signal and the orientation of the binary~\cite{FoucartDD2:2017}.
 In Figures \ref{fig:phihisto} and \ref{fig:costhetahisto}, we show the angular distribution of the ejecta in a spherical coordinate system in the inertial frame, where $\cos(\theta) = 0$ corresponds to the equator.  
 Our results are consistent with previous black hole-neutron star simulations, where the unbound material forms a crescent with an opening zonal angle $\Delta \phi \sim \pi$ and meridional angle $\Delta \theta \lesssim \pi/4$.
-We do not determine an equation of state dependence on the angular speed.
+We do not determine any non-compaction-related equation of state dependence on the angular speed.
 
+
+The asymmetric ejection of the unbound material also leads to large recoil velocities (via momentum conservation with the black hole).  We find that the smaller but more compact model, M12-M7-S9-SFHo, imparts a smaller kick than the others $v_{\rm kick,ej} \sim 250 {\rm km/s}$, while the less compact case with the stiffest equation of state, M12-M7-S9-FSU21, imparts the largest recoil velocity $\sym 520 {\rm km/s}$.  Large kick velocities $v_{\rm kick,ej} \gtrsim100 {\rm km/s}$ in mixed binary mergers were determined to be much larger than the primary kick imparted via gravitational wave emission ~\cite{Kyutoku:2011vz}. 
 
 \section{Post-merger remnant: formation of the protodisk and fallback admixture}
 \label{sec:disk-analysis}
 
 Accretion of the fluid happens at a maximal rate during the merger. 
 Around $\sym 2.5$ ms after merger, this rapid accretion rate onto the black hole begins to slow and the average temperature of the fluid begins to reach a local minimum.
-In our simulations, this window was the most difficult epoch of the merger, as the rate of expansion in the tail and then circularization of inflowing gas near the horizon led to the creation of thousands of subdomains
+In our simulations, this window was the most difficult epoch of the merger, as the rate of expansion in the tail and then circularization of inflowing gas near the horizon led to the creation of thousands of fluid subdomains
 \footnote{
 We experienced an overwhelming number of memory issues here, and had to constantly but conservatively increase the number of computer processor cores used in each simulation.
 That is, the number of fluid subdomains per processor quickly increased by a factor of (up to) six, requiring diligence in monitoring domain creation and increasing the requisite number of processors to improve the load balancing.
@@ -282,15 +297,29 @@ The disk mass predictions of Equation \ref{e:mass_disk} are for the total bound 
 We define the disk as the bound matter having a minimum threshold of nonzero rotational velocity and a minimum temperature ($T>0.1 {\rm MeV}$, since material shocking within the disk) in order to distinguish the disk from the fallback.
 This transition is sharp, with all of the fluid clearly in one mass category or another, and mass counts are insensitive to moderate changes in cutoffs (cf. Figure \ref{fig:dd2_m12_5ms}).
 The fallback material, by conservation of baryon mass, is then defined as the  remaining bound matter in the tidal tail.
-At 5 ms past merger, our simulations yield a wide range of fallback material, in the range of $(32 - 71)\%$ fallback.  
-The lowest fallback yield is that of the M12-M7-S9-SFHo model, while both $1.4 M_\odot$ models have the most amount of infalling matter at this time.
-This is because more compact stars disrupt closer to the ISCO.
+At 5 ms past merger, our simulations yield a wide range of fallback material, in the range of $(30 - 40)\%$ fallback.
+We find a general trend that more compact stars lead to more massive protodisks, as those stars disrupt closer to the ISCO.
+We find no discernible trend as to the relationship between fallback mass $M_{\rm fall}$ and initial neutron star compactness $\mathcal{C}_{\rm NS}$.
+A summary of our results is provided in Table \ref{tab:matter}.
+
+\begin{table}
+	\begin{center}
+		\caption[Baryon mass bookkeeping]{
+			Properties of the dynamical ejecta and the post merger fallback and protodisk measured $5$ms after merger.  The fallback mass $M_{\rm fall}$ is calculated using conservation of baryon mass, such that $M_{\rm fall} = M_b^{5 {\rm ms}} - M_{\rm ej} -M_{\rm pd}$, where we use our criteria $u_t < -1$ (unboundedness, or positive specific energy) and $T > 0.1$MeV (shock-heated circularizing fluid) to calculate the masses of the ejecta $M_{\rm ej}$ and protodisk $M_{\rm pd}$, respectively.  See Table \ref{tab:results} for more information about the relative errors in the final bound and unbound masses.
+		}
+		\label{tab:matter}
+		{
+			\include{tables/matter}
+		}
+	\end{center}
+\end{table}
+
 
 \begin{figure}
 	\centering
 	\input{images/temperature-of-disk}
-	\caption[Temperature profiles of the protodisks 5 ms after merger]{
-		Averaged temperature profiles of the protodisks 5 ms after merger.  The temperature near the peaks of the density profiles is $T \sim (4-7) {\rm MeV}$, and becomes quite cool in the low density region ($r>75 {\rm km}$) outside the disk.  
+	\caption[Temperature profiles of the protodisks $5$ms after merger]{
+		Averaged temperature profiles of the protodisks $5$ms after merger.  The temperature near the peaks of the density profiles is $T \sim (4-7) {\rm MeV}$, and becomes quite cool in the low density region ($r>75 {\rm km}$) outside the disk.  The first peak in temperature is explained by the accretion interface, the second by the low density fluid between there and the densest point, while the third is due to shocks caused by the infusion of fallback (more clearly shown in an extra dimension in Figure \ref{fig:dd2_m12_5ms}).
 	}
 	\label{fig:disktemps}
 \end{figure}
@@ -308,7 +337,7 @@ Most of the emission in all models is in the form of electron anti-neutrinos.
 	\input{images/composition-of-disk}
 	\caption[Radial compositions of the protodisks 5 ms after merger]{
 	Averaged radial compositions of the protodisks 5 ms after merger.  
-	The fluid is highly protonized ($Ye > 0.25$) near the black hole horizon, while nearly constant in the circularizing portion of the disk ($Y_e \sim 0.05 - 0.08$).
+	The fluid is highly protonized ($Y_e > 0.25$) near the black hole horizon, while nearly constant in the circularizing portion of the disk ($Y_e \sim 0.05 - 0.08$).
 	}
 	\label{fig:diskYes}
 \end{figure}
@@ -323,7 +352,7 @@ Most of the emission in all models is in the form of electron anti-neutrinos.
 %\end{figure}
 
 In general, more compact stars led to protodisks that peak in averaged density closer to the black hole, and hotter (Figure \ref{fig:disktemps}).
-Since the only difference in our models is compaction (equation of state),
+Since the only difference in our models is compaction (equation of state) and initial neutron star mass,
 neutron star compactness might be sufficient enough to explain the variability in protodisk structures. 
 
 \subsection{Evolution of the protodisk}
@@ -333,6 +362,15 @@ The accretion rate during this time is high $\dot{M}_{\rm BH} \sim 7 M_\odot s^{
 We find that the protodisk mass increased $\sym 2 \times 10^{-2} M_\odot$ during the first $5$ms and $8$ms after merger, and $\sym4 \times 10^{-2} M_\odot$ between $8$ms and $11$ms after merger.
 We conclude that much of early-formation protodisk material will either accrete onto the black hole or eventually mix with the fallback.
 Most of the longterm evolution disk, therefore, will be composed of fallback, as opposed to the initially circulating fluid.
+
+\begin{figure}
+	\centering
+	\input{images/long-temperature-of-disk}
+	\caption[Average temperature of the protodisks 5, 8, and 11 ms after merger]{
+		Average temperature of the protodisk 5, 8, and 11 ms after merger in model M12-M7-S9-FSU21.
+	}
+	\label{fig:longdiskentropies}
+\end{figure}
 
 During the fallback time, the disk initially heats up between $(5-8)$ms after merger, and then cools during the $(8-11)$ms interval. 
 During the first interval, the fallback is shock-heating the protodisk.
@@ -351,19 +389,18 @@ Neutrinos therefore begin to quickly cool the circulating fluid if there's no he
 
 Including Lagrangian tracers in the evolution of the fallback material could provide an estimate for the amount of matter that remains in the later-time, axisymmetric disk from the primordial circularizing remnant.
 In~\cite{FoucartDD2:2017}, we collected the ballistic trajectories of the outflowing particles in order to determine the asymptotic velocities.
-Likewise, a similar processing of our data could do this for following the bound material.
-Tracking the trajectories from bound-particle Keplerian velocities will give us a measure of the fallback rate over time~\cite{Chawla:2010sw}.
+Likewise, a similar processing of our data in this paper was performed, where we track the trajectories from bound-particle Keplerian velocities to determine the fallback rate.  In ~\cite{Chawla:2010sw}, the fallback rate was determined such that almost all the bound matter has a time below $10$s. 
 
 \begin{figure}
 	\centering
-	\input{images/long-temperature-of-disk}
-	\caption[Average temperature of the protodisks 5, 8, and 11 ms after merger]{
-		Average temperature of the protodisk 5, 8, and 11 ms after merger in model M12-M7-S9-FSU21.
+	\input{images/fallback-rate}
+	\caption[Rate of fallback matter depletion]{
+		Matter distribution in orbital period of the fallback 5 ms after merger.  We confirm the results of ~\cite{Chawla:2010sw} that the fallback rate roughly fulls of as a $t^{-5/3}$ power law.  (Specifically, the power law $\dot{M}_{\rm fall} \sim t^{\alpha}$ is such that $\alpha \sim -(1.61,1.61,1.58,1.63,1.68)$, in reading order with the legend.)
 	}
-	\label{fig:longdiskentropies}
+	\label{fig:fallback}
 \end{figure}
 
-\textit{To my committee: we are currently working on this technique and should have it included in the final draft of this manuscript.  I will also be adding some multi-dimensional profiles in $\rho_0$, $Y_e$, and $T$ for this case, particularly to show the spread of the radius of densest point and the deposition of highly protonized matter onto the black hole.}
+In Figure \ref{fig:fallback}, we show the distribution of the fallback matter as a function of the orbital period.  We confirm the results of ~\cite{Chawla:2010sw} that the fallback rate will fall off as $\dot{M}_{\rm fall} \sim t^{-5/3}$.  As remarked in that work, ~\cite{phinney1989manifestations} determined the same fallback-accretion rate in the disruption of a main-sequence star in the galactic center of a super-massive black hole, not a highly compact neutron star with a temperature and composition dependecies with a stellar-massive black hole as considered in this work, and certainly not with the consideration that so little of the material is unbound (the author argued $\sym 50\%$ would get ejected).
 
 
 \section{Discussion}
@@ -393,7 +430,7 @@ It would be interesting to learn what percentage of fluid elements from the accr
 At $5$ms passed merger, depending on how closely the star disrupts to the ISCO (determined both by compactness and the mass-ratio), roughly half of the bound matter remaining in the system is fallback.
 
 As to the initial curiosity of what features the hot equations of state might imprint, we find that different models do affect ejecta mass, but only in ways captured by cold models, and does not affect the spread of the ejecta or composition in interesting ways.
-However, different equation of state models do affect the protodisk properties, such as disk size and mass, neutrino luminosity and fallback time, although only via variance in compaction.
+However, different equation of state models do affect the protodisk properties, such as disk size and mass, neutrino luminosity and fallback time, although again mostly via variance in compaction and initial neutron star masses.
  
 
 \paragraph{In-progress work}
@@ -407,7 +444,7 @@ Since this project began (it began before Hydro-AMR was available), we have made
 (3) developing a set of scripts that allow for the easier monitoring and visualization of the simulation volume data, 
 and (4) building a set of modular visualization tools for joining and monitoring columnated data.
 The calculation of the gravitational waveform is in progress.
-One simplification to the post-merger system is to  we are going to do is to turn off the fluid evolution and evolve only the metric quantities until the the waves propogate out to infinity.
+One simplification to the post-merger system we will be performing is to turn off the fluid evolution and evolve only the metric quantities until the the waves propogate out to infinity.
 
 \paragraph{Future work} 
 
