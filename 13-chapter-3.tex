@@ -48,11 +48,12 @@ where we have included only the principal (`$\simeq$') parts to be evolved.  We 
 \partial_t u^\alpha + {A^{k\alpha}}_\beta \partial_k u^\beta \simeq 0
 \end{equation}
 The gauge function $H_a$ is chosen given assumptions of the coordinate system dynamics.  
-A gauge of $H_a = 0$ is some the ``harmonic'' gauge; 
-if $H_a$ is set to some constant other than zero--known as the ``frozen gauge'', it will just advect with the evolution;
-during the merger, we generally roll-on a `damped-harmonic'' gauge because the spacetime is so dynamical in black hole-neutron star mergers.
+A gauge of $H_a = 0$ may be referred to as the ``harmonic'' gauge; 
+if $H_a$ is set to some constant other than zero, or ``frozen gauge'', it will just advect with the evolution;
+during the merger, we generally roll-on a ``damped-harmonic'' gauge because of highly dynamical spacetimes in black hole-neutron star mergers.
+The choice of gauge may be made in order to counter the effects of coordinate dynamics.
 
-The GR grid is first divided into touching but not overlapping subdomains consisting of: cubed spheres, wedges, and spherical shells (see Figure \ref{fig:pseudospectral-grid}).
+The general relativity (GR) grid is first divided into touching but not overlapping subdomains consisting of: cubed spheres, wedges, and spherical shells (see Figure \ref{fig:pseudospectral-grid}).
 The choice of the geometry of the subdomains are chosen so as to reflect the configuration symmetry.  
 A penalty method is employed at subdomain interfaces~\cite{Hesthaven1999,Hesthaven2000,Gottlieb2001,Hesthaven1997}.  
 In corotating coordinates, the black hole is spherically excised such that the excision surface lies between the inner and outer apparent horizons of the (Kerr) black hole. 
@@ -83,7 +84,7 @@ We assume the neutron star matter to be an ideal fluid (see, e.g.~\cite{Duez2005
 T^{\mu \nu} &=& \rho_0 h u^\mu u^\nu + P g^{\mu \nu}.
 \label{e:StressEnergyTensor}
 \end{eqnarray}
-Here, $P$ is the pressure, $g^{\mu \nu}$ the spacetime metric inverse, and $h$ is the specific enthalpy (expressed in terms of the specific internal energy $\epsilon$) given by $h \equiv 1 + \epsilon + P/{\rho c^2}$.
+Here, $P$ is the pressure, $g^{\mu \nu}$ the spacetime metric inverse, and $h$ the specific enthalpy (expressed in terms of the specific internal energy $\epsilon$) given by $h \equiv 1 + \epsilon + P/{\rho c^2}$, and $u^{\mu}$ the fluid four-velocity.
 Note that there are two distinct densities used here: the rest mass density, $\rho_0$, and the total energy density, $\rho = \rho_0 + u$ which includes the internal energy, $u = \rho_0 \epsilon$.
 
 The equations governing the fluid in general relativistic hydrodynamics are
@@ -131,14 +132,14 @@ In terms of the effective energy emission rate $Q_\nu$, neutrino radiation press
 \end{align}
 where $m_U$ is the atomic mass unit.
 
-To evolve the fluid equations \ref{e:ADMConsOfMass} - \ref{e:ADMConsofMomentum}, there are a variety of different FD grid configurations and finite difference reconstructors available to \SpEC.
+To evolve the fluid equations \ref{e:ADMConsOfMass} - \ref{e:ADMConsofMomentum}, there are a variety of different finite difference (FD) grid configurations and reconstructors available to \SpEC.
 For our simulations, we use a fifth-order accurate, shock-capturing, weighted essentially non-oscillatory reconstruction scheme, WENO5, to perform interpolation of the conservative variables on the grid points to conservative fluxes on cell faces~\cite{Liu1994200,Jiang1996202}.
 An HLLE approximate Riemann solver is used to compute the differences of the cell boundary fluxes~\cite{HLL}.
 In Section \ref{sec:communication}, we discuss the time integral used, while in Section \ref{sec:hydro-amr}, we will discuss the geometrical configuration of the finite difference grid.
 
 There are also a number of further physical constraints we must safeguard against.
 When evolving the conservative variables ($\rho_*$, $\tau$, $S_i$) in low-density regimes, small numerical errors can lead to very large and nonphysical values for the primitive variables (pressure $P$, temperature $T$, velocities $v_i$).
-To fix this, we employ two techniques to enforce restrictions on the variables to help prevent them from feeding nonphysical junk into the evolution equations.
+To fix this, we employ two techniques to enforce restrictions on the variables to help prevent them from feeding nonphysical values into the evolution equations.
 
 \subsection*{Fix Point Parameters}
 
@@ -161,7 +162,7 @@ After these ``fix points'' constraints are enforced, the fixed conservative quan
 Further fixes are applied after primitive conversion.
 First, in regions where the (physical) density $\rho_0 < 10^{-6} \rho_0^\textrm{max}(t)$, with $\rho_0^\textrm{max}(t)$ the maximum rest mass density on the grid at a given time, we set $T=0$ and $u_i=0$.
 On the other end, we prevent negative densities by enforcing that $\rho_0 > 10^{-11} \rho_0^\textrm{max}(t=0)$ at all points.
-We also note that the reference density $\rho_0^\textrm{max}(t)$ is also ``smoothed'' so that the occasional high density spike cannot zap the rest of the points on the grid.
+We also note that the reference density $\rho_0^\textrm{max}(t)$ is also ``smoothed'' so that the occasional high density spike cannot zap (cool) the rest of the points on the grid.
 Density thresholds are also multiplied by a so-called ``atmosphere multiplier'', which contains a spherical Gaussian around the black hole:
 \begin{equation}
 \xi_1 \equiv {e^{- \left(2 \frac{ r_\textrm{dist}[i] - r_\textrm{exc}}{r_\textrm{exc}}\right)}}^2 ,
@@ -180,10 +181,10 @@ We do not allow a pure vacuum in our code, as velocity would not be defined for 
 In general, there are three ways to control the temperature in our code, either via: enthalpy constraints, controlling the polytopic constant, $K = P/{\rho^{\Gamma}}$ or through the temperature directly.
 In our simulations, it is more straightforward to restrict the temperature via the latter, since our equation of state is directly dependent on the temperature.
 In low density regions where $\rho_0 \le 10^{-11} \rho_0^\textrm{max}(t)$, we do not allow the temperature to exceed $T_\textrm{max} < 100\,\textrm{MeV}$.
-We also applied $T < T_\textrm{max}$ globally, i.e. even in low density regions since this is the upper limit of the highest temperature bin in the our equation of state tables.  
+We also applied $T < T_\textrm{max}$ globally, i.e. even in high density regions since this is the upper limit of the highest temperature bin in the our equation of state tables.  
 Conversely, while the equation of state tables may go down to $0.01 \textrm{MeV}$, we set the temperature minimum to $T_\textrm{min} = 0.5 \textrm{MeV}$ in the low density $\rho_0 \le 10^{-11} \rho_0^\textrm{max}(t)$ regions as the $T < T_\textrm{min}$ bins are typically inaccurate in the tables.
 
-Errors in the density profile or non-smooth bins in the equation of state can lead to errant temperature spikes.
+Errors in the density profile or non-smooth bins in the equation of state can lead to errant temperature spikes, which can be determined if the temperature exceeds some specified maximum threshold in relation neighboring points.
 On those grid points, and if the density is below the threshold, we zap temperature spikes by replacing the temperature with averaged values from its neighboring points.
 More commonly, these temperature deltas are much more attributable to numerical error.
 We impose a maximum on the Lorentz factor $W = \alpha u^t$ by constraining $u \equiv \sqrt{g^{ij} u_i u_j} < 1000$ in low density regions.
@@ -193,11 +194,11 @@ We impose a maximum on the Lorentz factor $W = \alpha u^t$ by constraining $u \e
 \label{sec:communication}
 
 Both systems of equations are evolved jointly and coupled through the interpolation between the metric and fluid variables. 
-For instance, after each time-step, both systems compute the time integral with a third-order Runge-Kutta solver.
+For instance, after each time-step, both systems compute the time integral with a third-order Runge-Kutta solver (the errors in the finite difference solver are larger than the calculations made in the time step).
 The source terms are then communicated between the two grids after each time step:
 
-(1) The fix-point corrected evolved conservative fluid variables ($\rho_*, \tau, S_i, Y_e$ of Equations \ref{e:RhoStar} - \ref{e:Sflux}) are transformed back to primitive variables ($\rho_0, h, W, P, u_i$) on the fluid grid.  After atmosphere-paramater corrections are applied, the primitives are then communicated to the pseudospectral grid, where the stress energy tensor $T^{\mu\nu}$ is computed (see Equation \ref{e:StressEnergyTensor}).  The FD $\rightarrow$ GR interpolation uses a third-order shock-capturing WENO3 interpolator. 
-(2) The evolved metric quantities from the pseudospectral grid ($g_{ij}, \partial_i g_{jk}, \beta^i, \partial_i \beta^j, \alpha, \partial_i \alpha,  K_{ij}$) are likewise communicated to the finite volume grid to provide the metric quantities in and compute the source terms on the right hand side of Equations \ref{e:ADMConsOfMass} - \ref{e:ADMConsofMomentum}.  The GR grid is derefined in this step (only every third point on the pseudospectral grid has non-zero coefficients for the basis functions) for efficiency.  The GR $\rightarrow$ FD communication uses a polynomial interpolator with fourth-order accuracy.
+(1) The fix-point corrected evolved conservative fluid variables ($\rho_*, \tau, S_i, Y_e$ of Equations \ref{e:RhoStar} - \ref{e:Sflux}) are transformed back to primitive variables ($\rho_0, h, W, P, u_i$) on the fluid grid.  After atmosphere-paramater corrections are applied, the primitives are then communicated to the pseudospectral grid, where the stress energy tensor $T^{\mu\nu}$ is computed (see Equation \ref{e:StressEnergyTensor}).  The FD $\rightarrow$ GR interpolation uses a third-order shock-capturing WENO3 interpolator (in parallel). 
+(2) The evolved metric quantities from the pseudospectral grid ($g_{ij}, \partial_i g_{jk}, \beta^i, \partial_i \beta^j, \alpha, \partial_i \alpha,  K_{ij}$) are likewise communicated to the finite volume grid to provide the metric quantities in and compute the source terms on the right hand side of Equations \ref{e:ADMConsOfMass} - \ref{e:ADMConsofMomentum}.  The GR grid is derefined in this step (only every third point on the pseudospectral grid has non-zero coefficients for the basis functions) for efficiency.  The GR $\rightarrow$ FD communication (in parallel) uses a polynomial interpolator with fourth-order accuracy.
 In the final step of this communication, we convert the primitives back to conservative form.
 
 The fluid grid, divided into many subdomains, is deployed for use in massive parallel computing environments where each subdomain (or an integral number of them) can be assigned to a specific processor. 
@@ -226,7 +227,7 @@ Note that in our implementation, each subdomain has an equal number of points re
 Therefore, when we double the \textit{size} of a subdomain, we are \textit{halving} its resolution.
 
 Although this method provides the proper resolution to evolve both the longer tail material and the resulting accretion disk, only $\left(10 - 20\right) \%$ of the subdomains during peak disruption are evolving matter.  
-To improve on this further, we introduced in\mbox{~\cite{FoucartDD2:2017}} a new implementation of an adaptive mesh refinement (AMR) algorithm that can turn  fluid subdomains off and on.
+To improve on this further, we introduced in\mbox{~\cite{FoucartDD2:2017}} a new implementation of an adaptive mesh refinement (AMR) algorithm that can turn  fluid subdomains off and on (``off'' subdomains are not evolved).
 In general, we use $7$ levels of refinement, where each each subdomain has $300 \times 300 \times 200$ points in each Cartesian direction.
 Each refinement level is then divided into $12 \times 12 \times 8$ subdomains.
 The innermost finest level can evolve any of its subdomains so long as they are not completely enveloped within the excision region around the black hole.
@@ -241,7 +242,7 @@ To implement an algorithm for \textit{how} a subdomain is turned on, we check th
 \end{equation}
 where $r_\textrm{exc}$ is the excision radius and $r$ the coordinate distance from the black hole center, in the coordinates of the spectral grid.
 Conversely, if the fluid density is $\rho < \rho_\textrm{FMR} / 2$ for every cell within $6$ grid points from the outer boundary.
-We perform these two checks every $20$ time steps.
+We perform these two checks every $20$ time steps.  We provide an example of our grid layout (at onset of merger) in Figure \ref{fig:rho_DD2_spectral}, where four levels of refinement are visible and subdomains in the vacuum are not evolved in the Hydro-AMR grid.
 
 The numerous limitations of our Hydro-AMR algorithm are indeed an open place for improvement.  For instance, the size of the subdomains is still very much fixed, and must be manually adjusted when material is under resolved (or over resolved).  An improvement here would be to develop a criterion to adjust the subdomain block size anywhere on the grid as other fluid codes do~\cite{YamamotoShibata2008} (as does the pseudospectral method used in the evolution of Einstein's equations in our code), regardless of the evolution center.  
 
@@ -289,7 +290,17 @@ and the width parameter $w_\textrm{d}$ is a timescale set to $20 M$ after which 
 
 This epoch lasts between $1 - 2$ orbits.
 
-\subsection{Post disruption}
+\subsection{Post disruption and merger}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\linewidth]{images/rho_DD2_M12-0ms-spectral.pdf}
+	\caption[Density profile on equatorial plane for $1.2 M_{\odot}$ DD2 model]{
+		Baryon density profiles on the equatorial plane for the $M_{\rm NS} = 1.2 M_{\odot}$ DD2 model when $50\%$ of the neutron star material has been accreted onto the black hole.  
+		The fluid is observed in the grid (spectral) coordinates, using at this time four levels of refinement and clearly demonstrating the effectiveness of vacuum fluid subdomains not being evolved.		
+	}
+	\label{fig:rho_DD2_spectral}
+\end{figure}
 
 Once half of the neutron star mass has been accreted onto the black hole, we begin the final stage of the merger.  
 Since we expect an axisymmetric accretion disk to form, there is no longer a need use a rotational coordinate system.
