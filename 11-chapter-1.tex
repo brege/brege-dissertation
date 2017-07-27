@@ -115,6 +115,63 @@ Second, transients that emit near the infrared spectrum occur at different times
 Kilonovae formed in the outflowing tail material should be detectable seconds after the accompanying gravitational wave.  
 
 
+
+\section{Brief overview of the inspiral, merger, and post-remnant dynamics}
+
+The neutron star and the black hole coalesce and inspiral due to radiation of gravitational waves in the first $(10-20)$ms of the simulations considered in this work.  
+The actual inspirals may last much longer than this for events in our universe, but we only evolve the late inspiral for computational cost reasons, and less computationally expensive models (post-Newtonian) can accurately evolve early times.
+The dynamics of the merger and post-merger processes are of key interest to our study.
+The merger phase begins with the neutron star rapidly distorting due to tidal deformation of the black hole.
+In a typical merger, three processes can happen depending on the binary mass and spin configurations~\cite{Shibata:2009cn}.  The neutron star will plunge directly into the black hole without disrupting, and the gravitational signal will be similar to double black hole waves; the star will disrupt well outside the innermost stable circular orbit (ISCO), leaving no merger or ringdown impression on the waveform; or, in the intermediate region where the star disrupts close to the ISCO, the star will maximally disrupt, inspiral and merger are imprinted on the wave signature while the ringdown phase does not.
+
+Our models use mass and black hole-spin configurations that allow for the intermediate scenario.  
+First, the star begins to distort as it gets close to the black hole, where tidal forces become large, with a timescale on the order of $(2-4)$ms.  
+The star further deforms into a stream as it begins to plunge toward the black hole.  
+Gravitational torques cause some of the fluid to become unbound, most matter accretes, and the accretion rate accelerates to a maximum at the onset of merger.  
+At that stage, the neutron star fluid is stretched thin near the horizon, with a large, kicked tail expanding outward.
+After the accretion rate begins to decelerate and eventually reach a local minimum, the ingoing stream of matter with sufficient angular momentum intersects with the bound portion of the tail, which shocks the remnant fluid, causing heating, allowing stability of the early-formation disk via angular momentum transfer through accretion.
+This rapid onset of merger happens quickly, lasting $\sym 1$ms.
+The early formation disk, hereafter \textit{protodisk}, undergoes admixture with the tidal tail, in an asymmetric mass transfer of fallback onto the protodisk and accretion onto the black hole.
+The rest of the unbound material escapes the system, homologously expanding into the interstellar medium.
+On much longer timescales but within thermal timescales ($\sym 40$ms), as fallback depletes, the remnant system begins to axisymmetrize and secularize from the outgoing tail.
+We provide an overview of these epochs around the merger time in Figure \ref{fig:timesnaps}.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=1.0\linewidth]{images/rho_DD2_M12-m4ms-inertial}
+		\label{fig:rho_M12_DD2_m4ms}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/rho_DD2_M12-m1ms-inertial}
+		\label{fig:rho_M12_DD2_m1ms}
+		\centering
+	\end{subfigure}
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/rho_DD2_M12-merger-inertial}
+		\label{fig:rho_M12_DD2_0ms}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/rho_DD2_M12-5ms-inertial}
+		\label{fig:rho_M12_DD2_5ms_}
+	\end{subfigure}
+	\caption[Time lapse of fluid evolution before and after merger]{
+		Baryon density profiles on the equatorial plane where the initial neutron star has a mass of $M_{\rm NS} = 1.2 M_{\odot}$.  Each picture corresponds to what we refer to as merger time: when $50\%$ of the neutron star material has been accreted onto the black hole.
+		\textit{Top left:} 4ms before merger, where star just begins to tidally deform.
+		\textit{Top right:} 1ms before merger, where the star has now begun to plunge into the black hole.
+		\textit{Bottom left:} Merger, at which point the fluid stretches into a very thin tidal stream that eventually crashes into the other end of the arm.
+		\textit{Bottom right:} 5ms after merger.  The fluid has formed a protodisk around the black hole, being heated from its own asymmetries and interaction with the fallback matter. Low density regions in the outer tail are ejected from the system.
+		We display all four epochs in the coordinates of the laboratory frame, noting that the grid continues to expand with the outflow from $\sym 2 R_{NS}$ in the top left panel to $\sym 10 R_{NS}$ during merger and then to the order of $\sym 100 R_{NS}$ $5$ms after.
+
+	}
+	\label{fig:timesnaps}
+\end{figure}
+
+
 \section{Presentation of this thesis}
 
 %For as many enriching astrophysical scenarios involving neutron stars, there are an order of magnitude more people studying, simulating, and observing their progenitors, mergers, and companionship with other compact objects.

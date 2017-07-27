@@ -71,13 +71,13 @@ This is because in the grid frame, the grid spacing gets coarser in the directio
 		\textit{Top right:} Model M12-M7-S9-FSU21.
 		\textit{Bottom left:} Model M12-M7-S9-SFHo.
 		\textit{Bottom right:} Model M12-M7-S9-SFHx.
-		White regions are not covered by the finite volume grid, while some fluid subdomains overlap the excised region of the black hole which can be seen near the interface of inflowing matter and the horizon.  We bracket the baryon density between $\sym \rho_{\rm FMR}$ and the fiducial density, $10^{14.7} {\rm g\,cm^{-3}}$. Note the distortion (and rotation) of the finite volume subdomain boundaries in the finest, innermost level, since the fluid is evolved in the coordinates of the (non-rotating) pseudo-spectral grid and we are viewing the systems in the inertial frame.  Also note the difference in length scales between models at merger time.
+		White regions are not covered by the finite volume grid, while some fluid subdomains overlap the excised region of the black hole which can be seen near the interface of inflowing matter and the horizon.  We bracket the baryon density between $\sym \rho_{\rm FMR}$ and the fiducial density, $10^{14.7} {\rm g\,cm^{-3}}$. Note the distortion (and rotation) of the finite volume subdomain boundaries in the finest, innermost level, since the fluid is evolved in the coordinates of the (non-rotating) pseudo-spectral grid and we are viewing the systems in the inertial frame.  Also note the difference in length scales between models at merger time. (NB: The numbers in the axes should be multiplied by a factor of 2.2).
 	}
 	\label{fig:rho_M12}
 \end{figure}
 
 In Figure \ref{fig:rho_M12} we show the snapshot of each $1.2 M_\odot$ model on the equatorial plane when 50\% of the neutron star material has been accreted onto the black hole.  
-In Figure \ref{fig:rho_M14}, Model M14-M7-S9-FSU21 shows the ``poofiest'' (widest) outer tail, measuring $\sym 20 {\rm km}$ across, while M12-M7-S9-DD2 measures at $\sym 12 {\rm km}$ in breadth.  
+In Figure \ref{fig:rho_M14}, Model M14-M7-S9-FSU21 shows the ``poofiest'' (widest) outer tail, measuring $\sym 40 {\rm km}$ across, while M12-M7-S9-DD2 measures at $\sym 24 {\rm km}$ in breadth.  
 The infalling stream near the horizon gets very narrow, and as such caused a number of our softest models to become too difficult to evolve.  
 In those cases, the stream overlaps very few points on the finite volume grid, which led to unphysical temperatures and orbital energy buildup.  
 Both SFHx
@@ -105,7 +105,7 @@ Consulting Figure \ref{fig:MultGammavsRho}, while all models soften near the fid
 	Baryon density profiles on the equatorial plane for $M_{\rm NS} = 1.4 M_{\odot}$ models when $50\%$ of the neutron star material has been accreted onto the black hole.
 	\textit{Left:} Model M14-M7-S9-DD2.
 	\textit{Right:} Model M14-M7-S9-FSU21.
-	To add to the caption in Figure \ref{fig:rho_M12}, we note that the FSU2.1 profiles are represented with a $90^{\circ}$ counterclockwise rotation in the inertial frame.  This is done for sake of maintaining a similar aspect ratio to the others.  Note that FSU2.1 had the fewest number of orbits in our simulations (see Table \ref{tab:id}). 
+	To add to the caption in Figure \ref{fig:rho_M12}, we note that the FSU2.1 profiles are represented with a $90^{\circ}$ counterclockwise rotation in the inertial frame.  This is done for sake of maintaining a similar aspect ratio to the others.  Note that FSU2.1 had the fewest number of orbits in our simulations (see Table \ref{tab:id}). (NB: The numbers in the axes should be multiplied by a factor of 2.2). 
 	}
 	\label{fig:rho_M14}
 \end{figure*}
@@ -287,9 +287,10 @@ The disk mass predictions of Equation \ref{e:mass_disk} are for the total bound 
 		\centering
 	\end{subfigure}
 	\caption[Temperature and density profiles on equatorial plane for DD2 $1.2 M_\odot$ model]{
-		Temperature and baryon density profiles on the equatorial plane for the DD2 equation of state, where $M_{\rm NS} = 1.2 M_{\odot}$ 5 ms after merger.
+		Temperature and baryon density profiles on the equatorial plane for the DD2 equation of state, where $M_{\rm NS} = 1.2 M_{\odot}$, 5 ms after merger.
 		\textit{Left:} Density of the fluid with two interfacing contours (demarcated in \textit{yellow} on the inner lip of the unbound crescent): fallback (\textit{cyan}) and dynamical ejecta (\textit{orange}).  The matter that is defined as disk is the rest in the system, in other words non-atmospheric, non-zero azimuthal velocity, and non-cold ($T > 0.1$MeV) matter.
 		\textit{Right:} Temperature of the fluid, where it is decidedly hot ($T>0.1$MeV) in the protodisk region, while the ejecta front is also hotter than the bulk of the tail.  We mask out the unbound matter in our measurements of the disk and fallback masses.  Also note the size of the system compared to that of Figure \ref{fig:rho_M12} (a), which is now $\sym 10 \times$'s larger in the laboratory frame.
+		(NB: The numbers in the axes should be multiplied by a factor of 2.2).
 	}
 	\label{fig:dd2_m12_5ms}
 \end{figure*}
@@ -413,16 +414,18 @@ Likewise, a similar processing of our data in this paper was performed, where we
 \end{figure}
 
 In Figure \ref{fig:fallback}, we show the distribution of the fallback matter as a function of the orbital period.  We confirm the results of ~\cite{Chawla:2010sw} that the fallback rate will fall off as $\dot{M}_{\rm fall} \sim t^{-5/3}$.  As remarked in that work, ~\cite{phinney1989manifestations} determined the same fallback-accretion rate in the disruption of a main-sequence star in the galactic center of a super-massive black hole, not a highly compact neutron star with temperature and composition dependencies disrupting via a stellar-massive black hole as considered in this work, and certainly not with the consideration that so little of the material is unbound (the author argued $\sym 50\%$ would get ejected).
+We find that all matter considered fallback agrees with Chawla, as all of the matter will fallback within $10$s.  
 
+Our models all peak around the $17$ms period, noting the stiffer FSU2.1 models will have more fallback in general, and clearly the amount of fallback material is dependent on the model used.  The slope of the $M-R$ curves in all $1.2 M_\odot$ models are all negative, while only the $1.4 M_\odot$ FSU2.1 model has a positive slope.  Our understanding of the mass shedding rate and the $dM/dR$ gradient describing neutron star structure could be challenged by the results determined from the fallback dynamics, and we'd like to explore that further.
 
 \section{Discussion}
 \label{sec:discussion}
 
 The first simulations of neutron stars with multiple hot, composition-dependent nuclear theory-based equations of state in black hole-neutron star mergers using a general relativistic fluid code were performed in this study.  
-The mergers presented here all consider the same black hole parameters, with an orbitally aligned, relatively high black hole spin $\chi_{\rm BH} = 0.9$ and  mass $M_{\rm BH} = 7 M_\odot$, within the range of the most likely black hole masses.  
+The mergers presented here all consider the same black hole parameters, with an orbitally aligned, relatively high (dimensionless) black hole spin $\chi_{\rm BH} = 0.9$ and  mass $M_{\rm BH} = 7 M_\odot$, within the range of the most likely black hole masses.  
 The neutron stars considered in this paper were evolved with the SFHo, DD2 and FSU2.1 equations of state with relatively average masses $M_{\rm NS} = (1.2,1.4) M_\odot$ over a range of compactnesess.  
 These equations of state satisfy a number of observational, experimental and causal constraints.  
-The ejecta of the five models that evolved far enough passed merger ($t - t_{\rm merger} \sim 3$ms) is very neutron-rich $Y_e = 0.05$, allowing for the robust production of heavy elements on the 2nd and 3rd peak of r-process nucleosynthesis.
+The ejecta of the five models that evolved far enough passed merger ($t - t_{\rm merger} \sim 3$ms) is very neutron-rich $Y_e = 0.05$, allowing for the robust production of heavy elements on the 2nd and 3rd peak of the r-process.
 Comparing with previous results in the literature, we do no find much distinction in the crescent size and localization of the ejecta between models that cannot adequately be understood by compactness alone.  The composition of the ejecta is all roughly the same, i.e. very neutron rich $Y_e \sim 0.05$, just $5$ms after merger, with a high, average velocity similar to the predicted value for $q=7$ systems, $\langle v \rangle_{\rm ej} \sim 0.2 c$.
 
 We note that while we have implemented our improved algorithm to selectively evolve only non-vacuum subdomains on the finite volume grid, three of our models (M14-M17-S9-SFHo, M12-M17-S9-SFHx, and M14-M17-S9-SFHx) still had significant numerical error during merger. 
@@ -430,7 +433,7 @@ This is because our hot, composition-dependent, tidally-disrupting material form
 An improvement to our algorithm would be to allow true adaptive mesh refinement, so that evolution subdomains could themselves shrink and expand given the average density gradient of the material inside.
 The ejecta has an average velocity consistent with the prediction of the fitting formulae, and a measured mass that is somewhat consistent with the predicted values.
 Two of the models predicted masses outside the relative error range $\sym20\%$ from the results of the experiment.
-The discrepancies appear in both least compact model M12-M7-S9-FSU21 and in the most compact model M14-M7-S9-DD2.
+The discrepancies appear in both the least compact model M12-M7-S9-FSU21 and in the most compact model M14-M7-S9-DD2.
 We find that the fitting-formula prescription for the ejecta mass from Version 2 of the~\cite{Kyutoku:2015} paper was better than the updated Version 3 of the paper, and have chosen to display the ``v2'' predictions in Table \ref{tab:results}.
 
 We find that the protodisk and fallback physics might be a worthwhile investigation into the origins of accretion disk GRB's.

@@ -87,7 +87,8 @@ One of the first finite-temperature equations of state developed for astrophysic
 For this reason, computationally expensive full, three-dimensional fluid evolutions of core-collapse supernova have only been performed for LS220 and STOS~\cite{Marek2009}.
 LS is based on a compressible liquid drop model, using a first-order phase transition from low-density vapor to the high-density liquid phase.  
 This makes the density dependence of the transition isobaric.  
-The incompressibility parameter is $K_0 = 220 {\rm MeV}$, which is a measure of the incompressibility of nuclear matter, while the symmetry energy is $S_\nu = 29.3$MeV, which represents the binding energy of symmetric nuclear matter.
+The symmetry energy is $S_\nu = 29.3$MeV, which represents the binding energy of symmetric nuclear matter.
+The incompressibility parameter is $K_0 = 220 {\rm MeV}$, which is a measure of the incompressibility of nuclear matter, and determined from a dipole expansion of the energy per nucleon of homogeneous nuclear matter.
 This equation of state is argued to be no longer compatible with recent results~\cite{Fischer2014}, based on findings from Chiral Effective Field Theory (EFT) that constrain the equation of state at low densities.
 
 \subsection{DD2}
@@ -136,9 +137,9 @@ Principally, but not limited to, an equation of state must not allow for superlu
 
 \begin{figure}
 	\centering
-	\input{images/tov-mass-vs-radius}
+	\input{images/tov-mass-vs-radius-with-compactness}
 	\caption[Neutron star mass vs. areal radius]{
-		ADM neutron star mass vs. areal radius for nuclear equations of state sliced at $T=0.1{\rm MeV}$ in $\beta$-equilibrium.  Intersections of dotted lines and colored curves represent ADM the neutron star masses chosen for this survey: $M_{\rm NS} = (1.2, 1.4) M_{\odot}$.  
+		ADM neutron star mass vs. areal radius for nuclear equations of state sliced at $T=0.1{\rm MeV}$ in $\beta$-equilibrium.  Intersections of dotted lines and colored curves represent ADM the neutron star masses chosen for this survey: $M_{\rm NS} = (1.2, 1.4) M_{\odot}$.  Isocontours of the compactness parameter is overlaid to show that while two different equations of state may have different stiffness responses in high density regions, and have different initial masses, the compactness parameter can be strikingly similar between different models and configurations.
 	}
 	\label{fig:MvsR}
 \end{figure}
@@ -153,7 +154,7 @@ Are the predictions of the fitting formulae~\cite{foucart2012black,pannarale2014
 	\centering
 	\input{images/pressure-vs-density}
 	\caption[Pressure vs. density for a cold, beta-equilibrium slice]{
-		Pressure vs. density for finite-temperature, nuclear equations of state used in this study. The initial fluid is chosen to be cold and in $\beta$-equilibrium: $T=0.1 {\rm MeV}$ and $Y_e = Y_e (n_b)$, respectively.  Vertical dotted line represents the fiducial density.
+		Pressure vs. density for finite-temperature, nuclear equations of state used in this study. The initial fluid is chosen to be cold and in $\beta$-equilibrium: $T=0.1 {\rm MeV}$ and $Y_e = Y_e (n_b)$, respectively.
 	}
 	\label{fig:PvsRho}
 \end{figure}
@@ -162,25 +163,6 @@ In Figure \ref{fig:PvsRho}, it can be seen that the relationship between pressur
 Qualitatively, the pressure support at lower densities can be stronger for one equation of state, but softer at higher densities compared to another.  
 Indeed, it was noted in~\cite{steiner2013core} that the concept of describing an equation of state as stiff or soft can be somewhat misleading.  
 That is, the effective adiabatic index $\tilde{\Gamma}$ of Equation \ref{e:adiabat} for the poofier FSU2.1 model is smaller (larger) in the lower (higher) density regions compared to the more compact SFHo in the ``cold'' phase.
-
-%\begin{figure}
-%	\centering
-%	\input{images/delta-pressure-vs-density}
-%	\caption[Difference in pressure vs. density for constant $Y_e$, varying temperature]{
-%		Normalized pressure difference at $Y_e = 0.05$ between $T = (0,5) {\rm MeV}$ (solid) and $T = (0,10) {\rm MeV}$ (dashed), both normalized by the zero-temperature pressure. Vertical dotted line represents the fiducial density.
-%	}
-%	\label{fig:dPvsRho}
-%\end{figure}
-
-
-%\begin{figure}
-%	\centering
-%	\input{images/gamma-vs-density}
-%	\caption[Adiabatic index vs. density for constant $Y_e$, varying temperature]
-%	{
-%	}
-%	\label{fig:GammavsRho}
-%\end{figure}
 
 
 In Figure \ref{fig:MultGammavsRho}, we observe the effect temperature has on the pressure-density relations.  Past the fiducial density $\rho_s = 10^{14.7} {\rm g \, cm^{-3}}$ (with fixed $Y_e = 0.05$), changes in temperature up to $10$MeV do not alter the pressure-density relation by much at all.  As temperature increases in the lower density regime, the structures begin to converge and increase to similar $\tilde{\Gamma}$ between models.  The main differences occur in the intermediate region, where the increasing variance in $\tilde{\Gamma}$ between temperatures becomes clear.
